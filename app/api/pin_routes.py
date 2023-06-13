@@ -16,4 +16,5 @@ def get_pins():
     """
 
     pins = Pin.query.all()
-    
+
+    return {'pins': [pin.to_dict() for pin in pins]}
