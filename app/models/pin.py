@@ -13,7 +13,7 @@ class Pin(db.Model):
     board_id = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod("boards.id")), nullable=False)
     title = db.Column(db.String, nullable=False)
-    description = db.Column(db.String)
+    description = db.Column(db.Text)
     image_url = db.Column(db.Text)
 
     #relationships
