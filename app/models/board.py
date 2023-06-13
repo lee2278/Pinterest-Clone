@@ -9,8 +9,9 @@ class Board(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(
        add_prefix_for_prod("users.id")), nullable=False)
-    name = db.String(50)
-    description = db.Text
+    name = db.Column(db.String(50))
+    description = db.Column(db.Text)
+
 
     # relationships
     user = db.relationship("User", back_populates="boards")
