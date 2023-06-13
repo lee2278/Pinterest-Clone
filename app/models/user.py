@@ -16,7 +16,7 @@ class User(db.Model, UserMixin):
 
     #relationships
     pins = db.relationship("Pin", back_populates="owner", cascade="all, delete-orphan")
-    
+    boards = db.relationship("Board", back_populates="user", cascade="all, delete-orphan")
 
     @property
     def password(self):

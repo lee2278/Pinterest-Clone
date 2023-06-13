@@ -13,8 +13,9 @@ class Board(db.Model):
     description = db.Text
 
     # relationships
+    user = db.relationship("User", back_populates="boards")
+    pins = db.relationship("Pin", back_populates="boards")
 
-    
     def to_dict(self):
        return {
             "id": self.id,
