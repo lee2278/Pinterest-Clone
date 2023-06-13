@@ -1,24 +1,21 @@
-from .db import db, environment, SCHEMA, add_prefix_for_prod
+from flask import Blueprint, jsonify, request
+from flask_login import login_required, current_user
+from app.models import Board
+from ..models.db import db
 
-class Board(db.Model):
-    __tablename__: "boards"
 
-    if environment == "production":
-     __table_args__ = {'schema': SCHEMA}
 
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey(
-       add_prefix_for_prod("users.id")), nullable=False)
-    name = db.String(50)
-    description = db.Text
+from .auth_routes import validation_errors_to_error_messages
 
-    # relationships
+board_routes = Blueprint('boards', __name__)
 
+@board_routes.route('/')
+@login_required
+def get_boards():
+    """
+    Query for all boards and returns them in a list of board dictionaries
+    """
+
+    boards = Board.query.filter(Board.owner_id == current_user.id).all()
     
-    def to_dict(self):
-       return {
-            "id": self.id,
-            "user_id": self.user_id,
-            "name": self.name,
-            "description": self.description,
-       }
+    return {'boards': [board.to_dict() for board in boards]}
