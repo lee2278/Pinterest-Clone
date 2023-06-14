@@ -48,7 +48,9 @@ export const createPinThunk = (pin) => async (dispatch) => {
         const newPin = await response.json()
         dispatch(createPin(newPin))
     } else {
+        console.log('create pin response not ok')
         const errors = await response.json()
+        console.log('errors', errors)
         return errors
     }
 }
