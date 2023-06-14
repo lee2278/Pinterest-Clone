@@ -34,9 +34,11 @@ def post_pin():
     if form.validate_on_submit():
         data = form.data
         new_pin = Pin(
-            title=data['title'],
-            description=data['description'],
-            image_url=data['image_url']
+            title = data['title'],
+            description = data['description'],
+            image_url = data['image_url'],
+            owner_id = data['owner_id'],
+            board_id = data['board_id']
         )
         db.session.add(new_pin)
         db.session.commit()

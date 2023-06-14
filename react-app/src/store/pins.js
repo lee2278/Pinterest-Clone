@@ -13,6 +13,10 @@ const getPins = (pins) => ({
     pins
 })
 
+const createPin = (pin) => ({
+    type: CREATE_PIN,
+    pin
+})
 
 // THUNKS
 
@@ -31,9 +35,30 @@ export const getPinsThunk = () => async (dispatch) => {
     }
 }
 
+export const createPinThunk = (pin) => async (dispatch) => {
+    const response = await fetch("/api/pins/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(pin)
+    })
+    
+    if (response.ok) {
+        console.log('create pin response ok')
+
+        const newPin = await response.json()
+        dispatch(createPin(newPin))
+    } else {
+        const errors = await response.json()
+        return errors
+    }
+}
+
+
+
 // REDUCER
 
 const initialState = { allPins: {}, singlePin: {} };
+
 export default function pinsReducer(state = initialState, action) {
     switch(action.type) {
         case GET_PINS: {
@@ -45,6 +70,10 @@ export default function pinsReducer(state = initialState, action) {
                 })
             }
             return newState;
+        }
+        case CREATE_PIN: {
+            const newState = {...state, allPins: {...state.allPins}}
+            newState.allPins[action.pin.id] = action.pin
         }
         default:
             return state
