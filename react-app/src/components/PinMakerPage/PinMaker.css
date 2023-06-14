@@ -1,0 +1,25 @@
+#pin-creation-form {
+    border: 1px solid red;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.right-side {
+    border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    flex: 1
+}
+
+
+.left-side {
+    border: 1px solid green;
+}
+
+#save-btn {
+    width: 5rem;
+    
+}

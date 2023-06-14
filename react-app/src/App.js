@@ -5,8 +5,9 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
-import ShowPins from "./components/LandingPage/ShowPins"
+import ShowPins from "./components/LandingPage/ShowPins";
 import ShowSplashPage from "./components/LandingPage/ShowSplashPage";
+import PinMaker from "./components/PinMakerPage/PinMaker";
 
 
 function App() {
@@ -34,6 +35,10 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path='/pin-maker'>
+            <PinMaker/>
+          </Route>
+
         </Switch>
       )}
     </>
