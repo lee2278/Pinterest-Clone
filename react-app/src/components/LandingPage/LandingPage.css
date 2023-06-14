@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+.pins-container{
+    border: 1px solid red;
+    display: flex;
+    gap: 1rem;
+}
+
+.card {
+    border: 2px solid blue;
+    display:flex;
+    width: 236px;
+    height: 472px;
+}
+
+#pin-image{
+    width: 100%;
+    object-fit: cover;
+}
