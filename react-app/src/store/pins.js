@@ -17,14 +17,17 @@ const getPins = (pins) => ({
 // THUNKS
 
 export const getPinsThunk = () => async (dispatch) => {
-    const response = await fetch("/api/pins")
+    const response = await fetch("/api/pins/")
     if (response.ok) {
+        // console.log('get pins response ok')
         const data = await response.json();
-        if (data.errors) {
-            return;
-        }
-        dispatch(getPins(data.pins))
-        return data.pins
+        const pins = data.pins
+        console.log('data.errors',data.errors)
+        dispatch(getPins(pins))
+        
+    } else {
+        const errors = await response.json()
+        return errors;
     }
 }
 
