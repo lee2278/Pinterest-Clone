@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getPinsThunk } from '../../store/pins';
-import "./LandingPage.css"
+import "./ShowPins.css"
 
 export default function ShowPins() {
     const dispatch = useDispatch();

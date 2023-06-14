@@ -1,3 +1,14 @@
+*{
+  box-sizing: border-box;
+}
+
+button {
+  cursor:pointer;
+}
+ul {
+  list-style: none;
+}
+
 .profile-dropdown {
   position: absolute;
 }
