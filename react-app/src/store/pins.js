@@ -1,6 +1,7 @@
 // ACTION CONSTANTS
 
 const GET_PINS = "pins/GET_PINS"
+const GET_PIN_DETAILS = "pins/GET_PIN_DETAILS"
 const CREATE_PIN = "pins/CREATE_PIN"
 const EDIT_PIN = "pins/EDIT_PIN"
 const DELETE_PIN = "pins/DELETE_PIN"
@@ -11,6 +12,11 @@ const CLEAR_PINS = "pins/CLEAR_PINS"
 const getPins = (pins) => ({
     type: GET_PINS,
     pins
+})
+
+const getPinDetails = (singlePin) => ({
+    type: GET_PIN_DETAILS,
+    singlePin
 })
 
 const createPin = (pin) => ({
@@ -40,12 +46,26 @@ export const getPinsThunk = () => async (dispatch) => {
         // console.log('get pins response ok')
         const data = await response.json();
         const pins = data.pins
-        console.log('data.errors',data.errors)
         dispatch(getPins(pins))
         
     } else {
         const errors = await response.json()
         return errors;
+    }
+}
+
+export const getPinDetailsThunk = (pinId) => async (dispatch) => {
+    const response = await fetch(`/api/pins/${pinId}`)
+
+    if (response.ok) {
+        console.log('get pin details response ok')
+        const pinDetails = await response.json()
+        dispatch(getPinDetails(pinDetails))
+    } else {
+        console.log('get pins details response NOT OK')
+        const errors = await response.json()
+        console.log('errors', errors)
+        return errors
     }
 }
 
@@ -91,7 +111,7 @@ export const editPinThunk = (pin) => async (dispatch) => {
 }
 
 export const deletePinThunk = (pinId) => async (dispatch) => {
-    const response = await fetch(`/api/pins/${pin.id}`, {
+    const response = await fetch(`/api/pins/${pinId}`, {
         method: "DELETE"
     })
 
@@ -120,6 +140,11 @@ export default function pinsReducer(state = initialState, action) {
                 })
             }
             return newState;
+        }
+        case GET_PIN_DETAILS: {
+            const newState = {...state}
+            newState.singlePin = action.singlePin
+            return newState
         }
         case CREATE_PIN: {
             const newState = {...state, allPins: {...state.allPins}}

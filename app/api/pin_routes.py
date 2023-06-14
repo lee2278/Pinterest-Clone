@@ -45,3 +45,15 @@ def post_pin():
 
         return new_pin.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
+@pin_routes.route('/<int:id>')
+@login_required
+def get_particular_pin(id):
+    """
+    Query for a pin by id and returns that pin in a dictionary
+    """
+    pin = Pin.query.get(id)
+    return pin.to_dict()
+
+

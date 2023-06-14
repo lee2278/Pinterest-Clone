@@ -8,6 +8,8 @@ import Navigation from "./components/Navigation";
 import ShowPins from "./components/LandingPage/ShowPins";
 import ShowSplashPage from "./components/LandingPage/ShowSplashPage";
 import PinMaker from "./components/PinMakerPage/PinMaker";
+import ShowPinDetails from "./components/PinDetailsPage/ShowPinDetails";
+
 
 
 function App() {
@@ -35,10 +37,12 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path='/pins/:pinId'>
+            <ShowPinDetails/>
+          </Route>
           <Route path='/pin-maker'>
             <PinMaker/>
           </Route>
-
         </Switch>
       )}
     </>
