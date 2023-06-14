@@ -1,0 +1,10 @@
+#signup-h1, #signup-modal-form, .signup-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+#signup-modal-form {
+    padding: 1rem;
+}
