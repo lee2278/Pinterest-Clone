@@ -1,0 +1,10 @@
+#login-h1, #login-modal-form, .login-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+#login-modal-form {
+    padding: 1rem;
+}
