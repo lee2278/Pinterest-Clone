@@ -42,3 +42,8 @@ ul {
   display: flex;
   gap: 1rem;
 }
+
+.profile-group {
+  display: flex;
+  gap: 0.5rem;
+}

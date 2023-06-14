@@ -20,7 +20,6 @@ export default function ShowPinDetails() {
 
     return(
         <>
-        <h1>test</h1>
         <div className='main-container'>
             <img src={pin.image_url} />
             <div className='right-text-section'>
