@@ -18,6 +18,20 @@ const createPin = (pin) => ({
     pin
 })
 
+const editPin = (pin) => ({
+    type: EDIT_PIN,
+    pin
+})
+
+const deletePin = (pinId) => ({
+    type: DELETE_PIN,
+    pinId
+})
+
+export const clearPins = () => ({
+    type: CLEAR_PINS
+})
+
 // THUNKS
 
 export const getPinsThunk = () => async (dispatch) => {
@@ -56,6 +70,41 @@ export const createPinThunk = (pin) => async (dispatch) => {
 }
 
 
+export const editPinThunk = (pin) => async (dispatch) => {
+    const response = await fetch(`/api/pins/${pin.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(pin)
+    })
+
+    if (response.ok) {
+        console.log('edit a pin response ok')
+        const updatePin = await response.json()
+        dispatch(editPin(updatePin))
+        return updatePin
+    } else {
+        console.log('edit a pin response NOT OK')
+        const errors = await response.json()
+        return errors
+    }
+    
+}
+
+export const deletePinThunk = (pinId) => async (dispatch) => {
+    const response = await fetch(`/api/pins/${pin.id}`, {
+        method: "DELETE"
+    })
+
+    if (response.ok) {
+        console.log('delete pin response ok')
+        dispatch(deletePin(pinId))
+    } else {
+        console.log('delete pin response NOT OK')
+        const errors = await response.json()
+        return errors
+    }
+}
+
 
 // REDUCER
 
@@ -64,7 +113,6 @@ const initialState = { allPins: {}, singlePin: {} };
 export default function pinsReducer(state = initialState, action) {
     switch(action.type) {
         case GET_PINS: {
-
             const newState = { allPins: {}, singlePin: {} };
             if (action.pins.length) {
                 action.pins.forEach((pin) => {
@@ -76,6 +124,19 @@ export default function pinsReducer(state = initialState, action) {
         case CREATE_PIN: {
             const newState = {...state, allPins: {...state.allPins}}
             newState.allPins[action.pin.id] = action.pin
+        }
+        case EDIT_PIN: {
+            const newState = { ...state }
+            newState.allPins[action.pin.id] = action.pin
+            return newState
+        }
+        case DELETE_PIN: {
+            const newState = { ...state, allPins: { ...state.allPins }}
+            delete newState.allPins[action.pinId]
+            return newState
+        }
+        case CLEAR_PINS: {
+            return { allPins: {} }
         }
         default:
             return state
