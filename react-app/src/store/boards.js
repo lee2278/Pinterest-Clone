@@ -19,6 +19,24 @@ const getBoardDetails = (singleBoard) => ({
     singleBoard
 })
 
+const createBoard = (board) => ({
+    type: CREATE_BOARD,
+    board
+})
+
+const editBoard = (singleBoard) => ({
+    type: EDIT_BOARD,
+    singleBoard
+})
+
+const deleteBoard = (boardId) => ({
+    type: DELETE_BOARD,
+    boardId
+})
+
+export const clearBoards = () => ({
+    type: CLEAR_BOARDS
+})
 
 // THUNKS
 
@@ -50,6 +68,62 @@ export const getBoardDetailsThunk = (boardId) => async (dispatch) => {
     }
 }
 
+export const createBoardThunk = (board) => async (dispatch) => {
+    const response = await fetch("/api/boards/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(board)
+    })
+    
+    if (response.ok) {
+        console.log('create board response ok')
+
+        const newBoard = await response.json()
+        dispatch(createBoard(newBoard))
+    } else {
+        console.log('create board response not ok')
+        const errors = await response.json()
+        console.log('errors', errors)
+        return errors
+    }
+}
+
+
+export const editBoardThunk = (board) => async (dispatch) => {
+    const response = await fetch(`/api/boards/${board.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(board)
+    })
+
+    if (response.ok) {
+        console.log('edit a board response ok')
+        const updateboard = await response.json()
+        dispatch(editBoard(updateboard))
+        return updateboard
+    } else {
+        console.log('edit a board response NOT OK')
+        const errors = await response.json()
+        return errors
+    }
+    
+}
+
+export const deleteBoardThunk = (boardId) => async (dispatch) => {
+    const response = await fetch(`/api/boards/${boardId}`, {
+        method: "DELETE"
+    })
+
+    if (response.ok) {
+        console.log('delete board response ok')
+        dispatch(deleteBoard(boardId))
+    } else {
+        console.log('delete board response NOT OK')
+        const errors = await response.json()
+        return errors
+    }
+}
+
 // REDUCER
 
 const initialState = { allBoards: {}, singleBoard: {} };
@@ -69,6 +143,24 @@ export default function boardsReducer(state = initialState, action) {
             const newState = { ... state }
             newState.singleBoard = action.singleBoard
             return newState
+        }
+        case CREATE_BOARD: {
+            const newState = {...state, allBoards: {...state.allBoards}}
+            newState.allBoards[action.board.id] = action.board
+            return newState
+        }
+        case EDIT_BOARD: {
+            const newState = { ...state }
+            newState.singleBoard= action.singleBoard
+            return newState
+        }
+        case DELETE_BOARD: {
+            const newState = { ...state, allBoards: { ...state.allBoards }}
+            delete newState.allBoards[action.boardId]
+            return newState
+        }
+        case CLEAR_BOARDS: {
+            return { allBoards: {} }
         }
         default:
             return state

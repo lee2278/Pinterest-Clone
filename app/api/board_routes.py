@@ -29,3 +29,13 @@ def get_particular_board(id):
     """
     board = Board.query.get(id)
     return board.to_dict()
+
+
+@board_routes.route('/', methods=['POST'])
+@login_required
+def post_board():
+    """
+    Creates a new board and returns it as a dictionary
+    """
+
+    
