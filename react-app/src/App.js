@@ -9,7 +9,9 @@ import ShowPins from "./components/LandingPage/ShowPins";
 import ShowSplashPage from "./components/LandingPage/ShowSplashPage";
 import PinMaker from "./components/PinMakerPage/PinMaker";
 import ShowPinDetails from "./components/PinDetailsPage/ShowPinDetails";
-
+import ShowCreatedPins from "./components/ManageMyPins/ShowCreatedPins";
+import ShowCollections from "./components/UserCollectionsPage/ShowCollections";
+import EditCreatedPins from "./components/ManageMyPins/EditCreatedPins";
 
 
 function App() {
@@ -37,11 +39,20 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path='/pins/:pinId/edit'>
+            <EditCreatedPins/>
+          </Route>
           <Route path='/pins/:pinId'>
             <ShowPinDetails/>
           </Route>
           <Route path='/pin-maker'>
             <PinMaker/>
+          </Route>
+          <Route path={`/${sessionUser?.username}/created`}>
+            <ShowCreatedPins/>
+          </Route>
+          <Route path={`/${sessionUser?.username}`}>
+            <ShowCollections/>
           </Route>
         </Switch>
       )}
