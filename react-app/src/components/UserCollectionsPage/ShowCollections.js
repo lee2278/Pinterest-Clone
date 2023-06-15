@@ -13,6 +13,7 @@ export default function ShowCollections() {
     return(
         <>
             <Link to={`/${sessionUser.username}/created`}>Created</Link>
+            <h2>this is where boards go</h2>
         </>
     )
 }

@@ -5,7 +5,8 @@ import pinsReducer from './pins'
 
 const rootReducer = combineReducers({
   session,
-  pins: pinsReducer
+  pins: pinsReducer,
+  boards: boardsReducer
 });
 
 
