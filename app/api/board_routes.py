@@ -16,6 +16,6 @@ def get_boards():
     Query for all boards and returns them in a list of board dictionaries
     """
 
-    boards = Board.query.filter(Board.owner_id == current_user.id).all()
+    boards = Board.query.filter(Board.user_id == current_user.id).all()
     
     return {'boards': [board.to_dict() for board in boards]}

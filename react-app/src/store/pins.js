@@ -149,6 +149,7 @@ export default function pinsReducer(state = initialState, action) {
         case CREATE_PIN: {
             const newState = {...state, allPins: {...state.allPins}}
             newState.allPins[action.pin.id] = action.pin
+            return newState
         }
         case EDIT_PIN: {
             const newState = { ...state }
