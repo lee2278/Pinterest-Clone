@@ -49,8 +49,9 @@ export default function PinMaker() {
                     </div>
 
                     <div className='right-side'>
-                        <button id="save-btn" onClick={handleSubmit}>Save</button>
-
+                        <div className='save-btn-container'>
+                            <button id="save-btn" onClick={handleSubmit}>Save</button>
+                        </div>
                         <input
                             type='text'
                             value={title}
