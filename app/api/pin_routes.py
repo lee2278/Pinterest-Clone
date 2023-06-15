@@ -71,7 +71,7 @@ def update_pin(id):
     form = CreatePinForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    print('does this print outside form validation \n\n\n')
+
     if form.validate_on_submit():
         data = form.data
 
@@ -83,5 +83,18 @@ def update_pin(id):
         db.session.commit()
         return pin.to_dict()
     
-    print('form.errors \n\n\n\n\n\n\n\n', form.errors)
+
     return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
+@pin_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_pin(id):
+    """
+    Query for a pin by id and deletes pin
+    """
+
+    pin = Pin.query.get(id)
+    db.session.delete(pin)
+    db.session.commit()
+    return {"message": "Successfully deleted"}

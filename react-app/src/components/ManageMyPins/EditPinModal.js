@@ -12,10 +12,8 @@ export default function EditModal({ pin }) {
     const [title, setTitle] = useState(pin.title)
     const [description, setDescription] = useState(pin.description)
 
-    console.log('pin', pin)
+
     const updatedPin = {...pin, title, description}
-        
-    console.log('updatedPin', updatedPin)
 
     const handleEdit = (e) => {
         e.preventDefault()

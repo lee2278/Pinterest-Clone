@@ -25,7 +25,7 @@ function Navigation({ isLoaded }) {
 				{isLoaded && (
 					<div className='profile-group'>
 					<li>
-						<NavLink exact to={sessionUser.username}>Me</NavLink>
+						<NavLink exact to={`/${sessionUser.username}`}>Me</NavLink>
 					</li>
 					<li>
 						<ProfileButton user={sessionUser} />

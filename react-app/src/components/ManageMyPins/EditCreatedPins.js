@@ -4,15 +4,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getPinDetailsThunk } from '../../store/pins';
 import OpenModalButton from "../OpenModalButton";
 import EditModal from "./EditPinModal"
+import DeleteModal from './DeletePinModal';
 
 export default function EditCreatedPins() {
     const { pinId } = useParams()
-    console.log('pinId', pinId)
     const dispatch = useDispatch()
 
     const pin = useSelector(state => state.pins.singlePin)
-
-    console.log('pin', pin)
 
     useEffect(() => {
         dispatch(getPinDetailsThunk(pinId))
@@ -28,8 +26,11 @@ export default function EditCreatedPins() {
                     <p>{pin.description}</p>
                     <OpenModalButton
                         buttonText="Edit"
-                        // onItemClick={closeMenu}
                         modalComponent={<EditModal pin={pin} />}
+                    />
+                    <OpenModalButton
+                        buttonText="Delete"
+                        modalComponent={<DeleteModal pin={pin} />}
                     />
                 </div>}
             </div>
