@@ -22,8 +22,8 @@ export default function EditCreatedPins() {
     return (
         <>
             <div className='main-container'>
-                <img src={pin.image_url} />
-                <div className='right-text-section'>
+                {pin && <img src={pin.image_url} />}
+                {pin && <div className='right-text-section'>
                     <p>{pin.title}</p>
                     <p>{pin.description}</p>
                     <OpenModalButton
@@ -31,7 +31,7 @@ export default function EditCreatedPins() {
                         // onItemClick={closeMenu}
                         modalComponent={<EditModal pin={pin} />}
                     />
-                </div>
+                </div>}
             </div>
         </>
     )

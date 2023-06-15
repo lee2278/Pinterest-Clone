@@ -24,9 +24,9 @@ const createPin = (pin) => ({
     pin
 })
 
-const editPin = (pin) => ({
+const editPin = (singlePin) => ({
     type: EDIT_PIN,
-    pin
+    singlePin
 })
 
 const deletePin = (pinId) => ({
@@ -152,7 +152,7 @@ export default function pinsReducer(state = initialState, action) {
         }
         case EDIT_PIN: {
             const newState = { ...state }
-            newState.allPins[action.pin.id] = action.pin
+            newState.singlePin= action.singlePin
             return newState
         }
         case DELETE_PIN: {
