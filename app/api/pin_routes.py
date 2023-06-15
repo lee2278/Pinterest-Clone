@@ -44,4 +44,57 @@ def post_pin():
         db.session.commit()
 
         return new_pin.to_dict()
+    
     return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
+
+@pin_routes.route('/<int:id>')
+@login_required
+def get_particular_pin(id):
+    """
+    Query for a pin by id and returns that pin in a dictionary
+    """
+    pin = Pin.query.get(id)
+    return pin.to_dict()
+
+
+
+@pin_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def update_pin(id):
+    """
+    Updates an existing pin and returns it as a dictionary
+    """
+
+    pin = Pin.query.get(id)
+    form = CreatePinForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+
+    if form.validate_on_submit():
+        data = form.data
+
+        if data['title']:
+            pin.title = data['title']
+        if data['description']:
+            pin.description = data['description']
+
+        db.session.commit()
+        return pin.to_dict()
+    
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
+@pin_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_pin(id):
+    """
+    Query for a pin by id and deletes pin
+    """
+
+    pin = Pin.query.get(id)
+    db.session.delete(pin)
+    db.session.commit()
+    return {"message": "Successfully deleted"}
