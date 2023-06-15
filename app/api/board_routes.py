@@ -19,3 +19,13 @@ def get_boards():
     boards = Board.query.filter(Board.user_id == current_user.id).all()
     
     return {'boards': [board.to_dict() for board in boards]}
+
+
+@board_routes.route('/<int:id>')
+@login_required
+def get_particular_board(id):
+    """
+    Query for a board by name adn returns that board in a dictionary
+    """
+    board = Board.query.get(id)
+    return board.to_dict()

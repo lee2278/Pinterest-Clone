@@ -14,6 +14,11 @@ const getBoards = (boards) => ({
     boards
 })
 
+const getBoardDetails = (singleBoard) => ({
+    type: GET_BOARD_DETAILS,
+    singleBoard
+})
+
 
 // THUNKS
 
@@ -31,6 +36,19 @@ export const getBoardsThunk = () => async (dispatch) => {
     }
 }
 
+export const getBoardDetailsThunk = (boardId) => async (dispatch) => {
+    const response = await fetch(`/api/boards/${boardId}`)
+
+    if (response.ok) {
+        console.log('get board details response ok')
+        const boardDetails = await response.json()
+        dispatch(getBoardDetails(boardDetails))
+    } else {
+        console.log('get board details response NOT OK')
+        const errors = await response.json()
+        return errors
+    }
+}
 
 // REDUCER
 
@@ -46,6 +64,11 @@ export default function boardsReducer(state = initialState, action) {
                 })
             }
             return newState;
+        }
+        case GET_BOARD_DETAILS: {
+            const newState = { ... state }
+            newState.singleBoard = action.singleBoard
+            return newState
         }
         default:
             return state
