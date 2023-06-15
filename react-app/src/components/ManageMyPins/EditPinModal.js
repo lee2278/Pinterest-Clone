@@ -13,7 +13,7 @@ export default function EditModal({ pin }) {
     const [description, setDescription] = useState(pin.description)
 
 
-    const updatedPin = {...pin, title, description}
+    const updatedPin = { ...pin, title, description }
 
     const handleEdit = (e) => {
         e.preventDefault()
@@ -30,19 +30,19 @@ export default function EditModal({ pin }) {
                     <input
                         type='text'
                         value={title}
-                        onChange={(e) => setTitle(e.target. value)}
+                        onChange={(e) => setTitle(e.target.value)}
                     >
                     </input>
                 </label>
+                <label>Description
+                    <textarea
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    >
+                    </textarea>
+                </label>
+                <button onClick={handleEdit}>Save</button>
             </form>
-            <label>Description
-                <textarea
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                >
-                </textarea>
-            </label>
-            <button onClick={handleEdit}>Save</button>
         </div>
     )
 
