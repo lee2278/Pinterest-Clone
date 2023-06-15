@@ -27,6 +27,11 @@ function LoginFormModal() {
     closeModal()
   }
 
+  const handleDemoUser2 = async (e) => {
+    await dispatch(login('marnie@aa.io', 'password'))
+    closeModal()
+  }
+
   return (
     <>
       <h1 id='login-h1'>Log In</h1>
@@ -56,6 +61,8 @@ function LoginFormModal() {
         </label>
         <button type="submit">Log In</button>
         <Link id='demo-user-link' to='/' onClick={handleDemoUser}>Demo User</Link>
+        <Link id='demo-user2-link' to='/' onClick={handleDemoUser2}>Demo User 2</Link>
+
       </form>
     </>
   );

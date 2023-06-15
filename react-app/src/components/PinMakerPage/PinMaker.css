@@ -1,0 +1,39 @@
+#pin-creation-form {
+    border: 1px solid red;
+    width: 870px;
+    display: flex;
+    align-items: center;
+
+    height: 645px;
+}
+
+.right-side {
+    border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    flex: 1;
+    height: 100%;
+}
+
+
+.left-side {
+    border: 1px solid green;
+    height: 100%;
+    width:50%;
+}
+
+#save-btn {
+    width: 5rem;
+    
+}
+
+.pin-creation-container {
+    display: flex;
+    justify-content: center;
+}
+
+.save-btn-container {
+    display: flex;
+    justify-content: flex-end;
+}

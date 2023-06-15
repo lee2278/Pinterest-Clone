@@ -11,8 +11,41 @@ ul {
 
 .profile-dropdown {
   position: absolute;
+  right: 4rem;
+  border: 2px solid black;
+  padding: 0 1rem;
+  text-align: center;
+  background-color: white;
+  z-index: 1;
+  
 }
 
 .hidden {
   display: none;
+}
+
+.links-and-profile-btn-container {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+}
+
+.links-container {
+  display: flex;
+  gap: 1rem;
+}
+
+#profile-btn {
+  margin-right: 5.2rem;
+}
+
+.login-signup-container {
+  /* border: 1px solid blue; */
+  display: flex;
+  gap: 1rem;
+}
+
+.profile-group {
+  display: flex;
+  gap: 0.5rem;
 }
