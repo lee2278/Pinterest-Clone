@@ -7,6 +7,7 @@ import OpenModalButton from "../OpenModalButton";
 import EditBoardModal from "./EditBoardModal";
 import DeleteBoardModal from "./DeleteBoardModal";
 
+
 export default function ShowBoardDetails() {
 
     const dispatch = useDispatch()

@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom"
 import { useModal } from "../../context/Modal"
 import { editBoardThunk, getBoardsThunk } from "../../store/boards";
+import './EditBoardModal.css'
+
 
 export default function EditBoardModal({ board }) {
 
@@ -29,10 +31,10 @@ export default function EditBoardModal({ board }) {
 
     return (
         <div>
-            <h1>Edit your board</h1>
-            <form method="PUT">
+            <h1 id='edit-board-h1'>Edit your board</h1>
+            <form id='edit-board-form' method="PUT">
                 <label>Name
-                    <input
+                    <input className='edit-board-inputs'
                         type='text'
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -40,7 +42,7 @@ export default function EditBoardModal({ board }) {
                     </input>
                 </label>
                 <label>Description
-                    <textarea
+                    <textarea className='edit-board-inputs'
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     >
