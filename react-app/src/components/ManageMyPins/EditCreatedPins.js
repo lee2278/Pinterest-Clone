@@ -14,13 +14,13 @@ export default function EditCreatedPins() {
 
     useEffect(() => {
         dispatch(getPinDetailsThunk(pinId))
-    }, [dispatch])
+    }, [dispatch, pinId])
 
 
     return (
         <>
             <div className='main-container'>
-                {pin && <img src={pin.image_url} />}
+                {pin && <img src={pin.image_url} alt='created pins'/>}
                 {pin && <div className='right-text-section'>
                     <p>{pin.title}</p>
                     <p>{pin.description}</p>

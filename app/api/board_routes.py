@@ -69,7 +69,7 @@ def update_board(id):
     if form.validate_on_submit():
         data = form.data
 
-        if data['title']:
+        if data['name']:
             board.name = data['name']
         if data['description']:
             board.description = data['description']

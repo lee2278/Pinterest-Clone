@@ -140,7 +140,7 @@ export default function boardsReducer(state = initialState, action) {
             return newState;
         }
         case GET_BOARD_DETAILS: {
-            const newState = { ... state }
+            const newState = { ...state }
             newState.singleBoard = action.singleBoard
             return newState
         }
