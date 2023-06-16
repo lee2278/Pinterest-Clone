@@ -17,9 +17,6 @@ export default function EditBoardModal({ board }) {
     
     const updatedBoard = { ...board, name, description }
 
-    // useEffect(() => {
-        
-    // },[dispatch, updatedBoard.name])
 
     const handleEdit = async (e) => {
         e.preventDefault()
