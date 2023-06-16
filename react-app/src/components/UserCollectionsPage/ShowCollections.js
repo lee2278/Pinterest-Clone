@@ -45,9 +45,6 @@ export default function ShowCollections() {
                                 <img className='pin-image-1' src={board?.pins[0]?.image_url} />
                                 <img className='pin-image-2' src={board?.pins[1]?.image_url} />
                                 <img className='pin-image-3' src={board?.pins[2]?.image_url} />
-                                {/* <div className="pin-image-1"></div>*/}
-                                <div className="pin-image-2"></div>
-                                <div className="pin-image-3"></div>
                             </div>
                         </Link>
                         <div className='text-section'>
