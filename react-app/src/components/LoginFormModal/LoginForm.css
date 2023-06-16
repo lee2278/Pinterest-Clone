@@ -8,3 +8,7 @@
 #login-modal-form {
     padding: 1rem;
 }
+
+.errors-li {
+    color:red;
+}
