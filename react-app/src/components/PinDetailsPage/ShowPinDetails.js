@@ -15,13 +15,13 @@ export default function ShowPinDetails() {
 
     useEffect(() => {
         dispatch(getPinDetailsThunk(pinId))
-    }, [dispatch])
+    }, [dispatch, pinId])
     
 
     return(
         <>
         <div className='main-container'>
-            <img src={pin.image_url} />
+            <img src={pin.image_url} alt='selected upload' />
             <div className='right-text-section'>
                 <p>{pin.title}</p>
                 <p>{pin.description}</p>

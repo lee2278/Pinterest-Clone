@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { getBoardDetailsThunk, getBoardsThunk } from "../../store/boards";
 import { getPinsThunk } from "../../store/pins";
 import OpenModalButton from "../OpenModalButton";
+import EditBoardModal from "./EditBoardModal";
+import DeleteBoardModal from "./DeleteBoardModal";
 
 export default function ShowBoardDetails() {
 
@@ -39,14 +41,15 @@ export default function ShowBoardDetails() {
     return (
         <>
             <h1>{userBoard?.name}</h1>
-            {/* <OpenModalButton
-                buttonText="Edit"
-                modalComponent={<EditModal board={userBoard} />}
+            <p>{userBoard?.description}</p>
+            <OpenModalButton
+                buttonText="Edit Board"
+                modalComponent={<EditBoardModal board={userBoard} />}
             />
             <OpenModalButton
                 buttonText="Delete"
-                modalComponent={<DeleteModal board={userBoard} />}
-            /> */}
+                modalComponent={<DeleteBoardModal board={userBoard} />}
+            />
             <div className='pins-container'>
                 {boardPinsArray.map((pin) => (
                     <div key={pin.id} className='pin-card'>
