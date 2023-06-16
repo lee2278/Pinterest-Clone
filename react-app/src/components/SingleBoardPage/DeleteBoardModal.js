@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom"
 import { useModal } from "../../context/Modal"
 import { deleteBoardThunk } from "../../store/boards";
-
+import './EditBoardModal.css'
 
 export default function DeleteBoardModal({board}) {
     const dispatch = useDispatch();
@@ -20,10 +20,11 @@ export default function DeleteBoardModal({board}) {
 
     return (
         <div id='delete-board-modal'>
-            <h1>Delete this board?</h1>
+            <h1 id='delete-board-h1'>Delete this board?</h1>
+            <div className='buttons-wrapper'>
             <button onClick={closeModal}>Cancel</button>
             <button onClick={handleDelete}>Delete</button>
-
+            </div>
         </div>
     )
 

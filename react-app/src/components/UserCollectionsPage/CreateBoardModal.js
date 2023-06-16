@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { useModal } from "../../context/Modal"
 import { createBoardThunk } from "../../store/boards";
-
+import "./CreateBoardModal.css"
 
 export default function CreateBoardModal() {
 
@@ -30,10 +30,10 @@ export default function CreateBoardModal() {
 
     return (
         <>
-            <h1>Create board</h1>
-            <form>
+            <h1 id='create-board-h1'>Create board</h1>
+            <form id='create-board-form'>
                 <label>Name
-                    <input
+                    <input className='create-board-inputs'
                         type='text'
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -41,7 +41,7 @@ export default function CreateBoardModal() {
                     </input>
                 </label>
                 <label>Description
-                    <input
+                    <input className='create-board-inputs'
                         type='text'
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
