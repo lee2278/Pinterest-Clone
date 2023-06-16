@@ -2,8 +2,10 @@ import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
 import { getBoardsThunk } from "../../store/boards";
+import { getPinsThunk } from "../../store/pins";
 import OpenModalButton from "../OpenModalButton";
 import CreateBoardModal from "./CreateBoardModal";
+import "./ShowCollections.css"
 
 export default function ShowCollections() {
 
@@ -11,29 +13,51 @@ export default function ShowCollections() {
     const boardsObj = useSelector(state => state.boards.allBoards)
     const boardsList = Object.values(boardsObj)
 
-    useEffect(() => {
-        dispatch(getBoardsThunk())
-    }, [dispatch])
-
     const sessionUser = useSelector(state => state.session.user);
 
+    // const pinsObj = useSelector(state => state.pins.allPins)
+    // const pinsList = Object.values(pinsObj)
+
+    useEffect(() => {
+        dispatch(getBoardsThunk())
+        dispatch(getPinsThunk())
+    }, [dispatch])
+
+
     return (
-        <>
-            <Link to={`/${sessionUser.username}/created`}>Created</Link>
-            <h2>this is where boards go</h2>
+        <div className='overall-board-page-container'>
+            <div className='center'>
+            <Link id='created-pins-link' to={`/${sessionUser.username}/created`}>Created Pins</Link>
+            <span>|</span>
+            <p id='boards-ptag'>Boards</p>
+            </div>
+            <div id='create-board-btn-container'>
             <OpenModalButton
                 buttonText="Create a New Board"
-                modalComponent={<CreateBoardModal/>}
+                modalComponent={<CreateBoardModal />}
             />
-            {boardsList.map((board) => (
-                <div key={board.id} className='board-card'>
-                    <Link to={`/${sessionUser.username}/${board.name}`}>
-                        <div className='card-wrapper'>
-                            <p>{board.name}</p>
+            </div>
+            <div className='container-for-boards'>
+                {boardsList.map((board) => (
+                    <div key={board.id} className='board-card'>
+                        <Link className='board-card-link' to={`/${sessionUser.username}/${board.name}`}>
+                            <div className='pic-collage'>
+                                <img className='pin-image-1' src={board?.pins[0]?.image_url} />
+                                <img className='pin-image-2' src={board?.pins[1]?.image_url} />
+                                <img className='pin-image-3' src={board?.pins[2]?.image_url} />
+                                {/* <div className="pin-image-1"></div>*/}
+                                <div className="pin-image-2"></div>
+                                <div className="pin-image-3"></div>
+                            </div>
+                        </Link>
+                        <div className='text-section'>
+                            <p className='board-name-ptag'>{board.name}</p>
+
                         </div>
-                    </Link>
-                </div>
-            ))}
-        </>
+                    </div>
+                ))}
+            </div>
+
+        </div>
     )
 }
