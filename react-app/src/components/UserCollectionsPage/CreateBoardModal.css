@@ -1,0 +1,12 @@
+#create-board-h1, #create-board-form, .create-board-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+
+
+#create-board-form {
+    padding: 2rem;
+}
