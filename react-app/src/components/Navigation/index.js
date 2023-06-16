@@ -16,7 +16,7 @@ function Navigation({ isLoaded }) {
 			<ul className='links-and-profile-btn-container'>
 				<div className='links-container'>
 					<li>
-						<NavLink exact to="/">Home</NavLink>
+						<NavLink className='home'exact to="/">Common Interests</NavLink>
 					</li>
 					<li>
 						<NavLink exact to="/pin-maker">Create</NavLink>
@@ -39,7 +39,7 @@ function Navigation({ isLoaded }) {
 
 			<ul className='links-and-profile-btn-container'>
 				<li>
-					<NavLink exact to="/">Home</NavLink>
+					<NavLink className='home' exact to="/">Common Interests</NavLink>
 				</li>
 				{isLoaded && (
 	
