@@ -2,10 +2,10 @@ import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useModal } from "../../context/Modal"
 import { editPinThunk, getPinsThunk } from "../../store/pins";
+import './ManagePins.css'
+
 
 export default function EditModal({ pin }) {
-
-
 
     const dispatch = useDispatch()
     const { closeModal } = useModal()
@@ -24,10 +24,10 @@ export default function EditModal({ pin }) {
 
     return (
         <div>
-            <h1>Edit Pin</h1>
-            <form method="PUT">
+            <h1 id='edit-pin-h1'>Edit Pin</h1>
+            <form id= 'edit-pin-form'method="PUT">
                 <label>Title
-                    <input
+                    <input className='edit-pin-inputs'
                         type='text'
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
@@ -35,7 +35,7 @@ export default function EditModal({ pin }) {
                     </input>
                 </label>
                 <label>Description
-                    <textarea
+                    <textarea className='edit-pin-inputs'
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     >

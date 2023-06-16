@@ -20,11 +20,12 @@ export default function DeleteModal({pin}) {
 
     return (
         <div id='delete-pin-modal'>
-            <h1>Are you sure?</h1>
-            <p>If you delete this Pin, it'll be gone for good and those who've saved it won't be able to view it.</p>
+            <h1 id='delete-pin-h1'>Are you sure?</h1>
+            <p>If you delete this Pin, it'll be gone for good.</p>
+            <div className='delete-modal-btns-wrapper'>
             <button onClick={closeModal}>Cancel</button>
             <button onClick={handleDelete}>Delete</button>
-
+            </div>
         </div>
     )
 
