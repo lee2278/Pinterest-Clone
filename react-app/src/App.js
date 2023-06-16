@@ -12,6 +12,7 @@ import ShowPinDetails from "./components/PinDetailsPage/ShowPinDetails";
 import ShowCreatedPins from "./components/ManageMyPins/ShowCreatedPins";
 import ShowCollections from "./components/UserCollectionsPage/ShowCollections";
 import EditCreatedPins from "./components/ManageMyPins/EditCreatedPins";
+import ShowBoardDetails from "./components/SingleBoardPage/ShowBoardDetails";
 
 
 function App() {
@@ -20,10 +21,11 @@ function App() {
 
 	const sessionUser = useSelector(state => state.session.user);
 
-
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
+
 
   return (
     <>
@@ -50,6 +52,9 @@ function App() {
           </Route>
           <Route path={`/${sessionUser?.username}/created`}>
             <ShowCreatedPins/>
+          </Route>
+          <Route exact path={`/${sessionUser?.username}/:boardName`}>
+            <ShowBoardDetails/>
           </Route>
           <Route path={`/${sessionUser?.username}`}>
             <ShowCollections/>
