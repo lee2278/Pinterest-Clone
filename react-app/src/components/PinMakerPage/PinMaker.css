@@ -11,9 +11,10 @@
     border: 2px solid blue;
     display: flex;
     flex-direction: column;
-    gap: 5rem;
+    gap: 3rem;
     flex: 1;
     height: 100%;
+    align-items: center;
 }
 
 
@@ -21,6 +22,10 @@
     border: 1px solid green;
     height: 100%;
     width:50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 #save-btn {
@@ -35,5 +40,30 @@
 
 .save-btn-container {
     display: flex;
-    justify-content: flex-end;
+    align-self: flex-end;
+    /* border: 2px solid red; */
+}
+
+.image-container {
+    border: 2px solid black;
+    height: 500px;
+    width: 300px;
+    border-radius: 20px;
+    overflow:hidden;
+}
+
+#provided-pin-img {
+    max-width: 100%;
+    height: 100%;
+    object-fit:cover;
+    display:block;
+}
+
+.url-input {
+    margin-top: 2rem;
+    width: 15rem;
+}
+
+.description-textarea, .title-input {
+    width: 350px;
 }

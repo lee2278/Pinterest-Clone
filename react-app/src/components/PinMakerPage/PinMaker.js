@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { createPinThunk } from "../../store/pins"
 import { getBoardsThunk } from "../../store/boards"
-// import OpenModalButton from "../OpenModalButton"
-// import CreateBoardModal from "../UserCollectionsPage/CreateBoardModal"
+import OpenModalButton from "../OpenModalButton"
+import CreateBoardModal from "../UserCollectionsPage/CreateBoardModal"
 import "./PinMaker.css"
 
 
@@ -27,7 +27,7 @@ export default function PinMaker() {
         dispatch(getBoardsThunk())
     }, [dispatch])
 
-    // have to remember to change board id once i get to boards crud
+
     const newPin = {
         title,
         description,
@@ -42,47 +42,56 @@ export default function PinMaker() {
         history.push('/')
     }
 
+    const preventDefaults = async (e) => {
+        e.preventDefault()
+    }
 
     return (
         <>
             <div className='pin-creation-container'>
-                <form id='pin-creation-form'>
+                <form id='pin-creation-form' onSubmit={preventDefaults}>
 
                     <div className='left-side'>
-                        <input
+                        <input className='url-input'
                             type='text'
                             value={imageUrl}
                             placeholder='Image url'
                             onChange={(e) => setImageUrl(e.target.value)}
                         >
                         </input>
+                        <div className='image-container'>
+                            <img id='provided-pin-img' src={imageUrl}></img>
+                        </div>
                     </div>
-
+                    {console.log('boardList length', boardsList.length)}
                     <div className='right-side'>
                         <div className='save-btn-container'>
+                            {boardsList.length > 0
+                                ? (
+                                    <>
+                                        <OpenModalButton
+                                            buttonText="Create a board for this pin"
+                                            modalComponent={<CreateBoardModal />}
+                                        />
+                                        <select onChange={(e) => setBoardId(e.target.value)}>
+                                            <option value="" disabled selected hidden>Choose Board</option>
+                                            {boardsList.map((board) => (
+                                                <option value={board.id}>{board.name}</option>))}
+                                        </select>
 
-                            {/* {boardsList.length
-                                ? <select onChange={(e) => setBoardId(e.target.value)}>
-                                    <option value="" disabled selected hidden>Choose Board</option>
-                                    {boardsList.map((board) => (
-                                        <option value={board.id}>{board.name}</option>))}
-                                </select>
-                                : <OpenModalButton
-                                    buttonText="Create a New Board"
+                                    </>
+                                )
+                                : (<OpenModalButton
+                                    buttonText="Create a board for this pin"
                                     modalComponent={<CreateBoardModal />}
-                                />
-                            } */}
+                                />)
+                            }
 
-                            <select onChange={(e) => setBoardId(e.target.value)}>
-                                <option value="" disabled selected hidden>Choose Board</option>
-                                {boardsList.map((board) => (
-                                    <option value={board.id}>{board.name}</option>))}
-                            </select>
 
 
                             <button id="save-btn" onClick={handleSubmit}>Save</button>
                         </div>
-                        <input
+                        <input className='title-input'
                             type='text'
                             value={title}
                             placeholder='Add your title'
@@ -90,10 +99,11 @@ export default function PinMaker() {
                         >
                         </input>
 
-                        <textarea
+                        <textarea className='description-textarea'
                             value={description}
                             placeholder='Tell everyone what your pin is about'
                             onChange={(e) => setDescription(e.target.value)}
+                            rows='25'
                         >
                         </textarea>
                     </div>
