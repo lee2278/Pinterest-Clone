@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { getBoardsThunk } from "../../store/boards";
 import { getPinsThunk } from "../../store/pins";
 import OpenModalButton from "../OpenModalButton";
@@ -42,9 +42,9 @@ export default function ShowCollections() {
                     <div key={board.id} className='board-card'>
                         <Link className='board-card-link' to={`/${sessionUser.username}/${board.name}`}>
                             <div className='pic-collage'>
-                                <img className='pin-image-1' src={board?.pins[0]?.image_url} />
-                                <img className='pin-image-2' src={board?.pins[1]?.image_url} />
-                                <img className='pin-image-3' src={board?.pins[2]?.image_url} />
+                                <img alt='' className='pin-image-1' src={board?.pins[0]?.image_url} />
+                                <img alt='' className='pin-image-2' src={board?.pins[1]?.image_url} />
+                                <img alt='' className='pin-image-3' src={board?.pins[2]?.image_url} />
                             </div>
                         </Link>
                         <div className='text-section'>

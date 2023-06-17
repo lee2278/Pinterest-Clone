@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { createPinThunk } from "../../store/pins"
 import { getBoardsThunk } from "../../store/boards"
+// import OpenModalButton from "../OpenModalButton"
+// import CreateBoardModal from "../UserCollectionsPage/CreateBoardModal"
 import "./PinMaker.css"
 
 
@@ -17,14 +19,14 @@ export default function PinMaker() {
     const [boardId, setBoardId] = useState(null)
 
     const owner = useSelector(state => state.session.user)
-    const boardsObj = useSelector(state => state.boards.allBoards) 
+    const boardsObj = useSelector(state => state.boards.allBoards)
     const boardsList = Object.values(boardsObj)
 
-    
+
     useEffect(() => {
         dispatch(getBoardsThunk())
     }, [dispatch])
-    
+
     // have to remember to change board id once i get to boards crud
     const newPin = {
         title,
@@ -58,11 +60,26 @@ export default function PinMaker() {
 
                     <div className='right-side'>
                         <div className='save-btn-container'>
-                            <select onChange={(e) => setBoardId(e.target.value)}>
-                                {boardsList.map((board) => (
-                                <option value={board.id}>{board.name}</option>))}
 
+                            {/* {boardsList.length
+                                ? <select onChange={(e) => setBoardId(e.target.value)}>
+                                    <option value="" disabled selected hidden>Choose Board</option>
+                                    {boardsList.map((board) => (
+                                        <option value={board.id}>{board.name}</option>))}
+                                </select>
+                                : <OpenModalButton
+                                    buttonText="Create a New Board"
+                                    modalComponent={<CreateBoardModal />}
+                                />
+                            } */}
+
+                            <select onChange={(e) => setBoardId(e.target.value)}>
+                                <option value="" disabled selected hidden>Choose Board</option>
+                                {boardsList.map((board) => (
+                                    <option value={board.id}>{board.name}</option>))}
                             </select>
+
+
                             <button id="save-btn" onClick={handleSubmit}>Save</button>
                         </div>
                         <input

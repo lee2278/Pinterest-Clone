@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom"
 import { useModal } from "../../context/Modal"
 import { editBoardThunk, getBoardsThunk } from "../../store/boards";
