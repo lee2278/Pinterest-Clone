@@ -1,3 +1,7 @@
+:root {
+    --pinterest-red: rgb(230, 0, 35);
+}
+
 .board-card {
     /* border: 2px solid blue; */
     /* width: 215px; */
@@ -110,4 +114,9 @@ a {
     justify-content: flex-end;
 }
 
-
+#create-board-btn-container > button {
+    padding: 0.5rem;
+    background-color: var(--pinterest-red);
+    color:white;
+    border-radius: 8px;
+}

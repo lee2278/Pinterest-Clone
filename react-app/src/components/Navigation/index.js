@@ -20,13 +20,13 @@ function Navigation({ isLoaded }) {
 						<NavLink className='home' exact to="/">Common Interests</NavLink>
 					</li>
 					<li>
-						<NavLink exact to="/pin-maker">Create</NavLink>
+						<NavLink id='create-link' exact to="/pin-maker">Create</NavLink>
 					</li>
 				</div>
 				{isLoaded && (
 					<div className='profile-group'>
-						<li>
-							<NavLink exact to={`/${sessionUser.username}`}>Me</NavLink>
+						<li className='user-link-wrapper'>
+							<NavLink id='user-link'exact to={`/${sessionUser.username}`}>{`${sessionUser.username[0]}`}</NavLink>
 						</li>
 						<li>
 							<ProfileButton user={sessionUser} />
