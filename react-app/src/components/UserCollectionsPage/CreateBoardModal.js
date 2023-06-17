@@ -11,7 +11,7 @@ export default function CreateBoardModal() {
 
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
-
+    const [errors, setErrors] = useState({})
 
     const sessionUser = useSelector(state => state.session.user)
 
@@ -23,14 +23,28 @@ export default function CreateBoardModal() {
 
     const handleCreate = (e) => {
         e.preventDefault()
-        dispatch(createBoardThunk(newBoard))
 
+        setErrors({})
+        const newErrors = {}
+
+        if (!name) newErrors.name = 'Please provide a name for your board'
+        if (name.length > 50) newErrors.name = 'Please keep board name under 50 characters'
+
+        if (Object.values(newErrors).length) {
+            setErrors(newErrors)
+            return
+        }
+
+        dispatch(createBoardThunk(newBoard))
         closeModal()
     }
 
     return (
         <>
             <h1 id='create-board-h1'>Create board</h1>
+            <div className='create-board-errors-container'>
+                {errors.name && <p className="create-board-errors">{errors.name}</p>}
+            </div>
             <form id='create-board-form'>
                 <label>Name
                     <input className='create-board-inputs'
@@ -40,15 +54,14 @@ export default function CreateBoardModal() {
                     >
                     </input>
                 </label>
-                <label>Description
-                    <input className='create-board-inputs'
-                        type='text'
+                <label>Description (optional)
+                    <textarea className='create-board-inputs'
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     >
-                    </input>
+                    </textarea>
                 </label>
-                <button onClick={handleCreate}>Create</button>
+                <button id='create-board-btn'onClick={handleCreate}>Create</button>
             </form>
         </>
     )

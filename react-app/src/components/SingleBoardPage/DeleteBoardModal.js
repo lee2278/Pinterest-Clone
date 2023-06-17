@@ -21,9 +21,9 @@ export default function DeleteBoardModal({board}) {
     return (
         <div id='delete-board-modal'>
             <h1 id='delete-board-h1'>Delete this board?</h1>
-            <div className='buttons-wrapper'>
-            <button onClick={closeModal}>Cancel</button>
-            <button onClick={handleDelete}>Delete</button>
+            <div className='delete-modal-btns-wrapper'>
+            <button id='cancel-btn'onClick={closeModal}>Cancel</button>
+            <button id='delete-btn'onClick={handleDelete}>Delete</button>
             </div>
         </div>
     )

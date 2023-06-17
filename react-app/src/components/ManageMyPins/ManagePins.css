@@ -1,27 +1,74 @@
-#edit-pin-h1, #edit-pin-form, .edit-pin-inputs {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
+:root {
+  --pinterest-red: rgb(230, 0, 35);
+}
+
+#edit-pin-h1,
+#edit-pin-form,
+.edit-pin-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
 }
 
 #edit-pin-form {
-    padding: 3rem;
+  padding: 3rem;
+  /* border: 2px solid green; */
 }
 
 #delete-pin-modal {
-    padding: 2rem;
+  padding: 2rem;
 }
 
-#delete-pin-h1, #delete-pin-modal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-} 
+#delete-pin-h1,
+#delete-pin-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .delete-modal-btns-wrapper {
-    display: flex;
-    width: 10rem;
-    justify-content: space-between;
+  display: flex;
+  width: 12rem;
+  justify-content: space-between;
+}
+
+.board-select-label {
+  /* border: 5px solid red; */
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+}
+
+.edit-pin-errors-container {
+  /* border: 2px solid red; */
+  text-align: center;
+  width: 15rem;
+  margin: auto;
+}
+
+.edit-pin-errors {
+  padding: 0;
+  margin: 0;
+  color: red;
+}
+
+#save-edit-btn {
+    width: 5rem;
+    background-color: var(--pinterest-red);
+    color: white;
+    border-radius: 8px;
+    padding: 0.3rem;
+}
+
+#cancel-btn, #delete-btn {
+    padding: 0.5rem;
+    width: 5rem;
+    border-radius: 8px;
+    /* border: none; */
+}
+
+#delete-btn {
+    background-color: var(--pinterest-red);
+    color: white;
 }
