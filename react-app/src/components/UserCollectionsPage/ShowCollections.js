@@ -26,6 +26,7 @@ export default function ShowCollections() {
 
     return (
         <div className='overall-board-page-container'>
+
             <div className='center'>
             <Link id='created-pins-link' to={`/${sessionUser.username}/created`}>Created Pins</Link>
             <span>|</span>
