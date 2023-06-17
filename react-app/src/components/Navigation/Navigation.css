@@ -28,6 +28,7 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 50px;
   /* border: 1px solid red; */
 }
 
@@ -40,6 +41,12 @@ ul {
 
 #profile-btn {
   margin-right: 5.2rem;
+  border: none;
+  background-color:white;
+}
+
+#profile-btn:hover {
+  font-size: large;
 }
 
 .login-signup-container {
@@ -50,7 +57,7 @@ ul {
 
 .profile-group {
   display: flex;
-  gap: 0.5rem;
+  height:40px;
 }
 
 .home {
@@ -67,4 +74,50 @@ ul {
 #nav-link-li {
   display: flex;
   align-items: center;
+}
+
+#create-link:hover {
+  font-size:17px
+}
+
+#user-link {
+    /* background-color:rgb(229, 227, 230); */
+
+    font-size: 14px;
+
+}
+
+.user-link-wrapper {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color:rgb(229, 227, 230);
+  padding:0.3rem;
+  border-radius: 50%;
+  width:2rem;
+  height:2rem;
+  border: 1px dotted gray;
+  cursor:pointer;
+}
+
+
+.user-link-wrapper:hover {
+  width: 2.3rem;
+  height: 2.3rem;
+
+}
+
+#dropdown-logout-btn {
+  border:none;
+  background-color: var(--pinterest-red);
+  color:white;
+  border-radius: 3px;
+  width:100%
+}
+
+.profile-menu-selections {
+  border-bottom: 1px solid gray;
+  margin-bottom: 5px;
 }
