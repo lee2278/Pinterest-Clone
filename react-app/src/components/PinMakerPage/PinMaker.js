@@ -17,6 +17,7 @@ export default function PinMaker() {
     const [description, setDescription] = useState('')
     const [imageUrl, setImageUrl] = useState('')
     const [boardId, setBoardId] = useState(null)
+    const [errors, setErrors] = useState({})
 
     const owner = useSelector(state => state.session.user)
     const boardsObj = useSelector(state => state.boards.allBoards)
@@ -38,6 +39,20 @@ export default function PinMaker() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        setErrors({})
+
+        const newErrors = {}
+        if (!title) newErrors.title = 'Please provide a title for your pin'
+        if (title.length > 50) newErrors.title = 'Please keep title under 50 characters'
+        if (!imageUrl) newErrors.imageUrl = 'Please provide an image url for your pin'
+        if (!boardId) newErrors.boardId = 'Please select a board or create one for this pin'
+
+        if (Object.values(newErrors).length) {
+            setErrors(newErrors)
+            return
+        }
+
         await dispatch(createPinThunk(newPin))
         history.push('/')
     }
@@ -69,10 +84,12 @@ export default function PinMaker() {
                             {boardsList.length > 0
                                 ? (
                                     <>
+                                        <div className='create-board-btn-container'>
                                         <OpenModalButton
                                             buttonText="Create a board for this pin"
                                             modalComponent={<CreateBoardModal />}
                                         />
+                                        </div>
                                         <select onChange={(e) => setBoardId(e.target.value)}>
                                             <option value="" disabled selected hidden>Choose Board</option>
                                             {boardsList.map((board) => (
@@ -91,6 +108,12 @@ export default function PinMaker() {
 
                             <button id="save-btn" onClick={handleSubmit}>Save</button>
                         </div>
+                        
+                        <div className='pin-errors-container'>
+                        {errors.title && <p className='create-pin-errors'>{errors.title}</p>}
+                        {errors.imageUrl && <p className='create-pin-errors'>{errors.imageUrl}</p>}
+                        {errors.boardId && <p className='create-pin-errors'>{errors.boardId}</p>}
+                        </div>
                         <input className='title-input'
                             type='text'
                             value={title}
@@ -98,12 +121,12 @@ export default function PinMaker() {
                             onChange={(e) => setTitle(e.target.value)}
                         >
                         </input>
-
+                        
                         <textarea className='description-textarea'
                             value={description}
-                            placeholder='Tell everyone what your pin is about'
+                            placeholder='Tell everyone what your pin is about (optional)'
                             onChange={(e) => setDescription(e.target.value)}
-                            rows='25'
+                            rows='20'
                         >
                         </textarea>
                     </div>
