@@ -71,7 +71,7 @@ export default function PinMaker() {
                             type='text'
                             value={imageUrl}
                             placeholder='Image url'
-                            onChange={(e) => setImageUrl(e.target.value)}
+                            onChange={(e) => setImageUrl(e.target.value.trim())}
                         >
                         </input>
                         <div className='image-container'>
@@ -86,7 +86,7 @@ export default function PinMaker() {
                                     <>
                                         <div className='create-board-btn-container'>
                                         <OpenModalButton
-                                            buttonText="Create a board for this pin"
+                                            buttonText="Create a board"
                                             modalComponent={<CreateBoardModal />}
                                         />
                                         </div>
@@ -99,7 +99,7 @@ export default function PinMaker() {
                                     </>
                                 )
                                 : (<OpenModalButton
-                                    buttonText="Create a board for this pin"
+                                    buttonText="Create a board"
                                     modalComponent={<CreateBoardModal />}
                                 />)
                             }

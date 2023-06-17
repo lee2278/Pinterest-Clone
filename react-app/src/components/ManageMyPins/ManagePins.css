@@ -7,6 +7,7 @@
 
 #edit-pin-form {
     padding: 3rem;
+    /* border: 2px solid green; */
 }
 
 #delete-pin-modal {
@@ -24,4 +25,23 @@
     display: flex;
     width: 10rem;
     justify-content: space-between;
+}
+
+
+.board-select-label {
+    /* border: 5px solid red; */
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+}
+
+.edit-pin-errors-container {
+    /* border: 2px solid red; */
+    text-align: center;
+}
+
+.edit-pin-errors {
+    padding: 0;
+    margin: 0;
+    color: red;
 }
