@@ -17,9 +17,7 @@ function Navigation({ isLoaded }) {
 				<div className='links-container'>
 					<li id='nav-link-li'>
 						<NavLink className='home' exact to="/"><img id='logo-img' src="https://i.pinimg.com/564x/a9/6f/4f/a96f4ff523ceb1ac12bbe6ea9378a866.jpg" /></NavLink>
-						<NavLink className='home' exact to="/">
-
-							Common Interests</NavLink>
+						<NavLink className='home' exact to="/">Common Interests</NavLink>
 					</li>
 					<li>
 						<NavLink exact to="/pin-maker">Create</NavLink>
@@ -41,10 +39,9 @@ function Navigation({ isLoaded }) {
 		return (
 
 			<ul className='links-and-profile-btn-container'>
-				<li>
-					<NavLink className='home' exact to="/">
-						<img id='logo-img' src="https://i.pinimg.com/originals/dd/a6/46/dda6464b6771bcd2ba1559ea62257c0e.jpg" />
-						Common Interests</NavLink>
+				<li id='nav-link-li'>
+					<NavLink className='home' exact to="/"><img id='logo-img' src="https://i.pinimg.com/564x/a9/6f/4f/a96f4ff523ceb1ac12bbe6ea9378a866.jpg" /></NavLink>
+					<NavLink className='home' exact to="/">Common Interests</NavLink>
 				</li>
 				{isLoaded && (
 

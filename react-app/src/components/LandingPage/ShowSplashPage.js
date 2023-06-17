@@ -2,21 +2,24 @@ import "./ShowSplashPage.css"
 
 export default function ShowSplashPage() {
 
-    return(
+    return (
         <div className='splash-page-container'>
             <div className='center-container'>
-                <h1>Get your next<br></br> weeknight dinner idea</h1>
+                <p className='page-words-top'>Get your next</p>
+                <p className='page-words-bottom'>weeknight dinner idea</p>
+
             </div>
 
-        <div className='pics-container'>
-            <div className='pics'>1</div>
-            <div className='pics'>2</div>
-            <div className='pics'>3</div>
-            <div className='pics'>4</div>
-            <div className='pics'>5</div>
-            <div className='pics'>6</div>
-        </div>
+                <div className='pics-container'>
+                    <div className='pics pic-1'>1</div>
+                    <div className='pics pic-2'>2</div>
+                    <div className='pics pic-3'>3</div>
+                    <div className='pics pic-4'>4</div>
+                    <div className='pics pic-5'>5</div>
 
-        </div>
+                </div>
+            </div>
+
+
     )
 }
