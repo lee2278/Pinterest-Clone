@@ -29,7 +29,7 @@
 
 .delete-modal-btns-wrapper {
   display: flex;
-  width: 10rem;
+  width: 12rem;
   justify-content: space-between;
 }
 
@@ -59,4 +59,16 @@
     color: white;
     border-radius: 8px;
     padding: 0.3rem;
+}
+
+#cancel-btn, #delete-btn {
+    padding: 0.5rem;
+    width: 5rem;
+    border-radius: 8px;
+    /* border: none; */
+}
+
+#delete-btn {
+    background-color: var(--pinterest-red);
+    color: white;
 }

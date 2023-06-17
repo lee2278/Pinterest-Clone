@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom"
 import { useModal } from "../../context/Modal"
 import { deletePinThunk } from "../../store/pins";
-
+import './ManagePins.css'
 
 export default function DeleteModal({pin}) {
     const dispatch = useDispatch();
@@ -23,8 +23,8 @@ export default function DeleteModal({pin}) {
             <h1 id='delete-pin-h1'>Are you sure?</h1>
             <p>If you delete this Pin, it'll be gone for good.</p>
             <div className='delete-modal-btns-wrapper'>
-            <button onClick={closeModal}>Cancel</button>
-            <button onClick={handleDelete}>Delete</button>
+            <button id='cancel-btn'onClick={closeModal}>Cancel</button>
+            <button id='delete-btn'onClick={handleDelete}>Delete</button>
             </div>
         </div>
     )
