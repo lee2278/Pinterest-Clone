@@ -79,6 +79,8 @@ def update_pin(id):
             pin.title = data['title']
         if data['description']:
             pin.description = data['description']
+        if data['board_id']:
+            pin.board_id = data['board_id']
 
         db.session.commit()
         return pin.to_dict()

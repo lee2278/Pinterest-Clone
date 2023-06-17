@@ -1,1 +1,8 @@
 /* TODO Add site wide styles */
+:root {
+    --pinterest-red: rgb(230, 0, 35);
+}
+
+*{
+    font-family: 'Roboto', sans-serif;
+}

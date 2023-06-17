@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
-import { getBoardDetailsThunk, getBoardsThunk } from "../../store/boards";
+import { useEffect } from "react";
+import { getBoardsThunk } from "../../store/boards";
 import { getPinsThunk } from "../../store/pins";
 import OpenModalButton from "../OpenModalButton";
 import EditBoardModal from "./EditBoardModal";

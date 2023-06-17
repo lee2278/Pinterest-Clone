@@ -1,7 +1,9 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { useModal } from "../../context/Modal"
-import { editPinThunk, getPinsThunk } from "../../store/pins";
+import { editPinThunk } from "../../store/pins";
+import { getBoardsThunk } from "../../store/boards"
+
 import './ManagePins.css'
 
 
@@ -11,21 +13,36 @@ export default function EditModal({ pin }) {
     const { closeModal } = useModal()
     const [title, setTitle] = useState(pin.title)
     const [description, setDescription] = useState(pin.description)
+    const [boardId, setBoardId] = useState('')
 
 
-    const updatedPin = { ...pin, title, description }
+    const boardsObj = useSelector(state => state.boards.allBoards)
+    const boardsList = Object.values(boardsObj)
 
-    const handleEdit = (e) => {
+    const updatedPin = {
+        ...pin,
+        title,
+        description,
+        board_id: boardId
+    }
+
+    useEffect(() => {
+        dispatch(getBoardsThunk())
+    }, [dispatch])
+
+
+    console.log('this is boardId',boardId)
+
+    const handleEdit = async (e) => {
         e.preventDefault()
-        dispatch(editPinThunk(updatedPin))
-        // dispatch(getPinsThunk())
+        await dispatch(editPinThunk(updatedPin))
         closeModal()
     }
 
     return (
         <div>
             <h1 id='edit-pin-h1'>Edit Pin</h1>
-            <form id= 'edit-pin-form'method="PUT">
+            <form id='edit-pin-form' method="PUT">
                 <label>Title
                     <input className='edit-pin-inputs'
                         type='text'
@@ -40,6 +57,15 @@ export default function EditModal({ pin }) {
                         onChange={(e) => setDescription(e.target.value)}
                     >
                     </textarea>
+                </label>
+                <label htmlFor="board-select">Board
+                    <select id="board-select" className='edit-pin-inputs' onChange={(e) => setBoardId(e.target.value)}>
+                        <option value="" disabled selected hidden>Choose Board</option>
+                        {boardsList.map((board) => (
+                        <option value={board.id} onClick={()=>setBoardId(board.id)}>{board.name}
+                        </option>))}
+
+                    </select>
                 </label>
                 <button onClick={handleEdit}>Save</button>
             </form>

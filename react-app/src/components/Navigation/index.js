@@ -15,8 +15,9 @@ function Navigation({ isLoaded }) {
 
 			<ul className='links-and-profile-btn-container'>
 				<div className='links-container'>
-					<li>
-						<NavLink className='home'exact to="/">Common Interests</NavLink>
+					<li id='nav-link-li'>
+						<NavLink className='home' exact to="/"><img id='logo-img' src="https://i.pinimg.com/564x/a9/6f/4f/a96f4ff523ceb1ac12bbe6ea9378a866.jpg" /></NavLink>
+						<NavLink className='home' exact to="/">Common Interests</NavLink>
 					</li>
 					<li>
 						<NavLink exact to="/pin-maker">Create</NavLink>
@@ -24,12 +25,12 @@ function Navigation({ isLoaded }) {
 				</div>
 				{isLoaded && (
 					<div className='profile-group'>
-					<li>
-						<NavLink exact to={`/${sessionUser.username}`}>Me</NavLink>
-					</li>
-					<li>
-						<ProfileButton user={sessionUser} />
-					</li>
+						<li>
+							<NavLink exact to={`/${sessionUser.username}`}>Me</NavLink>
+						</li>
+						<li>
+							<ProfileButton user={sessionUser} />
+						</li>
 					</div>
 				)}
 			</ul>
@@ -38,11 +39,12 @@ function Navigation({ isLoaded }) {
 		return (
 
 			<ul className='links-and-profile-btn-container'>
-				<li>
+				<li id='nav-link-li'>
+					<NavLink className='home' exact to="/"><img id='logo-img' src="https://i.pinimg.com/564x/a9/6f/4f/a96f4ff523ceb1ac12bbe6ea9378a866.jpg" /></NavLink>
 					<NavLink className='home' exact to="/">Common Interests</NavLink>
 				</li>
 				{isLoaded && (
-	
+
 					<div className='login-signup-container'>
 						<OpenModalButton
 							buttonText="Log In"

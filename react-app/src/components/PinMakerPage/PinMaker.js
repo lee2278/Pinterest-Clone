@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { createPinThunk } from "../../store/pins"
 import { getBoardsThunk } from "../../store/boards"
+import OpenModalButton from "../OpenModalButton"
+import CreateBoardModal from "../UserCollectionsPage/CreateBoardModal"
 import "./PinMaker.css"
 
 
@@ -15,17 +17,18 @@ export default function PinMaker() {
     const [description, setDescription] = useState('')
     const [imageUrl, setImageUrl] = useState('')
     const [boardId, setBoardId] = useState(null)
+    const [errors, setErrors] = useState({})
 
     const owner = useSelector(state => state.session.user)
-    const boardsObj = useSelector(state => state.boards.allBoards) 
+    const boardsObj = useSelector(state => state.boards.allBoards)
     const boardsList = Object.values(boardsObj)
 
-    
+
     useEffect(() => {
         dispatch(getBoardsThunk())
     }, [dispatch])
-    
-    // have to remember to change board id once i get to boards crud
+
+
     const newPin = {
         title,
         description,
@@ -36,47 +39,94 @@ export default function PinMaker() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        setErrors({})
+
+        const newErrors = {}
+        if (!title) newErrors.title = 'Please provide a title for your pin'
+        if (title.length > 50) newErrors.title = 'Please keep title under 50 characters'
+        if (!imageUrl) newErrors.imageUrl = 'Please provide an image url for your pin'
+        if (!boardId) newErrors.boardId = 'Please select a board or create one for this pin'
+
+        if (Object.values(newErrors).length) {
+            setErrors(newErrors)
+            return
+        }
+
         await dispatch(createPinThunk(newPin))
         history.push('/')
     }
 
+    const preventDefaults = async (e) => {
+        e.preventDefault()
+    }
 
     return (
         <>
             <div className='pin-creation-container'>
-                <form id='pin-creation-form'>
+                <form id='pin-creation-form' onSubmit={preventDefaults}>
 
                     <div className='left-side'>
-                        <input
+                        <input className='url-input'
                             type='text'
                             value={imageUrl}
                             placeholder='Image url'
                             onChange={(e) => setImageUrl(e.target.value)}
                         >
                         </input>
+                        <div className='image-container'>
+                            <img id='provided-pin-img' src={imageUrl}></img>
+                        </div>
                     </div>
-
+                    {console.log('boardList length', boardsList.length)}
                     <div className='right-side'>
                         <div className='save-btn-container'>
-                            <select onChange={(e) => setBoardId(e.target.value)}>
-                                {boardsList.map((board) => (
-                                <option value={board.id}>{board.name}</option>))}
+                            {boardsList.length > 0
+                                ? (
+                                    <>
+                                        <div className='create-board-btn-container'>
+                                        <OpenModalButton
+                                            buttonText="Create a board for this pin"
+                                            modalComponent={<CreateBoardModal />}
+                                        />
+                                        </div>
+                                        <select onChange={(e) => setBoardId(e.target.value)}>
+                                            <option value="" disabled selected hidden>Choose Board</option>
+                                            {boardsList.map((board) => (
+                                                <option value={board.id}>{board.name}</option>))}
+                                        </select>
 
-                            </select>
+                                    </>
+                                )
+                                : (<OpenModalButton
+                                    buttonText="Create a board for this pin"
+                                    modalComponent={<CreateBoardModal />}
+                                />)
+                            }
+
+
+
                             <button id="save-btn" onClick={handleSubmit}>Save</button>
                         </div>
-                        <input
+                        
+                        <div className='pin-errors-container'>
+                        {errors.title && <p className='create-pin-errors'>{errors.title}</p>}
+                        {errors.imageUrl && <p className='create-pin-errors'>{errors.imageUrl}</p>}
+                        {errors.boardId && <p className='create-pin-errors'>{errors.boardId}</p>}
+                        </div>
+                        <input className='title-input'
                             type='text'
                             value={title}
                             placeholder='Add your title'
                             onChange={(e) => setTitle(e.target.value)}
                         >
                         </input>
-
-                        <textarea
+                        
+                        <textarea className='description-textarea'
                             value={description}
-                            placeholder='Tell everyone what your pin is about'
+                            placeholder='Tell everyone what your pin is about (optional)'
                             onChange={(e) => setDescription(e.target.value)}
+                            rows='20'
                         >
                         </textarea>
                     </div>
