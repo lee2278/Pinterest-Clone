@@ -11,24 +11,14 @@ function SignupFormModal() {
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState({});
+	const [backendErrors, setBackendErrors] = useState([])
+
 	const { closeModal } = useModal();
 
 
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		// if (password === confirmPassword) {
-		// 	const data = await dispatch(signUp(username, email, password));
-		// 	if (data) {
-		// 		setErrors(data);
-		// 	} else {
-		// 		closeModal();
-		// 	}
-		// } else {
-		// 	setErrors([
-		// 		"Confirm Password field must be the same as the Password field",
-		// 	]);
-		// }
 		setErrors({})
 
 		const newErrors = {}
@@ -36,17 +26,27 @@ function SignupFormModal() {
 		if (username.length > 30) newErrors.username = 'Username must be less than 30 characters'
 		if (username.length < 4) newErrors.username = 'Username must be greater than 4 characters'
 		if (password.length < 6) newErrors.password = 'Password must be 6 characters or more'
-		if (password !== confirmPassword) newErrors.password = 'Confirm Password field must be the same as the Password field'
 		if (email.length > 50) newErrors.email = 'Email address length is too long. Please provide a valid email address under 50 characters'
-
 
 		if (Object.values(newErrors).length) {
 			setErrors(newErrors)
-			return 
-		} else {
-			await dispatch(signUp(username, email, password))
-			closeModal()
+			return
 		}
+
+		if (password === confirmPassword) {
+			const data = await dispatch(signUp(username, email, password));
+			if (data) {
+				setBackendErrors(data);
+			} else {
+				closeModal();
+			}
+		} else {
+			setBackendErrors([
+				"Confirm Password field must be the same as the Password field",
+			]);
+		}
+
+
 
 	};
 
@@ -54,11 +54,11 @@ function SignupFormModal() {
 		<>
 			<h1 id='signup-h1'>Sign Up</h1>
 			<form id='signup-modal-form' onSubmit={handleSubmit}>
-				{/* <ul>
-					{errors.map((error, idx) => (
+				<ul>
+					{backendErrors.map((error, idx) => (
 						<li className='sign-up-errors' key={idx}>{error}</li>
-					))} 
-				</ul> */}
+					))}
+				</ul>
 
 				{errors.username && <p className='sign-up-errors'>{errors.username}</p>}
 				{errors.email && <p className='sign-up-errors'>{errors.email}</p>}
