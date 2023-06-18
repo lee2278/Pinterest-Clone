@@ -75,10 +75,9 @@ export default function PinMaker() {
                         >
                         </input>
                         <div className='image-container'>
-                            <img id='provided-pin-img' src={imageUrl}></img>
+                            <img id='provided-pin-img' src={imageUrl} alt=''></img>
                         </div>
                     </div>
-                    {console.log('boardList length', boardsList.length)}
                     <div className='right-side'>
                         <div className='save-btn-container'>
                             {boardsList.length > 0
@@ -90,10 +89,10 @@ export default function PinMaker() {
                                             modalComponent={<CreateBoardModal />}
                                         />
                                         </div>
-                                        <select onChange={(e) => setBoardId(e.target.value)}>
-                                            <option value="" disabled selected hidden>Choose Board</option>
+                                        <select onChange={(e) => setBoardId(e.target.value)} defaultValue="">
+                                            <option value="" disabled hidden>Choose Board</option>
                                             {boardsList.map((board) => (
-                                                <option value={board.id}>{board.name}</option>))}
+                                                <option key={board.id} value={board.id}>{board.name}</option>))}
                                         </select>
 
                                     </>

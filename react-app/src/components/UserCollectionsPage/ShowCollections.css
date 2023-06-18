@@ -105,8 +105,9 @@ a {
 }
 
 #created-pins-link:hover {
-    text-shadow: 1px 1px 2px gray;
+    /* text-shadow: 1px 1px 2px gray; */
     text-decoration: underline;
+    font-size: 2rem;
 }
 
 #create-board-btn-container {

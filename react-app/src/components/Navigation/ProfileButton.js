@@ -44,7 +44,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button id='profile-btn' onClick={openMenu}>
-        <span class="material-symbols-outlined">
+        <span className="material-symbols-outlined">
           expand_more
         </span>
       </button>
