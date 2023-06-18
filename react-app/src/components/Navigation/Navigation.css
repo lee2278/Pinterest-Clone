@@ -87,8 +87,9 @@ ul {
 
 }
 
+
+
 .user-link-wrapper {
-  /* border: 1px solid red; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,7 +102,6 @@ ul {
   border: 1px dotted gray;
   cursor:pointer;
 }
-
 
 .user-link-wrapper:hover {
   width: 2.3rem;

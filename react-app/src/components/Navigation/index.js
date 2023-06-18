@@ -16,7 +16,7 @@ function Navigation({ isLoaded }) {
 			<ul className='links-and-profile-btn-container'>
 				<div className='links-container'>
 					<li id='nav-link-li'>
-						<NavLink className='home' exact to="/"><img id='logo-img' src="https://i.pinimg.com/564x/a9/6f/4f/a96f4ff523ceb1ac12bbe6ea9378a866.jpg" /></NavLink>
+						<NavLink className='home' exact to="/"><img id='logo-img' src="https://i.pinimg.com/564x/a9/6f/4f/a96f4ff523ceb1ac12bbe6ea9378a866.jpg" alt=''/></NavLink>
 						<NavLink className='home' exact to="/">Common Interests</NavLink>
 					</li>
 					<li>
@@ -25,9 +25,9 @@ function Navigation({ isLoaded }) {
 				</div>
 				{isLoaded && (
 					<div className='profile-group'>
-						<li className='user-link-wrapper'>
+						<NavLink className='user-link-wrapper'exact to={`/${sessionUser.username}`}>
 							<NavLink id='user-link'exact to={`/${sessionUser.username}`}>{`${sessionUser.username[0]}`}</NavLink>
-						</li>
+						</NavLink>
 						<li>
 							<ProfileButton user={sessionUser} />
 						</li>
@@ -40,7 +40,7 @@ function Navigation({ isLoaded }) {
 
 			<ul className='links-and-profile-btn-container'>
 				<li id='nav-link-li'>
-					<NavLink className='home' exact to="/"><img id='logo-img' src="https://i.pinimg.com/564x/a9/6f/4f/a96f4ff523ceb1ac12bbe6ea9378a866.jpg" /></NavLink>
+					<NavLink className='home' exact to="/"><img id='logo-img' src="https://i.pinimg.com/564x/a9/6f/4f/a96f4ff523ceb1ac12bbe6ea9378a866.jpg" alt='' /></NavLink>
 					<NavLink className='home' exact to="/">Common Interests</NavLink>
 				</li>
 				{isLoaded && (

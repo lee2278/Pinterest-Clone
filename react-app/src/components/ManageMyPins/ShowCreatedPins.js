@@ -21,6 +21,7 @@ export default function ShowCreatedPins() {
 
     return(
         <div className='everything-wrapper'>
+            <h2>My created pins</h2>
             <div className='pins-container'>
                 {userCreatedPins.map((pin) => (
                     <div key={pin.id} className='pin-card'>
