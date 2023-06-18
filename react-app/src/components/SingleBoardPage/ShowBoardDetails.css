@@ -1,0 +1,19 @@
+.edit-delete-board-btns-container{
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.edit-board-btn-wrapper > button {
+    background-color: gray;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.delete-board-btn-wrapper > button {
+    background-color: var(--pinterest-red);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+}

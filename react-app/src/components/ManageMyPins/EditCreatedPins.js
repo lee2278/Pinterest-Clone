@@ -26,22 +26,28 @@ export default function EditCreatedPins() {
                     <div className='pin-left-side'>
                         <div className={pin.description?.length < 1280 ? 'left-img-container' : 'left-img-container-extended'}>
                             {pin &&
-                                <img id='specific-pin-img'src={pin.image_url} alt='created pins' />}
+                                <img id='specific-pin-img' src={pin.image_url} alt='created pins' />}
                         </div>
                     </div>
 
 
                     {pin && <div className='right-text-section'>
+                        <div className='edit-delete-btn-container'>
+                            <div className='edit-btn-wrapper'>
+                                <OpenModalButton
+                                    buttonText="Edit"
+                                    modalComponent={<EditModal pin={pin} />}
+                                />
+                            </div>
+                            <div className='delete-btn-wrapper'>
+                                <OpenModalButton
+                                    buttonText="Delete"
+                                    modalComponent={<DeleteModal pin={pin} />}
+                                />
+                            </div>
+                        </div>
                         <h1 id='pin-title-h1'>{pin.title}</h1>
                         <p id='pin-description-ptag'>{pin.description}</p>
-                        <OpenModalButton
-                            buttonText="Edit"
-                            modalComponent={<EditModal pin={pin} />}
-                        />
-                        <OpenModalButton
-                            buttonText="Delete"
-                            modalComponent={<DeleteModal pin={pin} />}
-                        />
                     </div>}
 
                 </div>

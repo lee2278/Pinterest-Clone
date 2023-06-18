@@ -72,3 +72,30 @@
     background-color: var(--pinterest-red);
     color: white;
 }
+
+
+.edit-delete-btn-container {
+  /* border:2px solid red; */
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+
+.edit-btn-wrapper > button {
+  width: 5rem;
+  padding: 0.4rem;
+  background-color: gray;
+  color: white;
+  border-radius: 8px;
+  /* border:none; */
+}
+
+.delete-btn-wrapper > button {
+  width: 5rem;
+  padding: 0.4rem;
+  background-color: var(--pinterest-red);
+  color: white;
+  border-radius: 8px;
+  /* border:none; */
+}

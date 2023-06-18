@@ -6,7 +6,7 @@ import { getPinsThunk } from "../../store/pins";
 import OpenModalButton from "../OpenModalButton";
 import EditBoardModal from "./EditBoardModal";
 import DeleteBoardModal from "./DeleteBoardModal";
-
+import "./ShowBoardDetails.css"
 
 export default function ShowBoardDetails() {
 
@@ -43,14 +43,20 @@ export default function ShowBoardDetails() {
         <>
             <h1>{userBoard?.name}</h1>
             <p>{userBoard?.description}</p>
-            <OpenModalButton
-                buttonText="Edit Board"
-                modalComponent={<EditBoardModal board={userBoard} />}
-            />
-            <OpenModalButton
-                buttonText="Delete"
-                modalComponent={<DeleteBoardModal board={userBoard} />}
-            />
+            <div className='edit-delete-board-btns-container'>
+                <div className='edit-board-btn-wrapper'>
+                    <OpenModalButton
+                        buttonText="Edit Board"
+                        modalComponent={<EditBoardModal board={userBoard} />}
+                    />
+                </div>
+                <div className='delete-board-btn-wrapper'>
+                    <OpenModalButton
+                        buttonText="Delete Board"
+                        modalComponent={<DeleteBoardModal board={userBoard} />}
+                    />
+                </div>
+            </div>
             <div className='pins-container'>
                 {boardPinsArray.map((pin) => (
                     <div key={pin.id} className='pin-card'>
