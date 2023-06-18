@@ -1,39 +1,123 @@
-#pin-creation-form {
-    border: 1px solid red;
-    width: 870px;
-    display: flex;
-    align-items: center;
+:root {
+  --pinterest-red: rgb(230, 0, 35);
+}
 
-    height: 645px;
+#pin-creation-form {
+  /* border: 1px solid red; */
+  box-shadow: 2px 2px 2px gray;
+  border: 1px solid gray;
+  border-radius: 15px;
+  width: 870px;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  height: 645px;
 }
 
 .right-side {
-    border: 2px solid blue;
-    display: flex;
-    flex-direction: column;
-    gap: 5rem;
-    flex: 1;
-    height: 100%;
+  /* border: 2px solid blue; */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  align-items: center;
+  padding: 1rem;
 }
 
-
 .left-side {
-    border: 1px solid green;
-    height: 100%;
-    width:50%;
+  /* border: 1px solid green; */
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 #save-btn {
-    width: 5rem;
-    
+  width: 5rem;
+  background-color: rgb(230, 0, 35, 70%);
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0 10px 10px 0;
 }
 
 .pin-creation-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .save-btn-container {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  align-self: flex-end;
+  /* border: 2px solid red; */
+}
+
+.image-container {
+  border: 2px solid black;
+  height: 500px;
+  width: 325px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#provided-pin-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.url-input {
+  margin-top: 2rem;
+  width: 15rem;
+  outline-color:gray;
+  border-radius: 5px;
+  padding: 0.2rem;
+}
+
+.description-textarea,
+.title-input {
+  width: 350px;
+}
+
+.description-textarea {
+  border-radius: 20px;
+  margin-top: 30px;
+  padding: 15px;
+}
+
+.title-input {
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 1.5rem;
+}
+
+.title-input:focus {
+  outline: none;
+}
+
+.create-pin-errors {
+  padding: 0;
+  margin: 0;
+  color: red;
+}
+
+.pin-errors-container {
+  /* border: 1px solid blue; */
+  padding: 1rem;
+}
+
+.create-board-btn-container {
+  /* border: 2px solid black; */
+  margin-right: 4rem;
+}
+
+.create-board-btn-container > button {
+    padding: 0.5rem;
+}
+
+#save-btn:hover {
+  background-color: var(--pinterest-red);
 }

@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getPinDetailsThunk } from '../../store/pins';
-
+import "./ShowPinDetails.css"
 
 export default function ShowPinDetails() {
     const { pinId } = useParams()
@@ -16,17 +16,23 @@ export default function ShowPinDetails() {
     useEffect(() => {
         dispatch(getPinDetailsThunk(pinId))
     }, [dispatch, pinId])
-    
 
-    return(
+
+    return (
         <>
-        <div className='main-container'>
-            <img src={pin.image_url} alt='selected upload' />
-            <div className='right-text-section'>
-                <p>{pin.title}</p>
-                <p>{pin.description}</p>
+            <div className='main-container'>
+                <div className={pin.description?.length < 1280 ? 'sub-main-container': 'extended-sub-main-container' }>
+                    <div className='pin-left-side'>
+                        <div className={pin.description?.length < 1280 ?'left-img-container':'left-img-container-extended'}>
+                    <img id='specific-pin-img' src={pin.image_url} alt='' />
+                    </div>
+                    </div>
+                    <div className='right-text-section'>
+                        <h1 id='pin-title-h1'>{pin.title}</h1>
+                        <p id='pin-description-ptag'>{pin.description}</p>
+                    </div>
+                </div>
             </div>
-        </div>
         </>
     )
 }

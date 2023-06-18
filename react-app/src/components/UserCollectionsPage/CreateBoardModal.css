@@ -1,3 +1,7 @@
+:root {
+    --pinterest-red: rgb(230, 0, 35);
+  }
+
 #create-board-h1, #create-board-form, .create-board-inputs {
     display: flex;
     flex-direction: column;
@@ -9,4 +13,22 @@
 
 #create-board-form {
     padding: 2rem;
+}
+
+#create-board-btn {
+    padding: 0.5rem;
+    width: 5rem;
+    background-color: var(--pinterest-red);
+    color: white;
+    border-radius: 8px;
+}
+
+.create-board-errors-container{
+    width: 15rem;
+    text-align: center;
+}
+
+
+.create-board-errors {
+    color: red;
 }

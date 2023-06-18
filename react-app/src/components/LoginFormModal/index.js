@@ -36,15 +36,15 @@ function LoginFormModal() {
     <>
       <h1 id='login-h1'>Log In</h1>
       <form id ='login-modal-form' onSubmit={handleSubmit}>
-        <ul>
+        <ul >
           {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+            <li className='errors-li' key={idx}>{error}</li>
           ))}
         </ul>
         <label>
           Email
           <input className="login-inputs"
-            type="text"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required

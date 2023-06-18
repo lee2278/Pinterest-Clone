@@ -8,3 +8,8 @@
 #signup-modal-form {
     padding: 1rem;
 }
+
+
+.sign-up-errors {
+    color:red;
+}
