@@ -21,9 +21,9 @@ export default function ShowPinDetails() {
     return (
         <>
             <div className='main-container'>
-                <div className={pin.description?.length < 1280 ? 'sub-main-container': 'extended-sub-main-container' }>
+                <div className='sub-main-container'>
                     <div className='pin-left-side'>
-                        <div className={pin.description?.length < 1280 ?'left-img-container':'left-img-container-extended'}>
+                        <div className='left-img-container'>
                     <img id='specific-pin-img' src={pin.image_url} alt='' />
                     </div>
                     </div>

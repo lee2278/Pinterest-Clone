@@ -34,6 +34,7 @@
     width: 50%;
     height: 100%;
     padding: 1.5rem;
+    overflow-y: scroll;
 }
 
 .left-img-container {
@@ -51,26 +52,4 @@
     text-align: justify;
 }
 
-.extended-sub-main-container{
-    margin: auto;
-    box-shadow: 2px 2px 2px gray;
-    border: 1px solid gray;
-    border-radius: 15px;
-    width: 870px;
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    height: 100%;
-}
 
-
-.left-img-container-extended {
-    border: 2px solid black;
-    height: 1000px;
-    width: 400px;
-    margin: auto;
-    margin-top: 4px;
-    border-radius: 20px;
-    overflow: hidden;
-
-}
