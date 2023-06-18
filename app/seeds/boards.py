@@ -7,10 +7,18 @@ def seed_boards():
     board_1 = Board(user_id=1, name="Dinner Ideas", description="For when I don't know what to make")
     board_2 = Board(user_id=1, name="Lunch Ideas", description="For when I don't know what to make" )       
     board_3 = Board(user_id=1, name="Breakfast Ideas", description="For when I don't know what to make" )       
+    board_4 = Board(user_id=2, name="Healthy Salad Ideas", description="Need some inspiration")
+    board_5 = Board(user_id=2, name="Low Carb Ideas", description="Gotta keep healthy" )       
+    board_6 = Board(user_id=2, name="Smoothie Ideas", description="For the summer" )       
+
+
 
     db.session.add(board_1)
     db.session.add(board_2)
     db.session.add(board_3)
+    db.session.add(board_4)
+    db.session.add(board_5)
+    db.session.add(board_6)
     db.session.commit()
 
 

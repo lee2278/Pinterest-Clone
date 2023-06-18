@@ -41,6 +41,7 @@ export default function EditModal({ pin }) {
         const newErrors = {}
 
         if (!title) newErrors.title = 'Please provide a title'
+        if (title.length > 100) newErrors.title = 'Please keep title under 100 characters'
         if (!boardId) newErrors.boardId = 'Please choose a board'
         if (!boardsList.length) newErrors.boardsList = "You don't have any boards. Please create one first."
 

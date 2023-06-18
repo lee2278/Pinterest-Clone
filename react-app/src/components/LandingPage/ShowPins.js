@@ -14,10 +14,13 @@ export default function ShowPins() {
         dispatch(getPinsThunk())
     }, [dispatch])
 
+   const randomedArray = pinsList.sort((a,b) =>Math.random() - Math.random())
+
+
     return (
         <div className='everything-wrapper'>
             <div className='pins-container'>
-                {pinsList.map((pin) => (
+                {randomedArray.map((pin) => (
                     <div key={pin.id} className='pin-card'>
                         <Link id='pin-card-link' to={`/pins/${pin.id}`}>
                             <div className='card'>
@@ -30,4 +33,3 @@ export default function ShowPins() {
         </div>
     )
 }
-
