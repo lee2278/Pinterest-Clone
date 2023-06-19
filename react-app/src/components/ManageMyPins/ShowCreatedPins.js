@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getPinsThunk } from '../../store/pins';
-
+import Masonry from 'react-masonry-css'
 
 export default function ShowCreatedPins() {
     const dispatch = useDispatch();
@@ -22,9 +22,13 @@ export default function ShowCreatedPins() {
     return(
         <div className='everything-wrapper'>
             <h2>My created pins</h2>
-            <div className='pins-container'>
+            <Masonry
+              breakpointCols={6}
+              className="second-masonry-grid"
+              columnClassName="second-masonry-grid_column"
+            >
                 {userCreatedPins.map((pin) => (
-                    <div key={pin.id} className='pin-card'>
+                    <div key={pin.id}>
                         <Link id='pin-card-link' to={`/pins/${pin.id}/edit`}>
                             <div className='card'>
                                 <img id='pin-image' src={pin.image_url} alt='food'/>
@@ -32,7 +36,7 @@ export default function ShowCreatedPins() {
                         </Link>
                     </div>
                 ))}
-            </div>
+            </Masonry>
         </div>
     )
 }

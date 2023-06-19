@@ -6,6 +6,8 @@ import { getPinsThunk } from "../../store/pins";
 import OpenModalButton from "../OpenModalButton";
 import EditBoardModal from "./EditBoardModal";
 import DeleteBoardModal from "./DeleteBoardModal";
+import Masonry from 'react-masonry-css'
+
 import "./ShowBoardDetails.css"
 
 export default function ShowBoardDetails() {
@@ -57,7 +59,11 @@ export default function ShowBoardDetails() {
                     />
                 </div>
             </div>
-            <div className='pins-container'>
+            <Masonry
+              breakpointCols={6}
+              className="third-masonry-grid"
+              columnClassName="third-masonry-grid_column"
+            >
                 {boardPinsArray.map((pin) => (
                     <div key={pin.id} className='pin-card'>
                         <Link id='pin-card-link' to={`/pins/${pin.id}`}>
@@ -67,7 +73,7 @@ export default function ShowBoardDetails() {
                         </Link>
                     </div>
                 ))}
-            </div>
+            </Masonry>
         </>
     )
 }
