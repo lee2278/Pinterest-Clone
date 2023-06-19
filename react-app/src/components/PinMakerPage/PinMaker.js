@@ -75,7 +75,8 @@ export default function PinMaker() {
                         >
                         </input>
                         <div className='image-container'>
-                            <img id='provided-pin-img' src={imageUrl} alt=''></img>
+                            {imageUrl ? <img id='provided-pin-img' src={imageUrl} alt=''></img> 
+                            : <img id='no-img-pic' src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt=''></img>}
                         </div>
                     </div>
                     <div className='right-side'>
