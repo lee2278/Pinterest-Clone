@@ -142,7 +142,7 @@ export default function pinsReducer(state = initialState, action) {
             return newState;
         }
         case GET_PIN_DETAILS: {
-            const newState = {...state}
+            const newState = {...state, singlePin: {}}
             newState.singlePin = action.singlePin
             return newState
         }

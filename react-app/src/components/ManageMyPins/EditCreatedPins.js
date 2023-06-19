@@ -21,10 +21,10 @@ export default function EditCreatedPins() {
         <>
             <div className='main-container'>
 
-                <div className={pin.description?.length < 1280 ? 'sub-main-container' : 'extended-sub-main-container'}>
+                <div className='sub-main-container'>
 
                     <div className='pin-left-side'>
-                        <div className={pin.description?.length < 1280 ? 'left-img-container' : 'left-img-container-extended'}>
+                        <div className='left-img-container'>
                             {pin &&
                                 <img id='specific-pin-img' src={pin.image_url} alt='created pins' />}
                         </div>
