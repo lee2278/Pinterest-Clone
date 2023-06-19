@@ -101,6 +101,10 @@
 }
 
 
+.edit-pin-inputs {
+  width: 20rem;
+}
+
 /* masonry stuff */
 .second-masonry-grid {
     display: -webkit-box; /* Not needed if autoprefixing */
