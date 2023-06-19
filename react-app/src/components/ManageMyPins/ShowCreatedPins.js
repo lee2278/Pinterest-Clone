@@ -30,7 +30,7 @@ export default function ShowCreatedPins() {
                 {userCreatedPins.map((pin) => (
                     <div key={pin.id}>
                         <Link id='pin-card-link' to={`/pins/${pin.id}/edit`}>
-                            <div >
+                            <div className='card'>
                                 <img id='pin-image' src={pin.image_url} alt='food'/>
                             </div>
                         </Link>
