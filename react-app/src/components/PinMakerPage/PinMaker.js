@@ -56,7 +56,7 @@ export default function PinMaker() {
         const newErrors = {}
         if (!title) newErrors.title = 'Please provide a title for your pin'
         if (title.length > 100) newErrors.title = 'Please keep title under 100 characters'
-        if (!imageUrl) newErrors.imageUrl = 'Please provide an image url for your pin'
+        if (!imageUrl) newErrors.imageUrl = 'Please provide an image for your pin'
         if (!boardId) newErrors.boardId = 'Please select a board or create one for this pin'
 
         if (Object.values(newErrors).length) {
