@@ -19,7 +19,7 @@ const getPinDetails = (singlePin) => ({
     singlePin
 })
 
-const createPin = (pin) => ({
+export const createPin = (pin) => ({
     type: CREATE_PIN,
     pin
 })
@@ -72,8 +72,9 @@ export const getPinDetailsThunk = (pinId) => async (dispatch) => {
 export const createPinThunk = (pin) => async (dispatch) => {
     const response = await fetch("/api/pins/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(pin)
+        // headers: { "Content-Type": "application/json" },
+        // body: JSON.stringify(pin)
+        body:pin
     })
     
     if (response.ok) {

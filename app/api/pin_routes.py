@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from app.models import Pin
 from ..models.db import db
 from ..forms.create_pin_form import CreatePinForm
-
+from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
 from .auth_routes import validation_errors_to_error_messages
 
@@ -17,7 +17,7 @@ def get_pins():
     """
 
     pins = Pin.query.all()
-    print('pins \n\n\n\n\n\n', pins)
+
 
     return {'pins': [pin.to_dict() for pin in pins]}
 
@@ -32,18 +32,33 @@ def post_pin():
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        data = form.data
+
+        image = form.data['image_url']
+ 
+        image.filename = get_unique_filename(image.filename)
+
+        upload = upload_file_to_s3(image)
+
+        print('working upload \n\n\n\n\n\n\n', upload)
+
+        if "url" not in upload:
+            # return render_template("post_form.html", type="post" form=form, errors=[upload])
+
+            return upload['errors'], 400
+
+
+
         new_pin = Pin(
-            title = data['title'],
-            description = data['description'],
-            image_url = data['image_url'],
-            owner_id = data['owner_id'],
-            board_id = data['board_id']
+            title = form.data['title'],
+            description = form.data['description'],
+            image_url = upload["url"],
+            owner_id = form.data['owner_id'],
+            board_id = form.data['board_id']
         )
         db.session.add(new_pin)
         db.session.commit()
 
-        return new_pin.to_dict()
+        return {"newPin": new_pin.to_dict()}
     
     return {'errors': validation_errors_to_error_messages(form.errors)}
 

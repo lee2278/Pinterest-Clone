@@ -6,7 +6,7 @@ import { getBoardsThunk } from "../../store/boards"
 import OpenModalButton from "../OpenModalButton"
 import CreateBoardModal from "../UserCollectionsPage/CreateBoardModal"
 import "./PinMaker.css"
-
+import {createPin} from "../../store/pins"
 
 
 export default function PinMaker() {
@@ -15,9 +15,10 @@ export default function PinMaker() {
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-    const [imageUrl, setImageUrl] = useState('')
+    const [imageUrl, setImageUrl] = useState(null)
     const [boardId, setBoardId] = useState(null)
     const [errors, setErrors] = useState({})
+    const [imageLoading, setImageLoading] = useState(false);
 
     const owner = useSelector(state => state.session.user)
     const boardsObj = useSelector(state => state.boards.allBoards)
@@ -29,16 +30,18 @@ export default function PinMaker() {
     }, [dispatch])
 
 
-    const newPin = {
-        title,
-        description,
-        image_url: imageUrl,
-        owner_id: owner.id,
-        board_id: boardId
-    }
+    // const newPin = {
+    //     title,
+    //     description,
+    //     image_url: imageUrl,
+    //     owner_id: owner.id,
+    //     board_id: boardId
+    // }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+
 
         setErrors({})
 
@@ -53,7 +56,41 @@ export default function PinMaker() {
             return
         }
 
-        await dispatch(createPinThunk(newPin))
+
+        const formData = new FormData();
+        formData.append("title", title)
+        formData.append("description", description)
+        formData.append("image_url", imageUrl)
+        formData.append("owner_id", owner.id)
+        formData.append("board_id", boardId)
+        
+
+        // setImageLoading(true)
+        // const res = await fetch('/api/pins/', {
+        //     method: "POST",
+        //     body: formData,
+        // });
+        // if (res.ok) {
+        //     await res.json();
+        //     setImageLoading(false);
+        //     dispatch(createPin)
+        //     history.push("/");
+        // }
+        // else {
+        //     setImageLoading(false);
+        //     console.log("error");
+        // }
+
+
+        
+        // await dispatch(createPinThunk(newPin))
+        await dispatch(createPinThunk(formData))
+        console.log('formdatatitle', formData.get("title"))
+        console.log('formdatadescription', formData.get("description"))
+        console.log('formdataimageurl', formData.get("Image File"))
+        console.log('formdataownerid', formData.get("owner_id"))
+        console.log('formdataboardid', formData.get("board_id"))
+
         history.push('/')
     }
 
@@ -64,17 +101,22 @@ export default function PinMaker() {
     return (
         <>
             <div className='pin-creation-container'>
-                <form id='pin-creation-form' onSubmit={preventDefaults}>
+                <form id='pin-creation-form' onSubmit={preventDefaults} encType="multipart/form-data">
 
                     <div className='left-side'>
                         <input className='url-input'
-                            type='text'
-                            value={imageUrl}
-                            placeholder='Image url'
-                            onChange={(e) => setImageUrl(e.target.value.trim())}
+                            // type='text'
+                            // value={imageUrl}
+                            // placeholder='Image url'
+                            // onChange={(e) => setImageUrl(e.target.value.trim())}
+                            type='file'
+                            accept="image/*"
+                            onChange={(e) => setImageUrl(e.target.files[0])}
+
                         >
                         </input>
                         <div className='image-container'>
+                            {console.log('imageUrl', imageUrl)}
                             {imageUrl ? <img id='provided-pin-img' src={imageUrl} alt=''></img> 
                             : <img id='no-img-pic' src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt=''></img>}
                         </div>
@@ -107,6 +149,7 @@ export default function PinMaker() {
 
 
                             <button id="save-btn" onClick={handleSubmit}>Save</button>
+                            {/* {(imageLoading)&& <p>Loading...</p>} */}
                         </div>
                         
                         <div className='pin-errors-container'>
