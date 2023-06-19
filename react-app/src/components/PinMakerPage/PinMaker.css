@@ -75,7 +75,6 @@
   outline-color:gray;
   border-radius: 5px;
   padding: 0.2rem;
-
 }
 
 
@@ -128,4 +127,9 @@
   width:100%;
   height: 100%;
   object-fit: contain;
+}
+
+/* this is the file upload button */
+input[type="file"]{
+  cursor: pointer;
 }
