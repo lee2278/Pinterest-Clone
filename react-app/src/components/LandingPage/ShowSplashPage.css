@@ -22,7 +22,7 @@
 
 }
 
-.page-words-bottom {
+/* .page-words-bottom {
     color:rgb(194,139, 0);
     padding:0;
     margin-top: 0;
@@ -42,4 +42,71 @@
 .pic-3 {
     height: 275px;
     align-self: self-end;
+} */
+
+
+.pic-1 {
+    animation-name: moveUp;
+    animation-duration: 1s;
+    animation-timing-function: ease-in ;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode:fowards;
 }
+
+.pic-2 {
+    animation-name: moveUp;
+    animation-duration: 2s;
+    animation-timing-function: ease-in ;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode:fowards;
+}
+.pic-3{
+    animation-name: moveUp;
+    animation-duration: 2s;
+    animation-timing-function: ease-in ;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode:fowards;
+}.pic-4 {
+    animation-name: moveUp;
+    animation-duration: 2s;
+    animation-timing-function: ease-in ;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode:fowards;
+}
+.pic-5 {
+    animation-name: moveUp;
+    animation-duration: 2s;
+    animation-timing-function: ease-in ;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode:fowards;
+}
+
+
+@keyframes moveUp {
+    from {
+        transform: translateY(-40px)
+    }
+    to {
+        transform: translateY(0)
+    }
+}
+
+/* .pic {
+    animation-name: moveUp;
+    animation-duration: 1s;
+    animation-timing-function: ease-in ;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode:forwards;
+} */
