@@ -1,3 +1,5 @@
+
+
 *{
   box-sizing: border-box;
 }
@@ -121,4 +123,30 @@ ul {
 .profile-menu-selections {
   border-bottom: 1px solid gray;
   margin-bottom: 5px;
+}
+
+
+.login-btn-container > button , .signup-btn-container > button{
+  padding: 0.5rem 0.8rem;
+  border-radius: 20px;
+  font-size: 16px;
+  border: none;
+}
+
+.login-btn-container > button {
+  background-color: var(--pinterest-red);
+  color:white;
+}
+
+.signup-btn-container > button {
+  background-color:#efefef;
+}
+
+
+.login-btn-container > button:hover {
+  background-color: #ad081b;
+}
+
+.signup-btn-container > button:hover {
+  background-color: #e2e2e2;
 }
