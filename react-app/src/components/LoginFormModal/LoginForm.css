@@ -12,3 +12,7 @@
 .errors-li {
     color:red;
 }
+
+.errors-ul {
+    padding:0;
+}
