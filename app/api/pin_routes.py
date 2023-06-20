@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from app.models import Pin
 from ..models.db import db
 from ..forms.create_pin_form import CreatePinForm
+from ..forms.edit_pin_form import EditPinForm
 from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
 from .auth_routes import validation_errors_to_error_messages
@@ -83,7 +84,7 @@ def update_pin(id):
     """
 
     pin = Pin.query.get(id)
-    form = CreatePinForm()
+    form = EditPinForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
 
