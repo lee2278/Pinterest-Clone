@@ -1,3 +1,7 @@
+:root {
+    --hovered-red: #ad081b;
+  }
+
 #login-h1, #login-modal-form, .login-inputs {
     display: flex;
     flex-direction: column;
@@ -6,7 +10,8 @@
 }
 
 #login-modal-form {
-    padding: 1rem;
+    padding: 2rem;
+    width: 20rem;
 }
 
 .errors-li {
@@ -15,4 +20,43 @@
 
 .errors-ul {
     padding:0;
+}
+
+#login-modal-login-btn {
+    background-color: var(--pinterest-red);
+    padding: 0.5rem;
+    width: 100%;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+}
+
+#login-modal-login-btn:hover {
+    background-color: var(--hovered-red);
+}
+
+
+#demo-user-link, #demo-user2-link {
+    border: 1px solid gray;
+    padding: 0.5rem;
+    width: 100%;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.login-inputs {
+    /* border: 2px solid blue; */
+    width: 100%;
+    padding: 0.5rem;
+
+}
+
+.login-inputs-labels {
+    /* border: 2px solid black; */
+    width: 100%;
+}
+
+#demo-user-link:hover, #demo-user2-link:hover {
+    background-color: #e2e2e2;
 }

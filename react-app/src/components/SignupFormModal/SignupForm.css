@@ -1,3 +1,7 @@
+:root {
+    --hovered-red: #ad081b;
+  }
+
 #signup-h1, #signup-modal-form, .signup-inputs {
     display: flex;
     flex-direction: column;
@@ -6,10 +10,26 @@
 }
 
 #signup-modal-form {
-    padding: 1rem;
+    padding: 0 2rem 2rem 2rem;
 }
 
 
 .sign-up-errors {
     color:red;
+}
+
+
+#signup-modal-signup-btn {
+    background-color: var(--pinterest-red);
+    padding: 0.5rem;
+    width: 100%;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+}
+
+
+#signup-modal-signup-btn:hover {
+    background-color: var(--hovered-red);
 }
