@@ -14,8 +14,10 @@ export default function EditModal({ pin }) {
     const { closeModal } = useModal()
     const [title, setTitle] = useState(pin.title)
     const [description, setDescription] = useState(pin.description)
-    const [boardId, setBoardId] = useState('')
+    const [boardId, setBoardId] = useState(null)
     const [errors, setErrors] = useState({})
+
+
 
     const boardsObj = useSelector(state => state.boards.allBoards)
     const boardsList = Object.values(boardsObj)
@@ -26,6 +28,7 @@ export default function EditModal({ pin }) {
         description,
         board_id: boardId
     }
+
 
     useEffect(() => {
         dispatch(getBoardsThunk())
@@ -51,6 +54,7 @@ export default function EditModal({ pin }) {
         }
 
         await dispatch(editPinThunk(updatedPin))
+
         closeModal()
     }
 
