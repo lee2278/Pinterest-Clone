@@ -46,17 +46,20 @@ function Navigation({ isLoaded }) {
 				{isLoaded && (
 
 					<div className='login-signup-container'>
+						<div className='login-btn-container'>
 						<OpenModalButton
 							buttonText="Log In"
 							// onItemClick={closeMenu}
 							modalComponent={<LoginFormModal />}
 						/>
-
+						</div>
+						<div className='signup-btn-container'>
 						<OpenModalButton
 							buttonText="Sign Up"
 							// onItemClick={closeMenu}
 							modalComponent={<SignupFormModal />}
 						/>
+						</div>
 					</div>
 				)}
 			</ul>

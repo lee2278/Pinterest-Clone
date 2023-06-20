@@ -41,7 +41,7 @@ function LoginFormModal() {
             <li className='errors-li' key={idx}>{error}</li>
           ))}
         </ul>
-        <label>
+        <label className='login-inputs-labels'>
           Email
           <input className="login-inputs"
             type="email"
@@ -50,7 +50,7 @@ function LoginFormModal() {
             required
           />
         </label>
-        <label>
+        <label className='login-inputs-labels'>
           Password
           <input className="login-inputs"
             type="password"
@@ -59,7 +59,7 @@ function LoginFormModal() {
             required
           />
         </label>
-        <button type="submit">Log In</button>
+        <button id='login-modal-login-btn' type="submit">Log In</button>
         <Link id='demo-user-link' to='/' onClick={handleDemoUser}>Demo User</Link>
         <Link id='demo-user2-link' to='/' onClick={handleDemoUser2}>Demo User 2</Link>
 

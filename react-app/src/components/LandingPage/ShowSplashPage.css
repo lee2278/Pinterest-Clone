@@ -20,6 +20,7 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
+    
 
 }
 
@@ -27,6 +28,7 @@
     color:rgb(194,139, 0);
     padding:0;
     margin-top: 0;
+    margin-bottom: 100px;
 }
 
 
@@ -86,11 +88,11 @@
 
 @keyframes moveUp {
     from {
-        transform: translateY(80px)
+        transform: translateY(0px)
         /* translateX(-40px) */
     }
     to {
-        transform: translateY(0px)
+        transform: translateY(-80px)
     }
 }
 
