@@ -100,6 +100,8 @@ def update_pin(id):
             pin.title = data['title']
         if data['description']:
             pin.description = data['description']
+
+        # want to update pin's particular board
         # if data['boards']:
             
             

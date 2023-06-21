@@ -18,6 +18,11 @@ export default function ShowPinDetails() {
     }, [dispatch, pinId])
 
 
+    const handleSave = (e) => {
+        e.preventDefault()
+        
+    }
+
     return (
         <>
             <div className='main-container'>
@@ -28,6 +33,7 @@ export default function ShowPinDetails() {
                     </div>
                     </div>
                     <div className='right-text-section'>
+                        <button>Save</button>
                         <h1 id='pin-title-h1'>{pin.title}</h1>
                         <p id='pin-description-ptag'>{pin.description}</p>
                     </div>

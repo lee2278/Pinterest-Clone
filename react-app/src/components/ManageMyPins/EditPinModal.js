@@ -23,15 +23,17 @@ export default function EditModal({ pin }) {
     const boardsList = Object.values(boardsObj)
 
     console.log('boardsList', boardsList)
+
+    //this gives me back an array of boards that have this pin
     const filteredBoardsList = boardsList.filter(board => board.pins.find(boardpin => boardpin.id === pin.id))
 
-    console.log('filtered', filteredBoardsList)
+    console.log('filteredArray', filteredBoardsList)
 
     const updatedPin = {
         ...pin,
         title,
         description,
-        boards: boardId
+        // boards: boardId     //sending back the selected boardId
     }
 
 
@@ -50,8 +52,6 @@ export default function EditModal({ pin }) {
 
         if (!title) newErrors.title = 'Please provide a title'
         if (title.length > 100) newErrors.title = 'Please keep title under 100 characters'
-        if (!boardId) newErrors.boardId = 'Please choose a board'
-        if (!boardsList.length) newErrors.boardsList = "You don't have any boards. Please create one first."
 
         if (Object.values(newErrors).length) {
             setErrors(newErrors)
@@ -68,8 +68,7 @@ export default function EditModal({ pin }) {
             <h1 id='edit-pin-h1'>Edit Pin</h1>
             <div className='edit-pin-errors-container'>
                 {errors.title && <p className='edit-pin-errors'>{errors.title}</p>}
-                {errors.boardsList && <p className='edit-pin-errors'>{errors.boardsList}</p>}
-                {errors.boardId && !errors.boardsList && <p className='edit-pin-errors'>{errors.boardId}</p>}
+   
             </div>
             <form id='edit-pin-form' method="PUT">
                 <label>Title
@@ -90,7 +89,7 @@ export default function EditModal({ pin }) {
                     </textarea>
                 </label>
 
-                {boardsList.length ?
+                {/* {boardsList.length ?
                     <label htmlFor="board-select" className='board-select-label'>Board
                         <select id="board-select" className='choose-board-selection' onChange={(e) => setBoardId(e.target.value)}>
                             <option value="" disabled selected hidden>Choose Board</option>
@@ -107,7 +106,7 @@ export default function EditModal({ pin }) {
                     />)
 
 
-                }
+                } */}
 
                 <button id='save-edit-btn' onClick={handleEdit}>Save</button>
             </form>

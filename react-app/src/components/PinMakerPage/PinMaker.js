@@ -48,7 +48,7 @@ export default function PinMaker() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-
+        console.log('board', board)
 
         setErrors({})
 
@@ -56,14 +56,15 @@ export default function PinMaker() {
         if (!title) newErrors.title = 'Please provide a title for your pin'
         if (title.length > 100) newErrors.title = 'Please keep title under 100 characters'
         if (!imageUrl) newErrors.imageUrl = 'Please provide an image for your pin'
-        if (!board) newErrors.boardId = 'Please select a board or create one for this pin'
+        if (!board) newErrors.board = 'Please select a board or create one for this pin'
 
         if (Object.values(newErrors).length) {
             setErrors(newErrors)
             return
         }
 
-
+        
+        
         const formData = new FormData();
         formData.append("title", title)
         formData.append("description", description)
