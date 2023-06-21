@@ -30,6 +30,7 @@ export default function ShowBoardDetails() {
     const pinsObj = useSelector(state => state.pins.allPins)
     const pinsList = Object.values(pinsObj)
 
+    console.log('pinsList', pinsList)
     const boardPinsArray = pinsList.filter(pin => pin?.board_id === userBoard?.id)
 
     console.log('boardPinsArray', boardPinsArray)

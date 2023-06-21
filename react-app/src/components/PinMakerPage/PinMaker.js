@@ -70,7 +70,7 @@ export default function PinMaker() {
         formData.append("description", description)
         formData.append("image_url", imageUrl)
         formData.append("owner_id", owner.id)
-
+ 
 
         // setImageLoading(true)
         // const res = await fetch('/api/pins/', {
@@ -91,7 +91,7 @@ export default function PinMaker() {
 
         
         // await dispatch(createPinThunk(newPin))
-        await dispatch(createPinThunk(formData))
+        await dispatch(createPinThunk(formData, boardId))
         // console.log('formdatatitle', formData.get("title"))
         // console.log('formdatadescription', formData.get("description"))
         // console.log('formdataimageurl', formData.get("Image File"))
