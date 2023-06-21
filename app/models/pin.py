@@ -33,6 +33,7 @@ class Pin(db.Model):
             "image_url": self.image_url,
             # "boards": boards
             "boards": [board.to_dict() for board in self.boards]
+            # "boards" : [board.id for board in self.boards]
         }
 
 

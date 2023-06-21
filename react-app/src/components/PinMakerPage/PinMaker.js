@@ -19,7 +19,6 @@ export default function PinMaker() {
     const [imageUrl, setImageUrl] = useState(null)
     const [board, setBoard] = useState(null)
     const [errors, setErrors] = useState({})
-    const [imageLoading, setImageLoading] = useState(false);
     const [tempSrc, setTempSrc] = useState('')
 
     const owner = useSelector(state => state.session.user)
@@ -70,7 +69,7 @@ export default function PinMaker() {
         formData.append("description", description)
         formData.append("image_url", imageUrl)
         formData.append("owner_id", owner.id)
-
+        formData.append('boards', board)
 
         // setImageLoading(true)
         // const res = await fetch('/api/pins/', {

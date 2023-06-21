@@ -22,11 +22,16 @@ export default function EditModal({ pin }) {
     const boardsObj = useSelector(state => state.boards.allBoards)
     const boardsList = Object.values(boardsObj)
 
+    console.log('boardsList', boardsList)
+    const filteredBoardsList = boardsList.filter(board => board.pins.find(boardpin => boardpin.id === pin.id))
+
+    console.log('filtered', filteredBoardsList)
+
     const updatedPin = {
         ...pin,
         title,
         description,
-        board_id: boardId
+        boards: boardId
     }
 
 
