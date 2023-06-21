@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { getBoardsThunk } from "../../store/boards";
-import { getPinsThunk } from "../../store/pins";
+import pinsReducer, { getPinsThunk } from "../../store/pins";
 import OpenModalButton from "../OpenModalButton";
 import CreateBoardModal from "./CreateBoardModal";
 import "./ShowCollections.css"
@@ -23,6 +23,7 @@ export default function ShowCollections() {
         dispatch(getPinsThunk())
     }, [dispatch])
 
+    console.log('boardsList', boardsList)
 
     return (
         <div className='overall-board-page-container'>
@@ -47,7 +48,6 @@ export default function ShowCollections() {
                                 <img alt='' className='pin-image-2' src={board?.pins[1]?.image_url} />
                                 <img alt='' className='pin-image-3' src={board?.pins[2]?.image_url} />
                             </div>
-                            {console.log('board', board.pins)}
                         </Link>
                         <div className='text-section'>
                             <p className='board-name-ptag'>{board.name}</p>

@@ -25,15 +25,16 @@ export default function ShowBoardDetails() {
 
     const userBoard = userBoardArray[0]
 
+    console.log('userBoard', userBoard)
 
     //filtering for pins of this board
-    const pinsObj = useSelector(state => state.pins.allPins)
-    const pinsList = Object.values(pinsObj)
+    // const pinsObj = useSelector(state => state.pins.allPins)
+    // const pinsList = Object.values(pinsObj)
 
-    console.log('pinsList', pinsList)
-    const boardPinsArray = pinsList.filter(pin => pin?.board_id === userBoard?.id)
+    // const boardPinsArray = pinsList.filter(pin => pin?.board_id === userBoard?.id)
+    
 
-    console.log('boardPinsArray', boardPinsArray)
+   
 
 
     useEffect(() => {
@@ -65,7 +66,7 @@ export default function ShowBoardDetails() {
               className="third-masonry-grid"
               columnClassName="third-masonry-grid_column"
             >
-                {boardPinsArray.map((pin) => (
+                {userBoard?.pins.map((pin) => (
                     <div key={pin.id} className='pin-card'>
                         <Link id='pin-card-link' to={`/pins/${pin.id}`}>
                             <div className='card'>

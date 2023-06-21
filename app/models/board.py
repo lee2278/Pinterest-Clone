@@ -19,16 +19,14 @@ class Board(db.Model):
    pins = db.relationship("Pin", secondary=board_pins, back_populates="boards")
 
    def to_dict(self):
-      pins = {}
-      for pin in self.pins:
-         pins[pin.id] = pin.to_dict_without_boards()
+
 
       return {
          "id": self.id,
          "user_id": self.user_id,
          "name": self.name,
          "description": self.description,
-         "pins": pins
+         "pins": [pin.to_dict_without_boards() for pin in self.pins]
       }
 
    def to_dict_without_pins(self):

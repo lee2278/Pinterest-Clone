@@ -55,6 +55,7 @@ def post_pin():
             description = form.data['description'],
             image_url = upload["url"],
             owner_id = form.data['owner_id'],
+            board_id = form.data['board_id']
         )
 
         db.session.add(new_pin)

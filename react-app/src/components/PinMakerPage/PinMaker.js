@@ -17,7 +17,7 @@ export default function PinMaker() {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [imageUrl, setImageUrl] = useState(null)
-    const [boardId, setBoardId] = useState(null)
+    const [board, setBoard] = useState(null)
     const [errors, setErrors] = useState({})
     const [imageLoading, setImageLoading] = useState(false);
     const [tempSrc, setTempSrc] = useState('')
@@ -57,7 +57,7 @@ export default function PinMaker() {
         if (!title) newErrors.title = 'Please provide a title for your pin'
         if (title.length > 100) newErrors.title = 'Please keep title under 100 characters'
         if (!imageUrl) newErrors.imageUrl = 'Please provide an image for your pin'
-        if (!boardId) newErrors.boardId = 'Please select a board or create one for this pin'
+        if (!board) newErrors.boardId = 'Please select a board or create one for this pin'
 
         if (Object.values(newErrors).length) {
             setErrors(newErrors)
@@ -70,7 +70,7 @@ export default function PinMaker() {
         formData.append("description", description)
         formData.append("image_url", imageUrl)
         formData.append("owner_id", owner.id)
- 
+
 
         // setImageLoading(true)
         // const res = await fetch('/api/pins/', {
@@ -91,7 +91,7 @@ export default function PinMaker() {
 
         
         // await dispatch(createPinThunk(newPin))
-        await dispatch(createPinThunk(formData, boardId))
+        await dispatch(createPinThunk(formData))
         // console.log('formdatatitle', formData.get("title"))
         // console.log('formdatadescription', formData.get("description"))
         // console.log('formdataimageurl', formData.get("Image File"))
@@ -123,7 +123,6 @@ export default function PinMaker() {
                         >
                         </input>
                         <div className='image-container'>
-                            {console.log('imageUrl', imageUrl)}
                             {imageUrl ? <img id='provided-pin-img' src={tempSrc} alt=''></img> 
                             : <img id='no-img-pic' src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt=''></img>}
                         </div>
@@ -139,7 +138,7 @@ export default function PinMaker() {
                                             modalComponent={<CreateBoardModal />}
                                         />
                                         </div>
-                                        <select onChange={(e) => setBoardId(e.target.value)} defaultValue="">
+                                        <select onChange={(e) => setBoard(e.target.value)} defaultValue="">
                                             <option value="" disabled hidden>Choose Board</option>
                                             {boardsList.map((board) => (
                                                 <option key={board.id} value={board.id}>{board.name}</option>))}
@@ -162,7 +161,7 @@ export default function PinMaker() {
                         <div className='pin-errors-container'>
                         {errors.title && <p className='create-pin-errors'>{errors.title}</p>}
                         {errors.imageUrl && <p className='create-pin-errors'>{errors.imageUrl}</p>}
-                        {errors.boardId && <p className='create-pin-errors'>{errors.boardId}</p>}
+                        {errors.board && <p className='create-pin-errors'>{errors.board}</p>}
                         </div>
                         <input className='title-input'
                             type='text'

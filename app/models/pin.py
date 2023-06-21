@@ -21,9 +21,9 @@ class Pin(db.Model):
 
 
     def to_dict(self):
-        boards = {}
-        for board in self.boards:
-            boards[board.id] = board.to_dict_without_pins()
+        # boards = {}
+        # for board in self.boards:
+        #     boards[board.id] = board.to_dict_without_pins()
 
         return {
             "id": self.id,
@@ -31,7 +31,8 @@ class Pin(db.Model):
             "title": self.title,
             "description": self.description,
             "image_url": self.image_url,
-            "boards": boards
+            # "boards": boards
+            "boards": [board.to_dict() for board in self.boards]
         }
 
 
