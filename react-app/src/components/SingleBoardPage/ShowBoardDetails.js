@@ -13,16 +13,17 @@ import "./ShowBoardDetails.css"
 export default function ShowBoardDetails() {
 
     const dispatch = useDispatch()
-    const { boardName } = useParams()
+    const { boardId } = useParams()
 
     const sessionUser = useSelector(state => state.session.user);
 
     const boardsObj = useSelector(state => state.boards.allBoards)
     const boardsList = Object.values(boardsObj)
 
-    //getting a board owned by the user and by board name
-    const userBoardArray = boardsList.filter(board => board.user_id === sessionUser?.id && board?.name === boardName)
+    //getting a board owned by the user and by board id
+    const userBoardArray = boardsList.filter(board => board.user_id === sessionUser?.id && board?.id === parseInt(boardId))
 
+    console.log('userBoardArray', userBoardArray)
     const userBoard = userBoardArray[0]
 
     console.log('userBoard', userBoard)
@@ -34,12 +35,9 @@ export default function ShowBoardDetails() {
     // const boardPinsArray = pinsList.filter(pin => pin?.board_id === userBoard?.id)
     
 
-   
-
 
     useEffect(() => {
         dispatch(getBoardsThunk())
-        // dispatch(getBoardDetailsThunk(userBoard?.id))
         dispatch(getPinsThunk())
     }, [dispatch])
 

@@ -36,7 +36,6 @@ export default function EditBoardModal({ board }) {
         }
 
         await dispatch(editBoardThunk(updatedBoard))
-        history.push(`/${sessionUser.username}/${name}`)
         dispatch(getBoardsThunk())
         closeModal()
     }

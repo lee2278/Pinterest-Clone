@@ -102,9 +102,9 @@ def seed_pins():
     pin_15 = Pin(
         owner_id = 2,
         
-        title = "Low Carb Creamy Tuscan Chicken",
-        description ="Low Carb Creamy Tuscan Chicken is so rich and creamy with lots of sun-dried tomatoes and spinach in a parmesan cream sauce. It is one of my very favorite low carb meals and it is perfect for the keto diet.",
-        image_url = "https://i.pinimg.com/564x/77/19/ea/7719ea469e2dc050a5fef377b6c765d0.jpg"
+        title = "Chicken Salad Lettuce Wraps",
+        description ="BLTA made into a hearty and delicious chicken salad! Perfect wrapped in a lettuce for a lower carb version or serve with bread.",
+        image_url = "https://i.pinimg.com/564x/d2/ed/c9/d2edc94ca4a9fc3a93ac0166230b0f77.jpg"
 )
     pin_16 = Pin(
         owner_id = 2,

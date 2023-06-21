@@ -42,7 +42,7 @@ export default function ShowCollections() {
             <div className='container-for-boards'>
                 {boardsList.map((board) => (
                     <div key={board.id} className='board-card'>
-                        <Link className='board-card-link' to={`/${sessionUser.username}/${board.name}`}>
+                        <Link className='board-card-link' to={`/${sessionUser.username}/boards/${board.id}`}>
                             <div className='pic-collage'>
                                 <img alt='' className='pin-image-1' src={board?.pins[0]?.image_url} />
                                 <img alt='' className='pin-image-2' src={board?.pins[1]?.image_url} />
