@@ -20,6 +20,7 @@ def get_pins():
     pins = Pin.query.all()
 
 
+
     return {'pins': [pin.to_dict() for pin in pins]}
 
 
@@ -54,8 +55,8 @@ def post_pin():
             description = form.data['description'],
             image_url = upload["url"],
             owner_id = form.data['owner_id'],
-            board_id = form.data['board_id']
         )
+
         db.session.add(new_pin)
         db.session.commit()
 
@@ -95,8 +96,7 @@ def update_pin(id):
             pin.title = data['title']
         if data['description']:
             pin.description = data['description']
-        if data['board_id']:
-            pin.board_id = data['board_id']
+
 
         db.session.commit()
         return pin.to_dict()

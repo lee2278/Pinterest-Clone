@@ -18,4 +18,4 @@ class CreatePinForm(FlaskForm):
 
 
     owner_id = IntegerField('owner_id')
-    board_id = IntegerField('board_id')
+

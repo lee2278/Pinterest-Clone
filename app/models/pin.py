@@ -22,7 +22,6 @@ class Pin(db.Model):
         return {
             "id": self.id,
             "owner_id": self.owner_id,
-            "boards" : self.boards,
             "title": self.title,
             "description": self.description,
             "image_url": self.image_url
