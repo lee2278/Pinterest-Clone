@@ -98,7 +98,7 @@ def delete_board(id):
 @login_required
 def delete_pin_from_board(boardId, pinId):
     """
-    Query for a board by id and deletes board
+    Query for a board by id and removes pin from board
     """
 
 

@@ -1,6 +1,5 @@
 // ACTION CONSTANTS
 
-import ShowPinDetails from "../components/PinDetailsPage/ShowPinDetails"
 
 const GET_BOARDS= "boards/GET_BOARDS"
 const GET_BOARD_DETAILS = "boards/GET_BOARD_DETAILS"

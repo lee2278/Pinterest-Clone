@@ -1,4 +1,4 @@
-import { useParams, Link} from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { deletePinsFromBoardThunk, getBoardsThunk } from "../../store/boards";
@@ -13,7 +13,7 @@ import "./ShowBoardDetails.css"
 export default function ShowBoardDetails() {
 
     const dispatch = useDispatch()
- 
+
     const { boardId } = useParams()
 
     const sessionUser = useSelector(state => state.session.user);
@@ -73,13 +73,13 @@ export default function ShowBoardDetails() {
             >
                 {userBoard?.pins.map((pin) => (
                     <div key={pin.id} className='pin-card'>
+                        <button id='remove-pin-btn' onClick={() => handleDelete(pin.id)}>delete</button>
                         <Link id='pin-card-link' to={`/pins/${pin.id}`}>
-                            <div className='card'>
+                            <div className='card editable-card'>
                                 <img id='pin-image' src={pin.image_url} alt='food' />
                             </div>
-                            
+
                         </Link>
-                        <button onClick={() =>handleDelete(pin.id)}>delete</button>
                     </div>
                 ))}
             </Masonry>
