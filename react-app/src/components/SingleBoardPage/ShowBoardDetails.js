@@ -73,9 +73,11 @@ export default function ShowBoardDetails() {
             >
                 {userBoard?.pins.map((pin) => (
                     <div key={pin.id} className='pin-card'>
-                        <button id='remove-pin-btn' onClick={() => handleDelete(pin.id)}>delete</button>
+                        <div className='remove-btn-wrapper'>
+                        <button id='remove-pin-btn' onClick={() => handleDelete(pin.id)}><i className="fa-solid fa-xmark"></i></button>
+                        </div>
                         <Link id='pin-card-link' to={`/pins/${pin.id}`}>
-                            <div className='card editable-card'>
+                            <div className='card'>
                                 <img id='pin-image' src={pin.image_url} alt='food' />
                             </div>
 
