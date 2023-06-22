@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { getBoardsThunk } from "../../store/boards";
-import pinsReducer, { getPinsThunk } from "../../store/pins";
+import { getPinsThunk } from "../../store/pins";
 import OpenModalButton from "../OpenModalButton";
 import CreateBoardModal from "./CreateBoardModal";
 import "./ShowCollections.css"
@@ -23,7 +23,7 @@ export default function ShowCollections() {
         dispatch(getPinsThunk())
     }, [dispatch])
 
-    console.log('boardsList', boardsList)
+    // console.log('boardsList', boardsList)
 
     return (
         <div className='overall-board-page-container'>
