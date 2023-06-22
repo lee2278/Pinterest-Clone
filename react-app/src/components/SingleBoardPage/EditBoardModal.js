@@ -1,6 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { useHistory } from "react-router-dom"
 import { useModal } from "../../context/Modal"
 import { editBoardThunk, getBoardsThunk } from "../../store/boards";
 import './EditBoardModal.css'
@@ -9,14 +8,12 @@ import './EditBoardModal.css'
 export default function EditBoardModal({ board }) {
 
     const dispatch = useDispatch()
-    const history = useHistory()
+
 
     const { closeModal } = useModal()
     const [name, setName] = useState(board.name)
     const [description, setDescription] = useState(board.description)
     const [errors, setErrors] = useState({})
-
-    const sessionUser = useSelector(state => state.session.user);
 
     const updatedBoard = { ...board, name, description }
 

@@ -7,7 +7,7 @@ import "./ShowPinDetails.css"
 export default function ShowPinDetails() {
     const { pinId } = useParams()
     const history = useHistory()
-    console.log('pinId', pinId)
+    // console.log('pinId', pinId)
     const dispatch = useDispatch()
 
     const pin = useSelector(state => state.pins.singlePin)
@@ -28,7 +28,7 @@ export default function ShowPinDetails() {
     return (
         <>
             <div className='main-container'>
-                <button id='go-back-btn' onClick={goBack}><span class="material-symbols-outlined">
+                <button id='go-back-btn' onClick={goBack}><span className="material-symbols-outlined">
                     undo
                 </span>Go Back to Boards</button>
                 <div className='sub-main-container'>

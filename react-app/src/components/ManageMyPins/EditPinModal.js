@@ -1,10 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useModal } from "../../context/Modal"
 import { editPinThunk } from "../../store/pins";
 import { getBoardsThunk } from "../../store/boards"
-import OpenModalButton from "../OpenModalButton";
-import CreateBoardModal from "../UserCollectionsPage/CreateBoardModal";
+// import OpenModalButton from "../OpenModalButton";
+// import CreateBoardModal from "../UserCollectionsPage/CreateBoardModal";
 import './ManagePins.css'
 
 
@@ -14,20 +14,20 @@ export default function EditModal({ pin }) {
     const { closeModal } = useModal()
     const [title, setTitle] = useState(pin.title)
     const [description, setDescription] = useState(pin.description)
-    const [boardId, setBoardId] = useState(null)
+    // const [boardId, setBoardId] = useState(null)
     const [errors, setErrors] = useState({})
 
 
 
-    const boardsObj = useSelector(state => state.boards.allBoards)
-    const boardsList = Object.values(boardsObj)
+    // const boardsObj = useSelector(state => state.boards.allBoards)
+    // const boardsList = Object.values(boardsObj)
 
-    console.log('boardsList', boardsList)
+    // console.log('boardsList', boardsList)
 
     //this gives me back an array of boards that have this pin
-    const filteredBoardsList = boardsList.filter(board => board.pins.find(boardpin => boardpin.id === pin.id))
+    // const filteredBoardsList = boardsList.filter(board => board.pins.find(boardpin => boardpin.id === pin.id))
 
-    console.log('filteredArray', filteredBoardsList)
+    // console.log('filteredArray', filteredBoardsList)
 
     const updatedPin = {
         ...pin,
@@ -42,7 +42,7 @@ export default function EditModal({ pin }) {
     }, [dispatch])
 
 
-    console.log('this is boardId', boardId)
+    // console.log('this is boardId', boardId)
 
     const handleEdit = async (e) => {
         e.preventDefault()
