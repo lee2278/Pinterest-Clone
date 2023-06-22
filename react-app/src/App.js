@@ -53,7 +53,7 @@ function App() {
           <Route path={`/${sessionUser?.username}/created`}>
             <ShowCreatedPins/>
           </Route>
-          <Route exact path={`/${sessionUser?.username}/:boardName`}>
+          <Route exact path={`/${sessionUser?.username}/boards/:boardId`}>
             <ShowBoardDetails/>
           </Route>
           <Route path={`/${sessionUser?.username}`}>
