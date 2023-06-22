@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import Pin, Board
 from ..models.db import db
-from ..forms.create_pin_form import CreatePinForm
+from ..forms.create_pin_form import CreatePinForm, AddToPinsForm
 from ..forms.edit_pin_form import EditPinForm
 from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
@@ -101,10 +101,6 @@ def update_pin(id):
         if data['description']:
             pin.description = data['description']
 
-        # want to update pin's particular board
-        # if data['boards']:
-            
-            
 
         db.session.commit()
         return pin.to_dict()
@@ -124,3 +120,23 @@ def delete_pin(id):
     db.session.delete(pin)
     db.session.commit()
     return {"message": "Successfully deleted"}
+
+
+@pin_routes.route('/<int:id>/add-board', methods=['PUT'])
+@login_required
+def add_board_to_pin(id):
+    """
+    Query for a pin by id and appends a board to that pin
+    """
+
+    pin = Pin.query.get(id)
+    form = AddToPinsForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        if form.data['boards']:
+            boardToBeAdded = Board.query.get(form.data['boards'])
+            pin.boards.append(boardToBeAdded)
+        db.session.commit()
+
+        return {"newPinBoard": pin.to_dict()}

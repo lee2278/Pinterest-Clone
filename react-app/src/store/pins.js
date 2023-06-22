@@ -6,6 +6,7 @@ const CREATE_PIN = "pins/CREATE_PIN"
 const EDIT_PIN = "pins/EDIT_PIN"
 const DELETE_PIN = "pins/DELETE_PIN"
 const CLEAR_PINS = "pins/CLEAR_PINS"
+const UPDATE_PIN_WITH_BOARDS = 'pins/UPDATE_PIN_WITH_BOARDS'
 
 // ACTION CREATORS
 
@@ -19,13 +20,18 @@ const getPinDetails = (singlePin) => ({
     singlePin
 })
 
-export const createPin = (pin) => ({
+const createPin = (pin) => ({
     type: CREATE_PIN,
     pin
 })
 
 const editPin = (singlePin) => ({
     type: EDIT_PIN,
+    singlePin
+})
+
+const updatePinWithBoards = (singlePin) => ({
+    type: UPDATE_PIN_WITH_BOARDS,
     singlePin
 })
 
@@ -111,6 +117,27 @@ export const editPinThunk = (pin) => async (dispatch) => {
     
 }
 
+export const updatePinWithBoardsThunk = (pin) => async (dispatch) => {
+    const response = await fetch(`/api/pins/${pin.id}/add-board`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(pin)
+    })
+
+    if (response.ok) {
+        // console.log('edit a pin response ok')
+        const pinToUpdate = await response.json()
+        dispatch(updatePinWithBoards(pinToUpdate))
+        return pinToUpdate
+    } else {
+        // console.log('edit a pin response NOT OK')
+        const errors = await response.json()
+        return errors
+    }
+    
+}
+
+
 export const deletePinThunk = (pinId) => async (dispatch) => {
     const response = await fetch(`/api/pins/${pinId}`, {
         method: "DELETE"
@@ -155,6 +182,11 @@ export default function pinsReducer(state = initialState, action) {
         case EDIT_PIN: {
             const newState = { ...state }
             newState.singlePin= action.singlePin
+            return newState
+        }
+        case UPDATE_PIN_WITH_BOARDS: {
+            const newState = { ...state, singlePin: {...state.singlePin}}
+            newState.singlePin = action.singlePin
             return newState
         }
         case DELETE_PIN: {
