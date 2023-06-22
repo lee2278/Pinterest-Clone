@@ -91,3 +91,23 @@ def delete_board(id):
     db.session.delete(board)
     db.session.commit()
     return {"message": "Successfully deleted"}
+
+
+
+@board_routes.route('/<int:boardId>/remove-pin/<int:pinId>', methods=['DELETE'])
+@login_required
+def delete_pin_from_board(boardId, pinId):
+    """
+    Query for a board by id and removes pin from board
+    """
+
+
+    board = Board.query.get(boardId)
+
+
+    board.pins = [pin for pin in board.pins if pin.id != pinId]
+
+
+
+    db.session.commit()
+    return {"message": "Successfully deleted"}
