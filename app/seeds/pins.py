@@ -127,6 +127,62 @@ def seed_pins():
         description ="This sweet and refreshing orange creamsicle smoothie is perfect for an easy breakfast or healthy snack! It's so flavorful, and totally delicious!",
         image_url = "https://i.pinimg.com/564x/64/7c/a3/647ca39354bdf5b22a5aa3a82d959c46.jpg"
 )
+    pin_19 = Pin (
+        owner_id = 1,
+        title = "Pineapple Pizza",
+        description = "Pineapple pizza, also known as Hawaiian pizza, is a contentious combination of flavors that elicits strong opinions. It features a traditional pizza base topped with tomato sauce, cheese, and chunks of juicy pineapple, along with other optional ingredients like ham or bacon. Loved by some for its unique blend of sweet and savory tastes, while despised by others who argue that fruit has no place on a pizza, pineapple pizza continues to spark lively debates among pizza enthusiasts worldwide.",
+        image_url = "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=481&q=80"
+    )
+    pin_20 = Pin (
+        owner_id = 1,
+        title = 'Homemade ramen',
+        description = "Spice up your instant ramen with some eggs, veggies, and shrimp. A little dash of sesame seeds can make a difference!",
+        image_url = "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80"
+    )
+    pin_21 = Pin (
+        owner_id = 1,
+        title = 'Blueberry Waffles',
+        description = "Perfect way to start the morning. A quick and easy breakfast idea.",
+        image_url = "https://images.unsplash.com/photo-1576615278693-f8e095e37e01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
+    )
+    pin_22 = Pin (
+        owner_id = 2,
+        title = 'Sushi Platter',
+        description = 'Sushi is great for any time',
+        image_url = "https://images.unsplash.com/photo-1676037150294-837ff0c29599?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+    )
+    pin_23 = Pin (
+        owner_id = 2,
+        title = 'Pan-Seared Steak with Garlic Butter',
+        description = "This Pan-Seared Steak has a garlic butter that makes it taste like a steakhouse quality meal. You'll be impressed at how easy it is to make the perfect steak that's seared on the outside, and perfectly tender inside.",
+        image_url = "https://i.pinimg.com/564x/6d/ba/91/6dba91c1fdb5d4939c7e9d65420cbd4c.jpg"
+    )
+    pin_24 = Pin (
+        owner_id =2,
+        title = 'The Best Chicken Tinga Tacos',
+        description = "To make these delicious meat tacos, shred 3 cups of cooked chicken and set aside. Slice 2 ripe avocados and finely chop 1/4 cup of fresh cilantro. Mince 2 cloves of garlic and cut a lime into wedges. In a small bowl, combine 1 teaspoon dried oregano, 1/2 cup red onion, 1 cup sweet onion, 3/4 cup canned fire-roasted tomatoes, 1/4 cup chicken stock, 1 chipotle pepper in adobo sauce, 1/2 teaspoon kosher salt, 1 tablespoon olive oil, and 1/2 teaspoon ground cumin to create a sauce. Warm 10 (6-inch) corn tortillas, then assemble the tacos by placing shredded chicken on each tortilla and topping with sliced/cubed avocados, minced garlic, and fresh cilantro. Drizzle the prepared sauce over the fillings and sprinkle with 1/4 cup crumbled cotija cheese. Serve with lime wedges. Enjoy!",
+        image_url = "https://i.pinimg.com/564x/94/34/ad/9434ad0f6de508d27e8f3cea42d51376.jpg"
+    )
+    pin_25 = Pin (
+        owner_id =2,
+        title = 'Coconut Key Lime Pie Smoothie',
+        description = "Creamy coconut key lime pie smoothie made with simple ingredients and luscious hints of coconut. This incredible key lime pie smoothie recipe tastes just like a slice of your favorite dessert but is packed with protein and a boost of sneaky veggies! Enjoy the perfect breakfast, snack or even healthy dessert.",
+        image_url = "https://i.pinimg.com/564x/bf/1d/7e/bf1d7ebeeea4456220ab76c238cf248d.jpg"
+    )
+    pin_26 = Pin (
+        owner_id =2,
+        title = 'Blueberry Pineapple Smoothie',
+        description = "Blueberry Pineapple Smoothie - A sweet and fresh healthy smoothie to grab when you think you may miss eating your daily serving of fresh fruits! Made with Greek yogurt, banana and almond milk…",
+        image_url = "https://i.pinimg.com/564x/39/8a/ec/398aec3787146eeafcc047fd0cbc90ce.jpg"
+    )
+    pin_27 = Pin (
+        owner_id =2,
+        title = 'Avocado Mango Smoothie',
+        description = "This creamy and delicious avocado mango smoothie is the only green smoothie recipe you need! Naturally sweet, gluten free, vegan, and even kid approved. It's the perfect light and refreshing drink.",
+        image_url = "https://i.pinimg.com/564x/43/d5/18/43d518443cf13c75eae6d7c9d57d5a38.jpg"
+    )
+
+
     db.session.add(pin_1)
     db.session.add(pin_2)
     db.session.add(pin_3)
@@ -145,7 +201,16 @@ def seed_pins():
     db.session.add(pin_16)
     db.session.add(pin_17)
     db.session.add(pin_18)
-    
+    db.session.add(pin_19)
+    db.session.add(pin_20)
+    db.session.add(pin_21)
+    db.session.add(pin_22)
+    db.session.add(pin_23)
+    db.session.add(pin_24)
+    db.session.add(pin_25)
+    db.session.add(pin_26)
+    db.session.add(pin_27)
+
 
     db.session.commit()
     

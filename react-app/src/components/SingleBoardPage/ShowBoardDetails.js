@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getBoardsThunk } from "../../store/boards";
@@ -13,6 +13,7 @@ import "./ShowBoardDetails.css"
 export default function ShowBoardDetails() {
 
     const dispatch = useDispatch()
+ 
     const { boardId } = useParams()
 
     const sessionUser = useSelector(state => state.session.user);
@@ -33,7 +34,8 @@ export default function ShowBoardDetails() {
     // const pinsList = Object.values(pinsObj)
 
     // const boardPinsArray = pinsList.filter(pin => pin?.board_id === userBoard?.id)
-    
+
+
 
 
     useEffect(() => {
@@ -43,6 +45,7 @@ export default function ShowBoardDetails() {
 
     return (
         <>
+
             <h1>{userBoard?.name}</h1>
             <p>{userBoard?.description}</p>
             <div className='edit-delete-board-btns-container'>
@@ -60,9 +63,9 @@ export default function ShowBoardDetails() {
                 </div>
             </div>
             <Masonry
-              breakpointCols={6}
-              className="third-masonry-grid"
-              columnClassName="third-masonry-grid_column"
+                breakpointCols={6}
+                className="third-masonry-grid"
+                columnClassName="third-masonry-grid_column"
             >
                 {userBoard?.pins.map((pin) => (
                     <div key={pin.id} className='pin-card'>

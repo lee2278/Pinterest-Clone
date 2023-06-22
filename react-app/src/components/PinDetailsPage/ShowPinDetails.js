@@ -13,7 +13,7 @@ export default function ShowPinDetails() {
     const pin = useSelector(state => state.pins.singlePin)
 
     const sessionUser = useSelector(state => state.session.user);
-    
+
 
     useEffect(() => {
         dispatch(getPinDetailsThunk(pinId))
@@ -28,12 +28,14 @@ export default function ShowPinDetails() {
     return (
         <>
             <div className='main-container'>
-                <button id='go-back-btn' onClick={goBack}>Go Back to Boards</button>
+                <button id='go-back-btn' onClick={goBack}><span class="material-symbols-outlined">
+                    undo
+                </span>Go Back to Boards</button>
                 <div className='sub-main-container'>
                     <div className='pin-left-side'>
                         <div className='left-img-container'>
-                    <img id='specific-pin-img' src={pin.image_url} alt='' />
-                    </div>
+                            <img id='specific-pin-img' src={pin.image_url} alt='' />
+                        </div>
                     </div>
                     <div className='right-text-section'>
                         {/* <button>Save</button> */}
