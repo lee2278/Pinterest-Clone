@@ -18,6 +18,8 @@ export default function ShowPinDetails() {
     const boardsList = Object.values(boardsObj)
 
     const [boardId, setBoardId] = useState(null)
+    const [succesfulSave, setSuccesfulSave] = useState(false)
+    const [errors, setErrors] = useState({})
 
     const pinToUpdate = {
         ...pin,
@@ -37,10 +39,27 @@ export default function ShowPinDetails() {
 
     const handleSave = async (e) => {
         e.preventDefault()
+        
+        setErrors({})
+        
+        const newErrors = {}
+
+        if (!boardId) newErrors.boardId = 'Please choose a board'
+
+        if (Object.values(newErrors).length) {
+            setErrors(newErrors)
+            return
+        }
+
+        
         await dispatch(updatePinWithBoardsThunk(pinToUpdate))
         dispatch(getPinDetailsThunk(pinId))
+        setSuccesfulSave(true)
+
 
     }
+
+
 
     return (
         <>
@@ -55,14 +74,16 @@ export default function ShowPinDetails() {
                         </div>
                     </div>
                     <div className='right-text-section'>
-                        <form>
-                        <select onChange={(e) => setBoardId(e.target.value)} defaultValue="">
+                        {errors.boardId && <p className='none-chosen-error'>{errors.boardId}</p>}
+                        <form id='select-board-form'>
+                        <select id='select-board-select' onChange={(e) => setBoardId(e.target.value)} onClick={(e) => setSuccesfulSave(false)}defaultValue="">
                             <option value="" disabled hidden>Choose Board</option>
                             {boardsList.map((board) => (
                                 <option key={board.id} value={board.id}>{board.name}</option>
                             ))}
                         </select>
-                        <button onClick={handleSave}>Save</button>
+                        <button id='save-pin-btn'onClick={handleSave}>Save</button>
+                        {succesfulSave && <p id='saved-ptag'>Saved!</p>}
                         </form>
                         <h1 id='pin-title-h1'>{pin.title}</h1>
                         <p id='pin-description-ptag'>{pin.description}</p>

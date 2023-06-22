@@ -1,3 +1,8 @@
+:root {
+  --pinterest-red: rgb(230, 0, 35);
+  --hovered-red: #ad081b;
+}
+
 .sub-main-container {
   margin: auto;
   box-shadow: 2px 2px 2px gray;
@@ -55,4 +60,23 @@
   display: flex;
   align-items: center;
   gap: 0.1rem;
+}
+
+#saved-ptag, .none-chosen-error{
+  color: red;
+}
+
+#save-pin-btn {
+  background-color: var(--pinterest-red);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0 8px 8px 0
+}
+
+#select-board-select {
+  padding: 0.5rem;
+}
+
+#save-pin-btn:hover {
+  background-color: var(--hovered-red);
 }
