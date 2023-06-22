@@ -48,10 +48,12 @@ export default function ShowBoardDetails() {
     }, [dispatch])
 
     return (
-        <>
+        <div className='everything-wrapper'>
 
             <h1>{userBoard?.name}</h1>
-            <p>{userBoard?.description}</p>
+            <div className='board-description-wrapper'>
+            <p id='board-description-ptag'>{userBoard?.description}</p>
+            </div>
             <div className='edit-delete-board-btns-container'>
                 <div className='edit-board-btn-wrapper'>
                     <OpenModalButton
@@ -85,6 +87,6 @@ export default function ShowBoardDetails() {
                     </div>
                 ))}
             </Masonry>
-        </>
+        </div>
     )
 }
