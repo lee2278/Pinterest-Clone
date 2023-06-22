@@ -2,7 +2,9 @@
     box-sizing: border-box;
 }
 
-
+.everything-wrapper {
+  margin: 1rem;
+}
 
 .card {
   /* border: 2px solid blue; */
