@@ -63,3 +63,11 @@
 
     margin-bottom: 10px;
   }
+
+
+  #board-description-ptag {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+
+

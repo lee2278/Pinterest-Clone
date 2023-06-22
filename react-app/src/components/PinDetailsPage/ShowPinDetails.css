@@ -69,8 +69,10 @@
 #save-pin-btn {
   background-color: var(--pinterest-red);
   color: white;
-  padding: 0.5rem;
-  border-radius: 0 8px 8px 0
+  padding: 0.59rem;
+  border-radius: 0 8px 8px 0;
+  border:none;
+
 }
 
 #select-board-select {
