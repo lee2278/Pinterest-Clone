@@ -18,6 +18,32 @@
     border-radius: 8px;
 }
 
+#remove-pin-btn {
+  position: absolute;
+  /* background-color: transparent; */
+  z-index: 1;
+  left: 148px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  padding: 0.5rem 0.8rem;
+}
+
+#remove-pin-btn:hover {
+  background-color: rgb(65, 63, 63);
+  border-radius: 50px;
+
+}
+
+.remove-btn-wrapper {
+  position: absolute;
+  opacity: 0;
+}
+
+.pin-card:hover .remove-btn-wrapper {
+  opacity: 1;
+}
 
 /* masonry stuff */
 .third-masonry-grid {

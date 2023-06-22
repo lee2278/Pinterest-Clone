@@ -17,3 +17,9 @@ class CreatePinForm(FlaskForm):
     boards = IntegerField('boards')
 
     owner_id = IntegerField('owner_id')
+
+
+
+
+class AddToPinsForm(FlaskForm):
+    boards = IntegerField('boards')
