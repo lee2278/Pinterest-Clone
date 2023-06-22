@@ -140,3 +140,6 @@ def add_board_to_pin(id):
         db.session.commit()
 
         return {"newPinBoard": pin.to_dict()}
+
+
+

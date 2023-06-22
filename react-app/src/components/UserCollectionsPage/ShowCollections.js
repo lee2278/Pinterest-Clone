@@ -18,6 +18,8 @@ export default function ShowCollections() {
     // const pinsObj = useSelector(state => state.pins.allPins)
     // const pinsList = Object.values(pinsObj)
 
+  
+
     useEffect(() => {
         dispatch(getBoardsThunk())
         dispatch(getPinsThunk())

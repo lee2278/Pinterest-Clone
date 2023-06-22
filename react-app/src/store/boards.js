@@ -1,5 +1,7 @@
 // ACTION CONSTANTS
 
+import ShowPinDetails from "../components/PinDetailsPage/ShowPinDetails"
+
 const GET_BOARDS= "boards/GET_BOARDS"
 const GET_BOARD_DETAILS = "boards/GET_BOARD_DETAILS"
 const CREATE_BOARD = "boards/CREATE_BOARD"
@@ -117,6 +119,22 @@ export const deleteBoardThunk = (boardId) => async (dispatch) => {
     if (response.ok) {
         // console.log('delete board response ok')
         dispatch(deleteBoard(boardId))
+    } else {
+        // console.log('delete board response NOT OK')
+        const errors = await response.json()
+        return errors
+    }
+}
+
+export const deletePinsFromBoardThunk = (boardId, pinId) => async (dispatch) => {
+    console.log('boardId', boardId)
+    console.log('pinId', pinId)
+    const response = await fetch(`/api/boards/${boardId}/remove-pin/${pinId}`, {
+        method: "DELETE"
+    })
+
+    if (response.ok) {
+        dispatch(getBoardsThunk())
     } else {
         // console.log('delete board response NOT OK')
         const errors = await response.json()

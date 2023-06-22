@@ -1,7 +1,7 @@
 import { useParams, Link} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getBoardsThunk } from "../../store/boards";
+import { deletePinsFromBoardThunk, getBoardsThunk } from "../../store/boards";
 import { getPinsThunk } from "../../store/pins";
 import OpenModalButton from "../OpenModalButton";
 import EditBoardModal from "./EditBoardModal";
@@ -26,6 +26,10 @@ export default function ShowBoardDetails() {
 
     // console.log('userBoardArray', userBoardArray)
     const userBoard = userBoardArray[0]
+
+    const handleDelete = (pinId) => {
+        dispatch(deletePinsFromBoardThunk(+boardId, pinId))
+    }
 
     // console.log('userBoard', userBoard)
 
@@ -73,7 +77,9 @@ export default function ShowBoardDetails() {
                             <div className='card'>
                                 <img id='pin-image' src={pin.image_url} alt='food' />
                             </div>
+                            
                         </Link>
+                        <button onClick={() =>handleDelete(pin.id)}>delete</button>
                     </div>
                 ))}
             </Masonry>
