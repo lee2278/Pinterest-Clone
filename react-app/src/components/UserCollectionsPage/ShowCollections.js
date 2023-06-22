@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { getBoardsThunk } from "../../store/boards";
-import { getPinsThunk } from "../../store/pins";
+import pinsReducer, { getPinsThunk } from "../../store/pins";
 import OpenModalButton from "../OpenModalButton";
 import CreateBoardModal from "./CreateBoardModal";
 import "./ShowCollections.css"
@@ -23,6 +23,7 @@ export default function ShowCollections() {
         dispatch(getPinsThunk())
     }, [dispatch])
 
+    console.log('boardsList', boardsList)
 
     return (
         <div className='overall-board-page-container'>
@@ -41,7 +42,7 @@ export default function ShowCollections() {
             <div className='container-for-boards'>
                 {boardsList.map((board) => (
                     <div key={board.id} className='board-card'>
-                        <Link className='board-card-link' to={`/${sessionUser.username}/${board.name}`}>
+                        <Link className='board-card-link' to={`/${sessionUser.username}/boards/${board.id}`}>
                             <div className='pic-collage'>
                                 <img alt='' className='pin-image-1' src={board?.pins[0]?.image_url} />
                                 <img alt='' className='pin-image-2' src={board?.pins[1]?.image_url} />

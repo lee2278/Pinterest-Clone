@@ -21,6 +21,10 @@ export default function CreateBoardModal() {
         user_id: sessionUser.id
     }
 
+    const existingBoardNames = []
+    sessionUser.boards.forEach(board => existingBoardNames.push(board.name))
+    console.log('existingBoardNames', existingBoardNames)
+
     const handleCreate = (e) => {
         e.preventDefault()
 
@@ -29,6 +33,13 @@ export default function CreateBoardModal() {
 
         if (!name) newErrors.name = 'Please provide a name for your board'
         if (name.length > 50) newErrors.name = 'Please keep board name under 50 characters'
+
+        for (let existingName of existingBoardNames) {
+            if (name === existingName) newErrors.name = "You've already made a board with this name. Please choose another name for your board."
+        }
+
+
+
 
         if (Object.values(newErrors).length) {
             setErrors(newErrors)
@@ -61,7 +72,7 @@ export default function CreateBoardModal() {
                     >
                     </textarea>
                 </label>
-                <button id='create-board-btn'onClick={handleCreate}>Create</button>
+                <button id='create-board-btn' onClick={handleCreate}>Create</button>
             </form>
         </>
     )

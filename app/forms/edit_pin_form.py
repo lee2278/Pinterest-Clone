@@ -10,4 +10,4 @@ class EditPinForm(FlaskForm):
     image_url = StringField('image_url', validators=[DataRequired()])
 
     owner_id = IntegerField('owner_id')
-    board_id = IntegerField('board_id')
+

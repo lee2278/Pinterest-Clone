@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Pin
+from app.models import Pin, Board
 from ..models.db import db
 from ..forms.create_pin_form import CreatePinForm
 from ..forms.edit_pin_form import EditPinForm
@@ -18,6 +18,7 @@ def get_pins():
     """
 
     pins = Pin.query.all()
+
 
 
     return {'pins': [pin.to_dict() for pin in pins]}
@@ -54,9 +55,13 @@ def post_pin():
             description = form.data['description'],
             image_url = upload["url"],
             owner_id = form.data['owner_id'],
-            board_id = form.data['board_id']
         )
+
         db.session.add(new_pin)
+
+        board = Board.query.get(form.data['boards'])
+        new_pin.boards.append(board)
+
         db.session.commit()
 
         return {"newPin": new_pin.to_dict()}
@@ -95,8 +100,11 @@ def update_pin(id):
             pin.title = data['title']
         if data['description']:
             pin.description = data['description']
-        if data['board_id']:
-            pin.board_id = data['board_id']
+
+        # want to update pin's particular board
+        # if data['boards']:
+            
+            
 
         db.session.commit()
         return pin.to_dict()

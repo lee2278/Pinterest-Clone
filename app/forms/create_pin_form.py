@@ -14,8 +14,6 @@ class CreatePinForm(FlaskForm):
     image_url = FileField("Image File", validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
 
 
-    # image_url = FileField("Image File", validators=[DataRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
-
+    boards = IntegerField('boards')
 
     owner_id = IntegerField('owner_id')
-    board_id = IntegerField('board_id')
