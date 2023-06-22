@@ -23,7 +23,7 @@ export default function CreateBoardModal() {
 
     const existingBoardNames = []
     sessionUser.boards.forEach(board => existingBoardNames.push(board.name))
-    console.log('existingBoardNames', existingBoardNames)
+
 
     const handleCreate = (e) => {
         e.preventDefault()

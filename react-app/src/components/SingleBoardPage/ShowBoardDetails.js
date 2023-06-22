@@ -1,4 +1,4 @@
-import { useParams, Link, useHistory } from "react-router-dom"
+import { useParams, Link} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getBoardsThunk } from "../../store/boards";
@@ -24,10 +24,10 @@ export default function ShowBoardDetails() {
     //getting a board owned by the user and by board id
     const userBoardArray = boardsList.filter(board => board.user_id === sessionUser?.id && board?.id === parseInt(boardId))
 
-    console.log('userBoardArray', userBoardArray)
+    // console.log('userBoardArray', userBoardArray)
     const userBoard = userBoardArray[0]
 
-    console.log('userBoard', userBoard)
+    // console.log('userBoard', userBoard)
 
     //filtering for pins of this board
     // const pinsObj = useSelector(state => state.pins.allPins)

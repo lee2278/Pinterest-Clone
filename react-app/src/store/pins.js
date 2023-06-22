@@ -58,11 +58,11 @@ export const getPinDetailsThunk = (pinId) => async (dispatch) => {
     const response = await fetch(`/api/pins/${pinId}`)
 
     if (response.ok) {
-        console.log('get pin details response ok')
+        // console.log('get pin details response ok')
         const pinDetails = await response.json()
         dispatch(getPinDetails(pinDetails))
     } else {
-        console.log('get pins details response NOT OK')
+        // console.log('get pins details response NOT OK')
         const errors = await response.json()
         console.log('errors', errors)
         return errors
@@ -78,14 +78,14 @@ export const createPinThunk = (pin) => async (dispatch) => {
     })
     
     if (response.ok) {
-        console.log('create pin response ok')
+        // console.log('create pin response ok')
 
         const newPin = await response.json()
         dispatch(createPin(newPin))
     } else {
-        console.log('create pin response not ok')
+        // console.log('create pin response not ok')
         const errors = await response.json()
-        console.log('errors', errors)
+        // console.log('errors', errors)
         return errors
     }
 }
@@ -99,12 +99,12 @@ export const editPinThunk = (pin) => async (dispatch) => {
     })
 
     if (response.ok) {
-        console.log('edit a pin response ok')
+        // console.log('edit a pin response ok')
         const updatePin = await response.json()
         dispatch(editPin(updatePin))
         return updatePin
     } else {
-        console.log('edit a pin response NOT OK')
+        // console.log('edit a pin response NOT OK')
         const errors = await response.json()
         return errors
     }
@@ -117,10 +117,10 @@ export const deletePinThunk = (pinId) => async (dispatch) => {
     })
 
     if (response.ok) {
-        console.log('delete pin response ok')
+        // console.log('delete pin response ok')
         dispatch(deletePin(pinId))
     } else {
-        console.log('delete pin response NOT OK')
+        // console.log('delete pin response NOT OK')
         const errors = await response.json()
         return errors
     }
