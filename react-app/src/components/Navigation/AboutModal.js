@@ -6,7 +6,7 @@ export default function AboutModal() {
 
     return (
         <div id='about-section'>
-            <h1>About <span id='website-name'><img id='logo-img' src="https://i.pinimg.com/564x/a9/6f/4f/a96f4ff523ceb1ac12bbe6ea9378a866.jpg"/>Common Interests</span></h1>
+            <h1>About <span id='website-name'><img id='logo-img' src="https://i.pinimg.com/564x/a9/6f/4f/a96f4ff523ceb1ac12bbe6ea9378a866.jpg" />Common Interests</span></h1>
             <div className="about-word-section">
                 <p>Hi, my name is Carmen Lee and thank you for visiting my site! This site is a clone of Pinterest with a food theme in mind. It was built using the following: </p>
                 <div className='center-logo-names'>

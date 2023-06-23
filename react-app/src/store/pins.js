@@ -70,7 +70,7 @@ export const getPinDetailsThunk = (pinId) => async (dispatch) => {
     } else {
         // console.log('get pins details response NOT OK')
         const errors = await response.json()
-        console.log('errors', errors)
+        // console.log('errors', errors)
         return errors
     }
 }
