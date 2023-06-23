@@ -28,7 +28,7 @@ export default function ShowCollections() {
     // console.log('boardsList', boardsList)
 
     return (
-        <div className='overall-board-page-container'>
+        <div className='everything-wrapper'>
 
             <div className='center'>
             <Link id='created-pins-link' to={`/${sessionUser.username}/created`}>Created Pins</Link>

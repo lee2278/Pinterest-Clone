@@ -120,6 +120,10 @@ ul {
   width:100%
 }
 
+#dropdown-logout-btn:hover {
+  background-color: #ad081b;
+}
+
 .profile-menu-selections {
   border-bottom: 1px solid gray;
   margin-bottom: 5px;
@@ -149,4 +153,16 @@ ul {
 
 .signup-btn-container > button:hover {
   background-color: #e2e2e2;
+}
+
+.about-btn-container > button {
+  padding: 0.5rem;
+  font-size: 16px;
+  border: none;
+  background-color:transparent;
+}
+
+.about-btn-container > button:hover {
+  text-decoration: underline;
+  font-size: 17px;
 }
