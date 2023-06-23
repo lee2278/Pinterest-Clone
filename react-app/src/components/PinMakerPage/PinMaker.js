@@ -48,7 +48,6 @@ export default function PinMaker() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log('board', board)
 
         setErrors({})
 
@@ -71,22 +70,6 @@ export default function PinMaker() {
         formData.append("image_url", imageUrl)
         formData.append("owner_id", owner.id)
         formData.append('boards', board)
-
-        // setImageLoading(true)
-        // const res = await fetch('/api/pins/', {
-        //     method: "POST",
-        //     body: formData,
-        // });
-        // if (res.ok) {
-        //     await res.json();
-        //     setImageLoading(false);
-        //     dispatch(createPin)
-        //     history.push("/");
-        // }
-        // else {
-        //     setImageLoading(false);
-        //     console.log("error");
-        // }
 
 
         

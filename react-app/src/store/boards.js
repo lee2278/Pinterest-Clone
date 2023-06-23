@@ -126,8 +126,7 @@ export const deleteBoardThunk = (boardId) => async (dispatch) => {
 }
 
 export const deletePinsFromBoardThunk = (boardId, pinId) => async (dispatch) => {
-    console.log('boardId', boardId)
-    console.log('pinId', pinId)
+
     const response = await fetch(`/api/boards/${boardId}/remove-pin/${pinId}`, {
         method: "DELETE"
     })

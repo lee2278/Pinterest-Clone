@@ -59,10 +59,11 @@ function SignupFormModal() {
 						<li className='sign-up-errors' key={idx}>{error}</li>
 					))}
 				</ul>
-
+				
 				{errors.username && <p className='sign-up-errors'>{errors.username}</p>}
 				{errors.email && <p className='sign-up-errors'>{errors.email}</p>}
 				{errors.password && <p className='sign-up-errors'>{errors.password}</p>}
+				
 				<label>
 					Email
 					<input className='signup-inputs'
