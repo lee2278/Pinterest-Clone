@@ -5,6 +5,7 @@ import ProfileButton from './ProfileButton';
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import AboutModal from './AboutModal';
 
 import './Navigation.css';
 
@@ -16,7 +17,7 @@ function Navigation({ isLoaded }) {
 			<ul className='links-and-profile-btn-container'>
 				<div className='links-container'>
 					<li id='nav-link-li'>
-						<NavLink className='home' exact to="/"><img id='logo-img' src="https://i.pinimg.com/564x/a9/6f/4f/a96f4ff523ceb1ac12bbe6ea9378a866.jpg" alt=''/></NavLink>
+						<NavLink className='home' exact to="/"><img id='logo-img' src="https://i.pinimg.com/564x/a9/6f/4f/a96f4ff523ceb1ac12bbe6ea9378a866.jpg" alt='' /></NavLink>
 						<NavLink className='home' exact to="/">Common Interests</NavLink>
 					</li>
 					<li>
@@ -26,7 +27,7 @@ function Navigation({ isLoaded }) {
 				{isLoaded && (
 					<div className='profile-group'>
 						<li className='user-link-wrapper'>
-							<NavLink id='user-link'exact to={`/${sessionUser.username}`}>{`${sessionUser.username[0]}`}</NavLink>
+							<NavLink id='user-link' exact to={`/${sessionUser.username}`}>{`${sessionUser.username[0]}`}</NavLink>
 						</li>
 						<li>
 							<ProfileButton user={sessionUser} />
@@ -46,19 +47,24 @@ function Navigation({ isLoaded }) {
 				{isLoaded && (
 
 					<div className='login-signup-container'>
+
+						<div className='about-btn-container'>
+							<OpenModalButton
+								buttonText="About"
+								modalComponent={<AboutModal />}
+							/>
+						</div>
 						<div className='login-btn-container'>
-						<OpenModalButton
-							buttonText="Log In"
-							// onItemClick={closeMenu}
-							modalComponent={<LoginFormModal />}
-						/>
+							<OpenModalButton
+								buttonText="Log In"
+								modalComponent={<LoginFormModal />}
+							/>
 						</div>
 						<div className='signup-btn-container'>
-						<OpenModalButton
-							buttonText="Sign Up"
-							// onItemClick={closeMenu}
-							modalComponent={<SignupFormModal />}
-						/>
+							<OpenModalButton
+								buttonText="Sign Up"
+								modalComponent={<SignupFormModal />}
+							/>
 						</div>
 					</div>
 				)}

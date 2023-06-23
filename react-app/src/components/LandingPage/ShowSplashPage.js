@@ -5,9 +5,16 @@ export default function ShowSplashPage() {
     return (
         <div className='splash-page-container'>
             <div className='center-container'>
+                <div className='main-word-section'>
                 <p className='page-words-top'>Get your next</p>
-                <p className='page-words-bottom'>weeknight dinner idea</p>
+                <span className='page-words-bottom'>weeknight dinner idea</span>
+                <span className='dot dot-1'>.</span>
+                <span className='dot dot-2'>.</span>
+                <span className='dot dot-3'>.</span>
+                </div>
 
+                
+                
             </div>
 
                 <div className='pics-container'>

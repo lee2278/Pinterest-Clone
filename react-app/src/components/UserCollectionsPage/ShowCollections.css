@@ -123,4 +123,9 @@ a {
     background-color: var(--pinterest-red);
     color:white;
     border-radius: 8px;
+    border: none;
+}
+
+#create-board-btn-container > button:hover {
+    background-color: #ad081b;
 }
