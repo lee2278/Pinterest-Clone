@@ -5,7 +5,7 @@ This is a full-stack clone of Pinterest with a focus on culinary ideas and recip
 Check out my site Common Interests [here](https://common-interests.onrender.com/)
 
 ![Alt text](image.png)
-![Alt text](image-3.png)
+![Alt text](image-2.png)
 
 
 ## Technologies Used
