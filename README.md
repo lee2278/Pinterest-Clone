@@ -92,3 +92,21 @@ Check out my site Common Interests [here](https://common-interests.onrender.com/
    - Users can search for pins and view their searches
 - Profile
    - Users can create and edit their profile 
+
+
+## Endpoints
+
+| Request | Purpose | Return Value|
+|---------|---------|-------------|
+|GET/api/pins| This fetch queries for all pins and returns them in a list of pin dictionaries | [{<br/>"id": INTEGER,<br/>"owner_id": INTEGER,<br/>"title": STRING, <br/> "description": STRING, <br/> "image_url": STRING <br/> }]|
+|POST/api/pins| This fetch creates a new pin and returns it as a dictionary | {<br/>"id": INTEGER,<br/>"owner_id": INTEGER,<br/>"title": STRING, <br/> "description": STRING, <br/> "image_url": STRING <br/> }|
+|GET/api/pins/:id| This fetch queries for a pin by id and returns that pin in a dictionary | {<br/>"id": INTEGER,<br/>"owner_id": INTEGER,<br/>"title": STRING, <br/> "description": STRING, <br/> "image_url": STRING <br/> }|
+|PUT/api/pins/:id| This fetch queries for a pin by id, updates it, and returns that pin in a dictionary | {<br/>"id": INTEGER,<br/>"owner_id": INTEGER,<br/>"title": STRING, <br/> "description": STRING, <br/> "image_url": STRING <br/> }|
+|DELETE/api/pins/:id| This fetch queries for a pin by id and deletes that pin | {"message" : "Successfully deleted"}|
+|PUT/api/pins/:id/add-board| This fetch queries for a pin by id and appends a board to that pin| {<br/>"id": INTEGER,<br/>"owner_id": INTEGER,<br/>"title": STRING, <br/> "description": STRING, <br/> "image_url": STRING, <br/> "boards" : [{<br/>"id": INTEGER, <br/> "name": STRING,<br/> "description": STRING }]   <br/> }|
+|GET/api/boards| This fetch queries for all boards and returns them in a list of board dictionaries | [{<br/>"id": INTEGER,<br/>"user_id": INTEGER,<br/>"name": STRING, <br/> "description": STRING, <br/>}]|
+|GET/api/boards/:id| This fetch queries for a board by id and returns that board in a dictionary | {<br/>"id": INTEGER,<br/>"user_id": INTEGER,<br/>"name": STRING, <br/> "description": STRING, <br/>}|
+|POST/api/boards/:id| This fetch creates a new board and returns it as a dictionary | {<br/>"id": INTEGER,<br/>"user_id": INTEGER,<br/>"name": STRING, <br/> "description": STRING, <br/>}|
+|PUT/api/boards/:id| This fetch queries for a board by id, updates it, and returns that board as a dictionary | {<br/>"id": INTEGER,<br/>"user_id": INTEGER,<br/>"name": STRING, <br/> "description": STRING, <br/>}|
+|DELETE/api/boards/:id| This fetch queries for a board by id and deletes that board | {"message" : "Successfully deleted"}|
+|DELETE/api/boards/:boardId/remove-pin/:pinId| This fetch queries for a board by id and removes a pin from that board | {"message" : "Successfully deleted"}|
