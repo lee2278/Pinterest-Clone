@@ -98,6 +98,13 @@ Check out my site Common Interests [here](https://common-interests.onrender.com/
 
 | Request | Purpose | Return Value|
 |---------|---------|-------------|
+|GET/api/auth| This fetch checks to see if a user is authenticated and if so returns the user as a dictionary. If not authenticated, it returns a dictionary with key of errors and a list value of Unauthorized  | {<br/>"id": INTEGER,<br/>"username": STRING,<br/>"email": STRING, <br/> "hashedPassword": STRING, <br/>} <br/> or <br/>{'errors': ['Unauthorized']}|
+|POST/api/auth/login| This fetch adds a user to the session so that user is logged in| {<br/>"id": INTEGER,<br/>"username": STRING,<br/>"email": STRING, <br/> "hashedPassword": STRING, <br/>}|
+|GET/api/auth/logout| This fetch removes a user from a session, logging the user out| {'message': 'User logged out'}|
+|POST/api/auth/signup| This fetch creates a new user and logs them in| {<br/>"id": INTEGER,<br/>"username": STRING,<br/>"email": STRING, <br/> "hashedPassword": STRING, <br/>}|
+|GET/api/auth/unauthorized| This fetch returns unauthorized JSON when flask-login authentication fails| {'errors': ['Unauthorized']}|
+|GET/api/users| This fetch queries for all users and returns them in a list of user dictionaries | [{<br/>"id": INTEGER,<br/>"username": STRING,<br/>"email": STRING, <br/> "hashedPassword": STRING, <br/>}]|
+|GET/api/users/:id| This fetch queries for a user by id and returns that user in a dictionary | {<br/>"id": INTEGER,<br/>"username": STRING,<br/>"email": STRING, <br/> "hashedPassword": STRING, <br/>}|
 |GET/api/pins| This fetch queries for all pins and returns them in a list of pin dictionaries | [{<br/>"id": INTEGER,<br/>"owner_id": INTEGER,<br/>"title": STRING, <br/> "description": STRING, <br/> "image_url": STRING <br/> }]|
 |POST/api/pins| This fetch creates a new pin and returns it as a dictionary | {<br/>"id": INTEGER,<br/>"owner_id": INTEGER,<br/>"title": STRING, <br/> "description": STRING, <br/> "image_url": STRING <br/> }|
 |GET/api/pins/:id| This fetch queries for a pin by id and returns that pin in a dictionary | {<br/>"id": INTEGER,<br/>"owner_id": INTEGER,<br/>"title": STRING, <br/> "description": STRING, <br/> "image_url": STRING <br/> }|
