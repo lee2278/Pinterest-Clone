@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getPinDetailsThunk, updatePinWithBoardsThunk } from '../../store/pins';
 import { getBoardsThunk, createBoardThunk } from '../../store/boards';
+import { createSaveThunk } from '../../store/saves';
 import "./ShowPinDetails.css"
 
 export default function ShowPinDetails() {
@@ -26,9 +27,14 @@ export default function ShowPinDetails() {
         boards: boardId
     }
 
-    const pinToSave = {
-        ...pin
+    const newSave = {
+        user_id: sessionUser.id,
+        pin_id: pin.id
     }
+
+    console.log('user_id', sessionUser.id)
+    console.log('pin_id', pin.id)
+
 
     useEffect(() => {
         dispatch(getPinDetailsThunk(pinId))
@@ -57,22 +63,23 @@ export default function ShowPinDetails() {
         //     return
         // }
 
-        if (!boardId && !sessionUser.saves.includes(pinToSave)) {
-            sessionUser.saves.push(pinToSave)
-            setSuccesfulSave(true)
-        } else if (!sessionUser.saves.include(pinToUpdate)) {
-            sessionUser.saves.push(pinToUpdate)
-            await dispatch(updatePinWithBoardsThunk(pinToUpdate))
-            dispatch(getPinDetailsThunk(pinId))
-            setSuccesfulSave(true)
+        if (!boardId) {
+            dispatch(createSaveThunk(newSave))
         } else {
+
             await dispatch(updatePinWithBoardsThunk(pinToUpdate))
             dispatch(getPinDetailsThunk(pinId))
             setSuccesfulSave(true)
+
         }
 
     }
 
+    const handleSave2 = async (e) => {
+        e.preventDefault()
+
+        dispatch(createSaveThunk(newSave))
+    }
 
 
     return (
@@ -101,6 +108,10 @@ export default function ShowPinDetails() {
                         </form>
                         <h1 id='pin-title-h1'>{pin.title}</h1>
                         <p id='pin-description-ptag'>{pin.description}</p>
+
+                        <form>
+                            <button onClick={handleSave2}>Test</button>
+                        </form>
                     </div>
                 </div>
             </div>

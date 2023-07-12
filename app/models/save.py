@@ -10,7 +10,7 @@ class Save(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod("users.id")), nullable=False)
     pin_id = db.Column(db.Integer, db.ForeignKey(
-        add_prefix_for_prod("pin.id")), nullable=False)
+        add_prefix_for_prod("pins.id")), nullable=False)
 
     #relationships
     user = db.relationship("User", back_populates="saves")
