@@ -2,23 +2,49 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getPinsThunk } from '../../store/pins';
+import { createBoardThunk } from "../../store/boards";
+
+
 import Masonry from 'react-masonry-css'
 import "./ShowPins.css"
 
 
+
+
+
+
 export default function ShowPins() {
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user)
+
+
     const pinsObj = useSelector(state => state.pins.allPins)
 
     const pinsList = Object.values(pinsObj)
 
+    const boardsObj = useSelector(state => state.boards.allBoards)
+    const boardsList = Object.values(boardsObj)
+
+    const savesBoard = {
+        name: "Saved Pins",
+        description: "Here are all your saved pins",
+        user_id: sessionUser.id
+    }
+
+    
     useEffect(() => {
         dispatch(getPinsThunk())
     }, [dispatch])
-
-   const randomedArray = pinsList.sort((a,b) =>Math.random() - Math.random())
-
-
+    
+    const randomedArray = pinsList.sort((a,b) =>Math.random() - Math.random())
+    
+    
+    // const checkIfSavesExist =() => {
+    //     for (let board of boardsList) {
+    //         if (board.name === 'Saved Pins') return true
+    //     }
+    //     return false
+    // }
 
     // ORIGINAL
     // return (
@@ -38,7 +64,11 @@ export default function ShowPins() {
     // )
 
 
-   
+    // console.log(checkIfSavesExist())
+
+    // if (checkIfSavesExist() === false) {
+    //      dispatch(createBoardThunk(savesBoard))
+    // }
  
     return (
         <div className='everything-wrapper'>

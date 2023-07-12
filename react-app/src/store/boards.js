@@ -153,6 +153,7 @@ export default function boardsReducer(state = initialState, action) {
                     newState.allBoards[board.id] = board
                 })
             }
+
             return newState;
         }
         case GET_BOARD_DETAILS: {
