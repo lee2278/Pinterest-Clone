@@ -2,7 +2,7 @@ import { useParams, useHistory } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getPinDetailsThunk, updatePinWithBoardsThunk } from '../../store/pins';
-import { getBoardsThunk, createBoardThunk } from '../../store/boards';
+import { getBoardsThunk } from '../../store/boards';
 import { createSaveThunk } from '../../store/saves';
 import "./ShowPinDetails.css"
 
@@ -19,7 +19,7 @@ export default function ShowPinDetails() {
     const boardsList = Object.values(boardsObj)
 
     const [boardId, setBoardId] = useState(null)
-    const [succesfulSave, setSuccesfulSave] = useState(false)
+    const [successfulSave, setSuccessfulSave] = useState(false)
     const [errors, setErrors] = useState({})
 
     const pinToUpdate = {
@@ -32,8 +32,6 @@ export default function ShowPinDetails() {
         pin_id: pin.id
     }
 
-    console.log('user_id', sessionUser.id)
-    console.log('pin_id', pin.id)
 
 
     useEffect(() => {
@@ -65,21 +63,17 @@ export default function ShowPinDetails() {
 
         if (!boardId) {
             dispatch(createSaveThunk(newSave))
+            setSuccessfulSave(true)
         } else {
 
             await dispatch(updatePinWithBoardsThunk(pinToUpdate))
             dispatch(getPinDetailsThunk(pinId))
-            setSuccesfulSave(true)
+            setSuccessfulSave(true)
 
         }
 
     }
 
-    const handleSave2 = async (e) => {
-        e.preventDefault()
-
-        dispatch(createSaveThunk(newSave))
-    }
 
 
     return (
@@ -97,21 +91,18 @@ export default function ShowPinDetails() {
                     <div className='right-text-section'>
                         {errors.boardId && <p className='none-chosen-error'>{errors.boardId}</p>}
                         <form id='select-board-form'>
-                            <select id='select-board-select' onChange={(e) => setBoardId(e.target.value)} onClick={(e) => setSuccesfulSave(false)} defaultValue="">
+                            <select id='select-board-select' onChange={(e) => setBoardId(e.target.value)} onClick={(e) => setSuccessfulSave(false)} defaultValue="">
                                 <option value="" disabled hidden>Choose Board</option>
                                 {boardsList.map((board) => (
                                     <option key={board.id} value={board.id}>{board.name}</option>
                                 ))}
                             </select>
                             <button id='save-pin-btn' onClick={handleSave}>Save</button>
-                            {succesfulSave && <p id='saved-ptag'>Saved!</p>}
+                            {successfulSave && <p id='saved-ptag'>Saved!</p>}
                         </form>
                         <h1 id='pin-title-h1'>{pin.title}</h1>
                         <p id='pin-description-ptag'>{pin.description}</p>
 
-                        <form>
-                            <button onClick={handleSave2}>Test</button>
-                        </form>
                     </div>
                 </div>
             </div>

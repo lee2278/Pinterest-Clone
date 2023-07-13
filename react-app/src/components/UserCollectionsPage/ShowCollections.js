@@ -18,7 +18,7 @@ export default function ShowCollections() {
     // const pinsObj = useSelector(state => state.pins.allPins)
     // const pinsList = Object.values(pinsObj)
 
-  
+
 
     useEffect(() => {
         dispatch(getBoardsThunk())
@@ -31,15 +31,15 @@ export default function ShowCollections() {
         <div className='everything-wrapper'>
 
             <div className='center'>
-            <Link id='created-pins-link' to={`/${sessionUser.username}/created`}>Created Pins</Link>
-            <span>|</span>
-            <p id='boards-ptag'>Boards</p>
+                <Link id='created-pins-link' to={`/${sessionUser.username}/created`}>Created Pins</Link>
+                <span>|</span>
+                <p id='boards-ptag'>Boards</p>
             </div>
             <div id='create-board-btn-container'>
-            <OpenModalButton
-                buttonText="Create a New Board"
-                modalComponent={<CreateBoardModal />}
-            />
+                <OpenModalButton
+                    buttonText="Create a New Board"
+                    modalComponent={<CreateBoardModal />}
+                />
             </div>
             <div className='container-for-boards'>
                 {boardsList.map((board) => (
@@ -57,6 +57,11 @@ export default function ShowCollections() {
                         </div>
                     </div>
                 ))}
+                <Link to={`/${sessionUser.username}/saved`}>
+                    <div className='saved-stuff'>
+
+                    </div>
+                </Link>
             </div>
 
         </div>
