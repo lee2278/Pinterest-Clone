@@ -10,8 +10,6 @@ import "./ShowSavedPins.css"
 export default function ShowSavedPins() {
     const dispatch = useDispatch();
 
-    const sessionUser = useSelector(state => state.session.user);
-
     const pinsObj = useSelector(state => state.pins.allPins)
     const pinsList = Object.values(pinsObj)
 

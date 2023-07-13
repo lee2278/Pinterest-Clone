@@ -1,50 +1,43 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getPinsThunk } from '../../store/pins';
-import { createBoardThunk } from "../../store/boards";
-
+import { createSaveThunk } from '../../store/saves';
+import { getSavesThunk } from '../../store/saves';
 
 import Masonry from 'react-masonry-css'
 import "./ShowPins.css"
 
 
-
-
-
-
 export default function ShowPins() {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user)
-
 
     const pinsObj = useSelector(state => state.pins.allPins)
-
     const pinsList = Object.values(pinsObj)
 
-    const boardsObj = useSelector(state => state.boards.allBoards)
-    const boardsList = Object.values(boardsObj)
+    const sessionUser = useSelector(state => state.session.user);
 
-    const savesBoard = {
-        name: "Saved Pins",
-        description: "Here are all your saved pins",
-        user_id: sessionUser.id
-    }
+    const savesObj = useSelector(state => state.saves.allSaves)
+    const savesList = Object.values(savesObj)
 
-    
     useEffect(() => {
         dispatch(getPinsThunk())
     }, [dispatch])
-    
-    const randomedArray = pinsList.sort((a,b) =>Math.random() - Math.random())
-    
-    
-    // const checkIfSavesExist =() => {
-    //     for (let board of boardsList) {
-    //         if (board.name === 'Saved Pins') return true
-    //     }
-    //     return false
-    // }
+
+    useEffect(() => {
+        dispatch(getSavesThunk())
+    }, [dispatch])
+
+    const arrayOfPinIds = [];
+    for (let i = 0; i < savesList.length; i++) {
+        arrayOfPinIds.push(savesList[i].pin_id)
+    }
+
+    const randomedArray = pinsList.sort((a, b) => Math.random() - Math.random())
+
+
+   
+
 
     // ORIGINAL
     // return (
@@ -63,25 +56,42 @@ export default function ShowPins() {
     //     </div>
     // )
 
+    const savePin = async (pinId) => {
 
-    // console.log(checkIfSavesExist())
+        const newSave = {
+            user_id: sessionUser.id,
+            pin_id: pinId
+        }
+        
+        await dispatch(createSaveThunk(newSave))
 
-    // if (checkIfSavesExist() === false) {
-    //      dispatch(createBoardThunk(savesBoard))
-    // }
- 
+    }
+
+
+
+
     return (
         <div className='everything-wrapper'>
             <Masonry
-              breakpointCols={6}
-              className="my-masonry-grid"
-              columnClassName="my-masonry-grid_column"
+                breakpointCols={6}
+                className="my-masonry-grid"
+                columnClassName="my-masonry-grid_column"
             >
                 {randomedArray.map((pin) => (
-                    <div key={pin.id} >
+                    <div key={pin.id} className='pin-card-frontpage'>
+
+                        <div className='saving-btn-wrapper'>
+                            {arrayOfPinIds.includes(pin.id) ? (
+                                <button disabled id='saving-btn2' 
+                                >Saved</button>)
+                                : (<button id='saving-btn' onClick={() => savePin(pin.id)}
+                                >Save</button>)}
+     
+                        </div>
+
                         <Link id='pin-card-link' to={`/pins/${pin.id}`}>
                             <div className='card'>
-                                <img id='pin-image' src={pin.image_url} alt='food'/>
+                                <img id='pin-image' src={pin.image_url} alt='food' />
                             </div>
                         </Link>
                     </div>
