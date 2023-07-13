@@ -39,3 +39,16 @@ def create_save():
 
         return new_save.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
+@save_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_save(id):
+    """
+    Query for a save by id and deletes save
+    """
+
+    save = Save.query.get(id)
+    db.session.delete(save)
+    db.session.commit()
+    return {"message": "Successfully deleted"}

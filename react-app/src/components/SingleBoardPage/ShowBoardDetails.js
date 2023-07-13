@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom"
+ import { useParams, Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { deletePinsFromBoardThunk, getBoardsThunk } from "../../store/boards";

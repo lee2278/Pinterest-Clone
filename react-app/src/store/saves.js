@@ -1,7 +1,6 @@
 // ACTION CONSTANTS
 const GET_SAVES = "saves/GET_SAVES"
 const CREATE_SAVE = "saves/CREATE_SAVE"
-const EDIT_SAVE = "saves/EDIT_SAVE"
 const DELETE_SAVE = "saves/DELETE_SAVE"
 const CLEAR_SAVES = "saves/CLEAR_SAVES"
 
@@ -16,10 +15,7 @@ const createSave= (save) => ({
     type: CREATE_SAVE,
     save
 })
-const editSave = (save) => ({
-    type: EDIT_SAVE,
-    save
-})
+
 
 const deleteSave = (saveId) => ({
     type: DELETE_SAVE,
@@ -66,25 +62,7 @@ export const createSaveThunk = (save) => async (dispatch) => {
     }
 }
 
-export const editSaveThunk = (save) => async (dispatch) => {
-    const response = await fetch(`/api/saves/${save.id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(save)
-    })
 
-    if (response.ok) {
-        // console.log('edit a save response ok')
-        const updateSave = await response.json()
-        dispatch(editSave(updateSave))
-        return updateSave
-    } else {
-        // console.log('edit a save response NOT OK')
-        const errors = await response.json()
-        return errors
-    }
-    
-}
 
 export const deleteSaveThunk = (saveId) => async (dispatch) => {
     const response = await fetch(`/api/saves/${saveId}`, {
@@ -121,11 +99,6 @@ export default function savesReducer(state = initialState, action) {
         case CREATE_SAVE: {
             const newState = {...state, allSaves: {...state.allSaves}}
             newState.allSaves[action.save.id] = action.save
-            return newState
-        }
-        case EDIT_SAVE: {
-            const newState = { ...state }
-            newState.singleSave = action.save
             return newState
         }
         case DELETE_SAVE: {
