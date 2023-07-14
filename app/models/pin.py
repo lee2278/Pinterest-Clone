@@ -18,7 +18,7 @@ class Pin(db.Model):
     owner = db.relationship("User", back_populates="pins")
     boards = db.relationship("Board", secondary=board_pins, back_populates="pins") 
     saves = db.relationship("Save", back_populates="pins")
-
+    comments = db.relationship("Comment", back_populates="pins")
 
     def to_dict(self):
         # boards = {}
