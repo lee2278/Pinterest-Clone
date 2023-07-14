@@ -137,9 +137,57 @@ a {
     flex-direction: column;
     justify-content: space-between;
     width:234px;
-    border:2px solid green;
+    /* border:2px solid green; */
 }
 .saved-card-link {
-    border:5px solid green;
+    border: 1px solid gray;
+
+    border-radius: 16px;
+
     height: 187px;
+    position: relative;
+    overflow:hidden;
+
+}
+
+.saveImageDiv {
+    width:55%;
+    border:none;
+    border-radius:16px;
+}
+
+.saveImageDiv {
+    height:187px;
+    position: absolute;
+}
+
+.img-4 {
+    right:0;
+    background-color: lightblue;
+    border:none;
+}
+.img-3 {
+    right:15%;
+    background-color: lightcoral;
+    z-index:1;
+    border:none;
+    border-right: 1px solid white;
+
+}
+.img-2 {
+    right:30%;
+    background-color: lightgoldenrodyellow;
+    z-index:2;
+    border:none;
+    border-right: 1px solid white;
+
+}
+
+.img-1 {
+    left: 0%;
+    background-color: lightskyblue;
+    z-index:4;
+    border:none;
+    border-right: 1px solid white;
+
 }
