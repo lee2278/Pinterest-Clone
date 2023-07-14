@@ -13,7 +13,7 @@ import ShowCreatedPins from "./components/ManageMyPins/ShowCreatedPins";
 import ShowCollections from "./components/UserCollectionsPage/ShowCollections";
 import EditCreatedPins from "./components/ManageMyPins/EditCreatedPins";
 import ShowBoardDetails from "./components/SingleBoardPage/ShowBoardDetails";
-
+import ShowSavedPins from "./components/ManageMySaves/ShowSavedPins";
 
 function App() {
   const dispatch = useDispatch();
@@ -53,6 +53,10 @@ function App() {
           <Route path={`/${sessionUser?.username}/created`}>
             <ShowCreatedPins/>
           </Route>
+          <Route path={`/${sessionUser?.username}/saved`}>
+            <ShowSavedPins/>
+          </Route>
+
           <Route exact path={`/${sessionUser?.username}/boards/:boardId`}>
             <ShowBoardDetails/>
           </Route>
