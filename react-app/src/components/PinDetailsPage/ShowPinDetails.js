@@ -121,41 +121,47 @@ export default function ShowPinDetails() {
                         </div>
                     </div>
                     <div className='right-text-section'>
+                        <div className='right-side-above-comments'>
+                            <form id='select-board-form'>
+                                <select id='select-board-select' onChange={(e) => setBoardId(e.target.value)} onClick={(e) => setSuccessfulSave(false)} defaultValue="">
+                                    <option value="" disabled hidden>Choose Board</option>
+                                    {boardsList.map((board) => (
+                                        <option key={board.id} value={board.id}>{board.name}</option>
+                                    ))}
+                                </select>
+                                <button id='save-pin-btn' onClick={handleSave}>Save</button>
+                                {successfulSave && <p id='saved-ptag'>Saved!</p>}
+                            </form>
+                            <h1 id='pin-title-h1'>{pin.title}</h1>
+                            <p id='pin-description-ptag'>{pin.description}</p>
 
-                        <form id='select-board-form'>
-                            <select id='select-board-select' onChange={(e) => setBoardId(e.target.value)} onClick={(e) => setSuccessfulSave(false)} defaultValue="">
-                                <option value="" disabled hidden>Choose Board</option>
-                                {boardsList.map((board) => (
-                                    <option key={board.id} value={board.id}>{board.name}</option>
-                                ))}
-                            </select>
-                            <button id='save-pin-btn' onClick={handleSave}>Save</button>
-                            {successfulSave && <p id='saved-ptag'>Saved!</p>}
-                        </form>
-                        <h1 id='pin-title-h1'>{pin.title}</h1>
-                        <p id='pin-description-ptag'>{pin.description}</p>
+                            <h3 id='comments-h3'>Comments</h3>
+                            {filteredCommentsByPinId.map((comment) => (
+                                <div key={comment.id} className='comment-container'>
+                                    <p id='username-ptag'>{comment.username}</p>
+                                    <p id='comment-ptag'>{comment.comment}</p>
+                                </div>
+                            ))}
 
-                        <h3>Comments</h3>
-                        {filteredCommentsByPinId.map((comment) => (
-                            <div key={comment.id} className='comment-container'>
-                                <p id='username-ptag'>{comment.username}</p>
-                                <p id='comment-ptag'>{comment.comment}</p>
-                            </div>
-                        ))}
-                        <div className='num-comments-and-errors-section'>
 
-                            <p id='num-comments-ptag'>{`${filteredCommentsByPinId.length} Comments`}</p>
-                            {errors.comment && <p className='empty-comment-error'>{errors.comment}</p>}
                         </div>
-                        <form id='make-comment-section'>
-                            <textarea id='comment-writing-textarea'
-                                placeholder='Add a comment'
-                                onChange={(e) => setComment(e.target.value)}
-                                value={comment.trimStart()}
-                            >
-                            </textarea>
-                            <button id='post-comment-btn' onClick={handlePostComment}><i class="fa-solid fa-paper-plane"></i></button>
-                        </form>
+                        <div className='bottom-comment-area'>
+                            <div className='num-comments-and-errors-section'>
+
+                                <p id='num-comments-ptag'>{`${filteredCommentsByPinId.length} Comments`}</p>
+                                {errors.comment && <p className='empty-comment-error'>{errors.comment}</p>}
+                            </div>
+                            <form id='make-comment-section'>
+                                <textarea id='comment-writing-textarea'
+                                    placeholder='Add a comment'
+                                    onChange={(e) => setComment(e.target.value)}
+                                    value={comment.trimStart()}
+                                >
+                                </textarea>
+                                <button id='post-comment-btn' onClick={handlePostComment}><i class="fa-solid fa-paper-plane"></i></button>
+                            </form>
+
+                        </div>
                     </div>
                 </div>
             </div>
