@@ -5,7 +5,7 @@ import { getPinDetailsThunk, updatePinWithBoardsThunk } from '../../store/pins';
 import { getBoardsThunk } from '../../store/boards';
 import { createSaveThunk } from '../../store/saves';
 import "./ShowPinDetails.css"
-import { createCommentThunk, getCommentsThunk } from '../../store/comments';
+import { createCommentThunk, deleteCommentThunk, getCommentsThunk } from '../../store/comments';
 
 
 export default function ShowPinDetails() {
@@ -50,6 +50,7 @@ export default function ShowPinDetails() {
         pin_id: pin.id,
         comment
     }
+
 
 
     useEffect(() => {
@@ -105,7 +106,17 @@ export default function ShowPinDetails() {
         setComment('')
     }
 
+    const handleEditComment = (commentId) => {
+        const commentToEdit = {
 
+        }
+
+
+    }
+
+    const handleDeleteComment = (commentId) => {
+        dispatch(deleteCommentThunk(commentId))
+    }
 
 
     return (
@@ -137,10 +148,13 @@ export default function ShowPinDetails() {
 
                             <h3 id='comments-h3'>Comments</h3>
                             {filteredCommentsByPinId.map((comment) => (
+                                <>
                                 <div key={comment.id} className='comment-container'>
                                     <p id='username-ptag'>{comment.username}</p>
                                     <p id='comment-ptag'>{comment.comment}</p>
                                 </div>
+                                {comment.user_id === sessionUser.id && <><button id='edit-comment-btn'>Edit</button><button id='delete-comment-btn' onClick={() => handleDeleteComment(comment.id)}>Delete</button></>}
+                                </>
                             ))}
 
 

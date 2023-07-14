@@ -77,6 +77,42 @@ export const createCommentThunk = (comment) => async (dispatch) => {
 }
 
 
+export const editCommentThunk = (comment) => async (dispatch) => {
+    const response = await fetch(`/api/comments/${comment.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(comment)
+    })
+
+    if (response.ok) {
+        // console.log('edit a comment response ok')
+        const updateComment = await response.json()
+        dispatch(editComment(updateComment))
+        return updateComment
+    } else {
+        // console.log('edit a comment response NOT OK')
+        const errors = await response.json()
+        return errors
+    }
+    
+}
+
+
+export const deleteCommentThunk = (commentId) => async (dispatch) => {
+    const response = await fetch(`/api/comments/${commentId}`, {
+        method: "DELETE"
+    })
+
+    if (response.ok) {
+        // console.log('delete comment response ok')
+        dispatch(deleteComment(commentId))
+    } else {
+        // console.log('delete comment response NOT OK')
+        const errors = await response.json()
+        return errors
+    }
+}
+
 // REDUCER
 
 const initialState = { allComments: {}, singleComment: {} };
@@ -90,8 +126,20 @@ export default function commentsReducer(state = initialState, action) {
                     newState.allComments[comment.id] = comment
                 })
             }
-
             return newState;
+        }
+        case EDIT_COMMENT: {
+            const newState = { ...state }
+            newState.singleComment= action.singleComment
+            return newState
+        }
+        case DELETE_COMMENT: {
+            const newState = { ...state, allComments: { ...state.allComments }}
+            delete newState.allComments[action.commentId]
+            return newState
+        }
+        case CLEAR_COMMENTS: {
+            return { allComments: {} }
         }
         default:
             return state

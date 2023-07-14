@@ -41,3 +41,44 @@ def post_comment():
 
         return new_comment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
+@comment_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def update_comment(id):
+    """
+    Updates an existing comment and returns it as a dictionary
+    """
+
+    comment = Comment.query.get(id)
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+
+    if form.validate_on_submit():
+        data = form.data
+
+        if data['user_id']:
+            comment.user_id = data['user_id']
+        if data['pin_id']:
+            comment.pin_id = data['pin_id']
+        if data['comment']:
+            comment.comment = data['comment']
+
+        db.session.commit()
+        return comment.to_dict()
+    
+    return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
+@comment_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_comment(id):
+    """
+    Query for a comment by id and deletes comment
+    """
+
+    comment = Comment.query.get(id)
+    db.session.delete(comment)
+    db.session.commit()
+    return {"message": "Successfully deleted"}
