@@ -17,6 +17,7 @@ class User(db.Model, UserMixin):
     #relationships
     pins = db.relationship("Pin", back_populates="owner", cascade="all, delete-orphan")
     boards = db.relationship("Board", back_populates="user", cascade="all, delete-orphan")
+    saves = db.relationship("Save", back_populates="user", cascade="all, delete-orphan")
 
     @property
     def password(self):
@@ -34,6 +35,6 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'boards': [board.to_dict() for board in self.boards]
-
+            'boards': [board.to_dict() for board in self.boards],
+            'saves': [save.to_dict() for save in self.saves]
         }

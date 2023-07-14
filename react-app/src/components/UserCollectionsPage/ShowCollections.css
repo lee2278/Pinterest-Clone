@@ -129,3 +129,10 @@ a {
 #create-board-btn-container > button:hover {
     background-color: #ad081b;
 }
+
+
+.saved-stuff {
+    border:2px solid green;
+    height: 220px;
+    width: 234px
+}

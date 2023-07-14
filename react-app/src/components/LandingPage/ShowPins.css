@@ -14,9 +14,9 @@
 }
 
 #pin-image{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card:hover {
@@ -42,3 +42,41 @@
 
     margin-bottom: 10px;
   }
+
+  .saving-btn-wrapper{
+    position: relative;
+  }
+
+  #saving-btn2 {
+    position:absolute;
+    z-index:2;
+    right:0%;
+    background-color: black;
+    border: 0;
+    color: white;
+    opacity: 0;
+    padding: 0.5rem;
+    border-radius: 30px;
+  
+  }
+
+
+#saving-btn {
+  position:absolute;
+  z-index:2;
+  right:0%;
+  background-color: var(--pinterest-red);
+  border: 0;
+  color: white;
+  opacity: 0;
+  padding: 0.5rem;
+  border-radius: 30px;
+
+}
+
+
+
+.pin-card-frontpage:hover #saving-btn,
+.pin-card-frontpage:hover #saving-btn2 {
+  opacity: 1;
+}
