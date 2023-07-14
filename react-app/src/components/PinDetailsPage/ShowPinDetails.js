@@ -5,6 +5,8 @@ import { getPinDetailsThunk, updatePinWithBoardsThunk } from '../../store/pins';
 import { getBoardsThunk } from '../../store/boards';
 import { createSaveThunk } from '../../store/saves';
 import "./ShowPinDetails.css"
+import { createCommentThunk, getCommentsThunk } from '../../store/comments';
+import { getUsersThunk } from '../../store/users';
 
 export default function ShowPinDetails() {
     const { pinId } = useParams()
@@ -15,12 +17,22 @@ export default function ShowPinDetails() {
     const pin = useSelector(state => state.pins.singlePin)
 
     const sessionUser = useSelector(state => state.session.user);
+    const usersObj = useSelector(state => state.users.allUsers);
+    const usersList = Object.values(usersObj)
+
+
     const boardsObj = useSelector(state => state.boards.allBoards)
     const boardsList = Object.values(boardsObj)
+
+    const commentsObj = useSelector(state => state.comments.allComments)
+    const commentsList = Object.values(commentsObj)
 
     const [boardId, setBoardId] = useState(null)
     const [successfulSave, setSuccessfulSave] = useState(false)
     const [errors, setErrors] = useState({})
+    const [comment, setComment] = useState('')
+
+
 
     const pinToUpdate = {
         ...pin,
@@ -33,10 +45,20 @@ export default function ShowPinDetails() {
     }
 
 
+    const newComment = {
+        user_id: sessionUser.id,
+        pin_id: pin.id,
+        comment
+    }
+
+
+
 
     useEffect(() => {
         dispatch(getPinDetailsThunk(pinId))
         dispatch(getBoardsThunk())
+        dispatch(getCommentsThunk())
+        dispatch(getUsersThunk())
     }, [dispatch, pinId])
 
 
@@ -76,6 +98,28 @@ export default function ShowPinDetails() {
     }
 
 
+    const handlePostComment = async(e) => {
+        e.preventDefault()
+        await dispatch(createCommentThunk(newComment))
+        dispatch(getCommentsThunk())
+        setComment('')
+    }
+
+    let commentedPersonUsername = ''
+
+    // const findWhoCommented = (commentUserId)  => {
+    //     commentedPerson = usersList.find(user => user.id === commentUserId)
+    //     commentedPersonUsername = commentedPerson.username
+    // }
+
+    // const handlePostComment = (commentUserId) => {
+    //     commentedPerson = usersList.find(user => user.id === commentUserId)
+    //     commentedPersonUsername = commentedPerson.username
+
+    //     dispatch(createCommentThunk(newComment))
+    //     dispatch(getCommentsThunk())
+    //     setComment('')
+    // }
 
     return (
         <>
@@ -104,6 +148,22 @@ export default function ShowPinDetails() {
                         <h1 id='pin-title-h1'>{pin.title}</h1>
                         <p id='pin-description-ptag'>{pin.description}</p>
 
+                        <h3>Comments</h3>  
+                        {commentsList.map((comment) => (
+                            <div key={comment.id}>
+                                <span>User make dynamic{comment.user_id}</span>
+                                <p>{comment.comment}</p>
+                            </div>
+                        ))}   
+                        <form id='make-comment-section'>
+                            <textarea id='comment-writing-textarea'
+                            placeholder='Add a comment'
+                            value={comment}
+                            onChange={(e) => setComment(e.target.value)}
+                            >
+                            </textarea>
+                            <button onClick={handlePostComment}>Post</button>
+                        </form>
                     </div>
                 </div>
             </div>
