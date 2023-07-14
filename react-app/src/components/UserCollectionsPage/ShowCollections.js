@@ -5,6 +5,7 @@ import { getBoardsThunk } from "../../store/boards";
 import { getPinsThunk } from "../../store/pins";
 import OpenModalButton from "../OpenModalButton";
 import CreateBoardModal from "./CreateBoardModal";
+import { getSavesThunk } from "../../store/saves";
 import "./ShowCollections.css"
 
 export default function ShowCollections() {
@@ -15,14 +16,29 @@ export default function ShowCollections() {
 
     const sessionUser = useSelector(state => state.session.user);
 
-    // const pinsObj = useSelector(state => state.pins.allPins)
-    // const pinsList = Object.values(pinsObj)
+    const pinsObj = useSelector(state => state.pins.allPins)
+    const pinsList = Object.values(pinsObj)
 
+    const savedPinsList = [];
+    const arrayOfPinIds = [];
 
+    const savesObj = useSelector(state => state.saves.allSaves)
+    const savesList = Object.values(savesObj)
+
+    for (let i = 0; i < savesList.length; i++) {
+        arrayOfPinIds.push(savesList[i].pin_id)
+    }
+    
+    for (let pin of pinsList) {
+        if (arrayOfPinIds.includes(pin.id)) {
+            savedPinsList.push(pin)
+        }
+    }
 
     useEffect(() => {
         dispatch(getBoardsThunk())
         dispatch(getPinsThunk())
+        dispatch(getSavesThunk())
     }, [dispatch])
 
     // console.log('boardsList', boardsList)
@@ -43,14 +59,18 @@ export default function ShowCollections() {
             </div>
             <div className='container-for-boards'>
                 <div className='saved-card'>
-                <Link className='saved-card-link' to={`/${sessionUser.username}/saved`}>
-                    <div className='saved-images'>
+                    <Link className='saved-card-link' to={`/${sessionUser.username}/saved`}>
+                        <div className='saved-images'>
+                            <img className='saveImageDiv img-1'src={savedPinsList[0]?.image_url}/>
+                            <img className='saveImageDiv img-2'src={savedPinsList[1]?.image_url}/>
+                            <img className='saveImageDiv img-3'src={savedPinsList[2]?.image_url}/>
+                            <img className='saveImageDiv img-4'src={savedPinsList[3]?.image_url}/>
 
+                        </div>
+                    </Link>
+                    <div className='text-section'>
+                        <p className='saved-ptag'>Saved Pins</p>
                     </div>
-                </Link>
-                <div className='text-section'>
-                    <p className='saved-ptag'>Saved Pins</p>
-                </div>
                 </div>
                 {boardsList.map((board) => (
                     <div key={board.id} className='board-card'>
