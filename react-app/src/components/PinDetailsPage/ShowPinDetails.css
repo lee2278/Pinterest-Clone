@@ -100,12 +100,22 @@
 
 
 #make-comment-section{
-  border:2px solid green;
+  border:1px solid gray;
   display:flex;
+  border-radius: 20px;
+  overflow: hidden;
+
 }
 
 #comment-writing-textarea{
   width:90%;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  border: none;
+}
+
+#comment-writing-textarea:focus{
+  outline: none;
 }
 
 #num-comments-ptag{
@@ -113,4 +123,14 @@
   padding-top: 5px;
   font-weight: 500;
 
+}
+#post-comment-btn{
+  border:none;
+  background-color: var(--pinterest-red);
+  color:white;
+  width:10%;
+}
+
+.fa-paper-plane {
+  transform: rotate(20deg);
 }

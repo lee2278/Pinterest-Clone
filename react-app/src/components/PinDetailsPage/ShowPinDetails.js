@@ -86,7 +86,7 @@ export default function ShowPinDetails() {
     }
 
 
-    const handlePostComment = async(e) => {
+    const handlePostComment = async (e) => {
         e.preventDefault()
 
         setErrors({})
@@ -135,26 +135,26 @@ export default function ShowPinDetails() {
                         <h1 id='pin-title-h1'>{pin.title}</h1>
                         <p id='pin-description-ptag'>{pin.description}</p>
 
-                        <h3>Comments</h3>  
+                        <h3>Comments</h3>
                         {filteredCommentsByPinId.map((comment) => (
                             <div key={comment.id} className='comment-container'>
                                 <p id='username-ptag'>{comment.username}</p>
                                 <p id='comment-ptag'>{comment.comment}</p>
                             </div>
-                        ))}   
-                            <div className='num-comments-and-errors-section'>
+                        ))}
+                        <div className='num-comments-and-errors-section'>
 
                             <p id='num-comments-ptag'>{`${filteredCommentsByPinId.length} Comments`}</p>
                             {errors.comment && <p className='empty-comment-error'>{errors.comment}</p>}
-                            </div>
+                        </div>
                         <form id='make-comment-section'>
                             <textarea id='comment-writing-textarea'
-                            placeholder='Add a comment'
-                            value={comment}
-                            onChange={(e) => setComment(e.target.value.trim())}
+                                placeholder='Add a comment'
+                                onChange={(e) => setComment(e.target.value)}
+                                value={comment.trimStart()}
                             >
                             </textarea>
-                            <button onClick={handlePostComment}>Post</button>
+                            <button id='post-comment-btn' onClick={handlePostComment}><i class="fa-solid fa-paper-plane"></i></button>
                         </form>
                     </div>
                 </div>
