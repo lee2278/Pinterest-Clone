@@ -4,12 +4,14 @@ import session from './session'
 import pinsReducer from './pins'
 import boardsReducer from './boards'
 import savesReducer from './saves';
+import commentsReducer from './comments';
 
 const rootReducer = combineReducers({
   session,
   pins: pinsReducer,
   boards: boardsReducer,
-  saves: savesReducer
+  saves: savesReducer,
+  comments: commentsReducer
 });
 
 
