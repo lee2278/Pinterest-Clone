@@ -98,7 +98,7 @@ a {
 }
 
 
-.board-name-ptag {
+.board-name-ptag, .saved-ptag {
     font-weight: bold;
 }
 
@@ -131,8 +131,15 @@ a {
 }
 
 
-.saved-stuff {
-    border:2px solid green;
+.saved-card {
     height: 220px;
-    width: 234px
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:234px;
+    border:2px solid green;
+}
+.saved-card-link {
+    border:5px solid green;
+    height: 187px;
 }

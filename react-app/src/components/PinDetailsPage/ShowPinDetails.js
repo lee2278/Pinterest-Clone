@@ -68,6 +68,7 @@ export default function ShowPinDetails() {
 
             await dispatch(updatePinWithBoardsThunk(pinToUpdate))
             dispatch(getPinDetailsThunk(pinId))
+            dispatch(createSaveThunk(newSave))
             setSuccessfulSave(true)
 
         }

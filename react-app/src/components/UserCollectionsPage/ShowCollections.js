@@ -42,6 +42,16 @@ export default function ShowCollections() {
                 />
             </div>
             <div className='container-for-boards'>
+                <div className='saved-card'>
+                <Link className='saved-card-link' to={`/${sessionUser.username}/saved`}>
+                    <div className='saved-images'>
+
+                    </div>
+                </Link>
+                <div className='text-section'>
+                    <p className='saved-ptag'>Saved Pins</p>
+                </div>
+                </div>
                 {boardsList.map((board) => (
                     <div key={board.id} className='board-card'>
                         <Link className='board-card-link' to={`/${sessionUser.username}/boards/${board.id}`}>
@@ -57,11 +67,7 @@ export default function ShowCollections() {
                         </div>
                     </div>
                 ))}
-                <Link to={`/${sessionUser.username}/saved`}>
-                    <div className='saved-stuff'>
 
-                    </div>
-                </Link>
             </div>
 
         </div>
