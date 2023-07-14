@@ -62,7 +62,7 @@
   gap: 0.1rem;
 }
 
-#saved-ptag, .none-chosen-error{
+#saved-ptag, .empty-comment-error{
   color: red;
 }
 
@@ -81,4 +81,36 @@
 
 #save-pin-btn:hover {
   background-color: var(--hovered-red);
+}
+
+
+.comment-container {
+  /* border: 2px solid blue; */
+  display: flex;
+  gap: 1rem;
+}
+
+#username-ptag{
+  font-weight: 500;
+}
+
+#comment-ptag{
+  overflow-wrap: anywhere;
+}
+
+
+#make-comment-section{
+  border:2px solid green;
+  display:flex;
+}
+
+#comment-writing-textarea{
+  width:90%;
+}
+
+#num-comments-ptag{
+  border-top: 1px solid gray;
+  padding-top: 5px;
+  font-weight: 500;
+
 }

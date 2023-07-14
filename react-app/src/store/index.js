@@ -5,7 +5,7 @@ import pinsReducer from './pins'
 import boardsReducer from './boards'
 import savesReducer from './saves';
 import commentsReducer from './comments';
-import usersReducer from './users';
+
 
 const rootReducer = combineReducers({
   session,
@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
   boards: boardsReducer,
   saves: savesReducer,
   comments: commentsReducer,
-  users: usersReducer
+
 });
 
 

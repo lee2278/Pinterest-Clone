@@ -6,7 +6,7 @@ import { getBoardsThunk } from '../../store/boards';
 import { createSaveThunk } from '../../store/saves';
 import "./ShowPinDetails.css"
 import { createCommentThunk, getCommentsThunk } from '../../store/comments';
-import { getUsersThunk } from '../../store/users';
+
 
 export default function ShowPinDetails() {
     const { pinId } = useParams()
@@ -17,8 +17,7 @@ export default function ShowPinDetails() {
     const pin = useSelector(state => state.pins.singlePin)
 
     const sessionUser = useSelector(state => state.session.user);
-    const usersObj = useSelector(state => state.users.allUsers);
-    const usersList = Object.values(usersObj)
+
 
 
     const boardsObj = useSelector(state => state.boards.allBoards)
@@ -26,12 +25,13 @@ export default function ShowPinDetails() {
 
     const commentsObj = useSelector(state => state.comments.allComments)
     const commentsList = Object.values(commentsObj)
+    const filteredCommentsByPinId = commentsList.filter(comment => comment.pin_id === +pinId)
+
 
     const [boardId, setBoardId] = useState(null)
     const [successfulSave, setSuccessfulSave] = useState(false)
     const [errors, setErrors] = useState({})
     const [comment, setComment] = useState('')
-
 
 
     const pinToUpdate = {
@@ -52,13 +52,10 @@ export default function ShowPinDetails() {
     }
 
 
-
-
     useEffect(() => {
         dispatch(getPinDetailsThunk(pinId))
         dispatch(getBoardsThunk())
         dispatch(getCommentsThunk())
-        dispatch(getUsersThunk())
     }, [dispatch, pinId])
 
 
@@ -72,16 +69,7 @@ export default function ShowPinDetails() {
     const handleSave = async (e) => {
         e.preventDefault()
 
-        // setErrors({})
 
-        // const newErrors = {}
-
-        // if (!boardId) newErrors.boardId = 'Please choose a board'
-
-        // if (Object.values(newErrors).length) {
-        //     setErrors(newErrors)
-        //     return
-        // }
 
         if (!boardId) {
             dispatch(createSaveThunk(newSave))
@@ -100,26 +88,25 @@ export default function ShowPinDetails() {
 
     const handlePostComment = async(e) => {
         e.preventDefault()
+
+        setErrors({})
+
+        const newErrors = {}
+
+        if (!newComment.comment) newErrors.comment = 'Cannot create an empty comment'
+
+        if (Object.values(newErrors).length) {
+            setErrors(newErrors)
+            return
+        }
+
         await dispatch(createCommentThunk(newComment))
         dispatch(getCommentsThunk())
         setComment('')
     }
 
-    let commentedPersonUsername = ''
 
-    // const findWhoCommented = (commentUserId)  => {
-    //     commentedPerson = usersList.find(user => user.id === commentUserId)
-    //     commentedPersonUsername = commentedPerson.username
-    // }
 
-    // const handlePostComment = (commentUserId) => {
-    //     commentedPerson = usersList.find(user => user.id === commentUserId)
-    //     commentedPersonUsername = commentedPerson.username
-
-    //     dispatch(createCommentThunk(newComment))
-    //     dispatch(getCommentsThunk())
-    //     setComment('')
-    // }
 
     return (
         <>
@@ -134,7 +121,7 @@ export default function ShowPinDetails() {
                         </div>
                     </div>
                     <div className='right-text-section'>
-                        {errors.boardId && <p className='none-chosen-error'>{errors.boardId}</p>}
+
                         <form id='select-board-form'>
                             <select id='select-board-select' onChange={(e) => setBoardId(e.target.value)} onClick={(e) => setSuccessfulSave(false)} defaultValue="">
                                 <option value="" disabled hidden>Choose Board</option>
@@ -149,17 +136,22 @@ export default function ShowPinDetails() {
                         <p id='pin-description-ptag'>{pin.description}</p>
 
                         <h3>Comments</h3>  
-                        {commentsList.map((comment) => (
-                            <div key={comment.id}>
-                                <span>User make dynamic{comment.user_id}</span>
-                                <p>{comment.comment}</p>
+                        {filteredCommentsByPinId.map((comment) => (
+                            <div key={comment.id} className='comment-container'>
+                                <p id='username-ptag'>{comment.username}</p>
+                                <p id='comment-ptag'>{comment.comment}</p>
                             </div>
                         ))}   
+                            <div className='num-comments-and-errors-section'>
+
+                            <p id='num-comments-ptag'>{`${filteredCommentsByPinId.length} Comments`}</p>
+                            {errors.comment && <p className='empty-comment-error'>{errors.comment}</p>}
+                            </div>
                         <form id='make-comment-section'>
                             <textarea id='comment-writing-textarea'
                             placeholder='Add a comment'
                             value={comment}
-                            onChange={(e) => setComment(e.target.value)}
+                            onChange={(e) => setComment(e.target.value.trim())}
                             >
                             </textarea>
                             <button onClick={handlePostComment}>Post</button>
