@@ -82,7 +82,7 @@ export default function ShowPins() {
                 columnClassName="my-masonry-grid_column"
             >
                 {randomedArray.map((pin) => (
-                    <Card pin={pin}/>
+                    <Card pin={pin} key={pin.id}/>
                     // <div key={pin.id} className='pin-card-frontpage'>
 
                     //     <div className='saving-btn-wrapper'>

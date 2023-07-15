@@ -166,3 +166,27 @@ ul {
   text-decoration: underline;
   font-size: 17px;
 }
+
+
+.search-input-and-icon-container {
+  border: 1px solid gray;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow:hidden;
+  padding-right: 0.5rem;
+}
+
+
+
+
+#search-input {
+  width: 30rem;
+  border: none;
+  padding-left: 1rem;
+}
+
+#search-input:focus {
+  outline: none;
+}
