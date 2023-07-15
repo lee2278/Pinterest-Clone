@@ -3,83 +3,83 @@ from sqlalchemy.sql import text
 
 def seed_saves():
     save_1 = Save(
-        user_id = 1,
+        user_id = 2,
         pin_id = 1
     )
     save_2 = Save(
-        user_id = 1,
+        user_id = 2,
         pin_id = 2
     )
     save_3 = Save(
-        user_id = 1,
+        user_id = 2,
         pin_id = 3
     )
     save_4 = Save(
-        user_id = 1,
+        user_id = 2,
         pin_id = 19
     )
     save_5 = Save(
-        user_id = 1,
+        user_id = 2,
         pin_id = 34
     )
     save_6 = Save(
-        user_id = 1,
+        user_id = 2,
         pin_id = 35
     )
     save_7 = Save(
-        user_id = 1,
+        user_id = 2,
         pin_id = 4
     )
     save_8 = Save(
-        user_id = 1,
+        user_id = 2,
         pin_id = 5
     )
     save_9 = Save(
-        user_id = 1,
+        user_id = 2,
         pin_id = 6
     )
     save_10 = Save(
-        user_id = 1,
+        user_id = 2,
         pin_id = 20
     )
     save_11 = Save(
-        user_id = 1,
+        user_id = 3,
         pin_id = 36
     )
     save_12 = Save(
-        user_id = 1,
+        user_id = 3,
         pin_id = 37
     )
     save_13 = Save(
-        user_id = 1,
+        user_id = 3,
         pin_id = 38
     )
     save_14 = Save(
-        user_id = 1,
+        user_id = 3,
         pin_id = 7
     )
     save_15 = Save(
-        user_id = 1,
+        user_id = 3,
         pin_id = 8
     )
     save_16 = Save(
-        user_id = 1,
+        user_id = 3,
         pin_id = 9
     )
     save_17 = Save(
-        user_id = 1,
+        user_id = 3,
         pin_id = 21
     )
     save_18 = Save(
-        user_id = 1,
+        user_id = 3,
         pin_id = 39
     )
     save_19 = Save(
-        user_id = 1,
+        user_id = 3,
         pin_id = 40
     )
     save_20 = Save(
-        user_id = 1,
+        user_id = 3,
         pin_id = 41
     )
     save_21 = Save(
@@ -99,48 +99,49 @@ def seed_saves():
         pin_id = 45
     )
 
-
-
     save_25 = Save(
-        user_id = 2,
+        user_id = 1,
         pin_id = 10
     )
     save_26 = Save(
-        user_id = 2,
+        user_id = 1,
         pin_id = 11
     )
     save_27 = Save(
-        user_id = 2,
+        user_id = 1,
         pin_id = 12
     )
     save_28 = Save(
-        user_id = 2,
+        user_id = 1,
         pin_id = 22
     )
     save_29 = Save(
-        user_id = 2,
+        user_id = 1,
         pin_id = 28
     )
     save_30 = Save(
-        user_id = 2,
+        user_id = 1,
         pin_id = 29
     )
     save_31 = Save(
-        user_id = 2,
+        user_id = 1,
         pin_id = 30
     )
     save_32 = Save(
-        user_id = 2,
+        user_id = 1,
         pin_id = 31
     )
     save_33 = Save(
-        user_id = 2,
+        user_id = 1,
         pin_id = 13
     )
     save_34 = Save(
-        user_id = 2,
+        user_id = 1,
         pin_id = 14
     )
+
+
+
     save_35 = Save(
         user_id = 2,
         pin_id = 15
@@ -198,11 +199,11 @@ def seed_saves():
         pin_id = 48
     )
     save_49 = Save(
-        user_id = 3,
+        user_id = 1,
         pin_id = 49
     )
     save_50 = Save(
-        user_id = 3,
+        user_id = 1,
         pin_id = 50
     )
 

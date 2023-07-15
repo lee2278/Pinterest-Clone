@@ -38,6 +38,8 @@ export default function PinMaker() {
     //     owner_id: owner.id,
     //     board_id: boardId
     // }
+
+
     
     const handlePreview = (e) => {
         setImageUrl(e.target.files[0])
@@ -62,7 +64,6 @@ export default function PinMaker() {
             return
         }
 
-        
         
         const formData = new FormData();
         formData.append("title", title)

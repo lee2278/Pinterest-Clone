@@ -34,6 +34,7 @@ class Pin(db.Model):
             # "boards": boards
             "boards": [board.to_dict() for board in self.boards],
             # "boards" : [board.id for board in self.boards]
+            "owner_username": self.owner.username
         }
 
 
