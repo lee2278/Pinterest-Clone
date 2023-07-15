@@ -11,6 +11,8 @@ const removeUser = () => ({
 	type: REMOVE_USER,
 });
 
+
+
 const initialState = { user: null };
 
 export const authenticate = () => async (dispatch) => {
@@ -94,6 +96,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
 	}
 };
 
+
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_USER:
@@ -102,5 +105,6 @@ export default function reducer(state = initialState, action) {
 			return { user: null };
 		default:
 			return state;
+
 	}
 }

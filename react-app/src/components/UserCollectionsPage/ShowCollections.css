@@ -153,13 +153,12 @@ a {
 .saveImageDiv {
     width:55%;
     border:none;
-    border-radius:16px;
-}
-
-.saveImageDiv {
+    border-radius:16px;    
     height:187px;
     position: absolute;
+    object-fit: cover;
 }
+
 
 .img-4 {
     right:0;
@@ -172,7 +171,7 @@ a {
     z-index:1;
     border:none;
     border-right: 1px solid white;
-
+    
 }
 .img-2 {
     right:30%;
@@ -180,7 +179,7 @@ a {
     z-index:2;
     border:none;
     border-right: 1px solid white;
-
+    
 }
 
 .img-1 {
@@ -189,5 +188,6 @@ a {
     z-index:4;
     border:none;
     border-right: 1px solid white;
+
 
 }

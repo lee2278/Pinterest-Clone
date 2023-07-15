@@ -127,3 +127,12 @@
 
 
   
+.right-text-section2 {
+  height: 100%;
+  width: 50%;
+  height: 100%;
+  padding: 1.5rem;
+  overflow-y: scroll;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
