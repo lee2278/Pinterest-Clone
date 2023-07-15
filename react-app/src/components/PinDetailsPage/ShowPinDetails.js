@@ -19,6 +19,7 @@ export default function ShowPinDetails() {
 
     const pin = useSelector(state => state.pins.singlePin)
 
+
     const sessionUser = useSelector(state => state.session.user);
 
 
@@ -142,10 +143,13 @@ export default function ShowPinDetails() {
                             <h1 id='pin-title-h1'>{pin.title}</h1>
                             <p id='pin-description-ptag'>{pin.description}</p>
 
+                            <div id='posted-by-div'> Posted by:
+                                <span id='pin-post-username-span'>{` ${pin.owner_username}`}</span>
+                            </div>
                             <h3 id='comments-h3'>Comments</h3>
                             {filteredCommentsByPinId.map((comment) => (
-                                <>
-                                <div key={comment.id} className='comment-container'>
+                                <div key={comment.id}>
+                                <div className='comment-container'>
                                     <p id='username-ptag'>{comment.username}</p>
                                     <p id='comment-ptag'>{comment.comment}</p>
                                 </div>
@@ -159,7 +163,7 @@ export default function ShowPinDetails() {
                                 <div id='delete-comment-btn' onClick={() => handleDeleteComment(comment.id)}>Delete</div>
                                 </div>
                                 </>}
-                                </>
+                                </div>
                             ))}
 
 
@@ -177,7 +181,7 @@ export default function ShowPinDetails() {
                                     value={comment.trimStart()}
                                 >
                                 </textarea>
-                                <button id='post-comment-btn' onClick={handlePostComment}><i class="fa-solid fa-paper-plane"></i></button>
+                                <button id='post-comment-btn' onClick={handlePostComment}><i className="fa-solid fa-paper-plane"></i></button>
                             </form>
 
                         </div>
