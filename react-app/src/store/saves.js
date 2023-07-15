@@ -96,11 +96,11 @@ export default function savesReducer(state = initialState, action) {
 
             return newState;
         }
-        case CREATE_SAVE: {
-            const newState = {...state, allSaves: {...state.allSaves}}
-            newState.allSaves[action.save.id] = action.save
-            return newState
-        }
+        // case CREATE_SAVE: {
+        //     const newState = {...state, allSaves: {...state.allSaves}}
+        //     newState.allSaves[action.save.id] = action.save
+        //     return newState
+        // }
         case DELETE_SAVE: {
             const newState = { ...state, allSaves: { ...state.allSaves }}
             delete newState.allSaves[action.saveId]

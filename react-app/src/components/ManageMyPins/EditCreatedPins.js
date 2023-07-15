@@ -6,7 +6,7 @@ import OpenModalButton from "../OpenModalButton";
 import EditModal from "./EditPinModal"
 import DeleteModal from './DeletePinModal';
 
-export default function EditCreatedPins() {
+export default function EditCommentModal() {
     const { pinId } = useParams()
     const dispatch = useDispatch()
 
@@ -31,7 +31,7 @@ export default function EditCreatedPins() {
                     </div>
 
 
-                    {pin && <div className='right-text-section'>
+                    {pin && <div className='right-text-section2'>
                         <div className='edit-delete-btn-container'>
                             <div className='edit-btn-wrapper'>
                                 <OpenModalButton
