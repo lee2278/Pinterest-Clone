@@ -6,7 +6,7 @@ import OpenModalButton from "../OpenModalButton";
 import EditModal from "./EditPinModal"
 import DeleteModal from './DeletePinModal';
 
-export default function EditCreatedPins() {
+export default function EditCommentModal() {
     const { pinId } = useParams()
     const dispatch = useDispatch()
 

@@ -153,3 +153,32 @@
   /* border: 2px solid black; */
   padding: 0 1.5rem;
 }
+
+
+.edit-delete-btns-wrapper {
+  /* border: 2px solid blue; */
+  display:flex;
+  gap:0.3rem;
+  /* margin-left: 1.5rem; */
+
+}
+
+.edit-delete-btns-wrapper > * {
+  border: none;
+  padding: none;
+  margin: none;
+  font-size: 10px;
+  background-color:transparent;
+  color:rgb(76, 74, 74);
+}
+
+
+.edit-delete-btns-wrapper > *:hover {
+
+  color:rgb(36, 36, 36);
+  font-weight: 500;
+}
+
+#delete-comment-btn {
+  cursor:pointer;
+}

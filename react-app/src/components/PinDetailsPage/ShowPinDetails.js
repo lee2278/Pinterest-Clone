@@ -4,8 +4,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getPinDetailsThunk, updatePinWithBoardsThunk } from '../../store/pins';
 import { getBoardsThunk } from '../../store/boards';
 import { createSaveThunk } from '../../store/saves';
-import "./ShowPinDetails.css"
 import { createCommentThunk, deleteCommentThunk, getCommentsThunk } from '../../store/comments';
+import EditCommentModal from './EditCommentModal';
+import OpenModalButton from "../OpenModalButton";
+
+import "./ShowPinDetails.css"
 
 
 export default function ShowPinDetails() {
@@ -32,7 +35,7 @@ export default function ShowPinDetails() {
     const [successfulSave, setSuccessfulSave] = useState(false)
     const [errors, setErrors] = useState({})
     const [comment, setComment] = useState('')
-
+  
 
     const pinToUpdate = {
         ...pin,
@@ -106,13 +109,6 @@ export default function ShowPinDetails() {
         setComment('')
     }
 
-    const handleEditComment = (commentId) => {
-        const commentToEdit = {
-
-        }
-
-
-    }
 
     const handleDeleteComment = (commentId) => {
         dispatch(deleteCommentThunk(commentId))
@@ -153,7 +149,16 @@ export default function ShowPinDetails() {
                                     <p id='username-ptag'>{comment.username}</p>
                                     <p id='comment-ptag'>{comment.comment}</p>
                                 </div>
-                                {comment.user_id === sessionUser.id && <><button id='edit-comment-btn'>Edit</button><button id='delete-comment-btn' onClick={() => handleDeleteComment(comment.id)}>Delete</button></>}
+                                {comment.user_id === sessionUser.id && 
+                                <>
+                                <div className='edit-delete-btns-wrapper'>                       
+                                <OpenModalButton
+                                    buttonText="Edit"
+                                    modalComponent={<EditCommentModal comment={comment} />}
+                                />
+                                <div id='delete-comment-btn' onClick={() => handleDeleteComment(comment.id)}>Delete</div>
+                                </div>
+                                </>}
                                 </>
                             ))}
 
