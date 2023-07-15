@@ -183,3 +183,12 @@
 #delete-comment-btn {
   cursor:pointer;
 }
+
+#pin-post-username-span {
+  font-weight: 500;
+  color: black;
+}
+
+#posted-by-div {
+  color: gray;
+}
