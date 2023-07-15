@@ -45,4 +45,5 @@ class Pin(db.Model):
             "title": self.title,
             "description": self.description,
             "image_url": self.image_url,
+
         }

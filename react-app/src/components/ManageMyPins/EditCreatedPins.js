@@ -31,7 +31,7 @@ export default function EditCommentModal() {
                     </div>
 
 
-                    {pin && <div className='right-text-section'>
+                    {pin && <div className='right-text-section2'>
                         <div className='edit-delete-btn-container'>
                             <div className='edit-btn-wrapper'>
                                 <OpenModalButton

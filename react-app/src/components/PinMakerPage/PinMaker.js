@@ -81,7 +81,7 @@ export default function PinMaker() {
         // console.log('formdataownerid', formData.get("owner_id"))
         // console.log('formdataboardid', formData.get("board_id"))
 
-        history.push('/')
+        history.push(`/${owner?.username}/created`)
     }
 
     const preventDefaults = async (e) => {
