@@ -40,23 +40,25 @@
   /* Style your items */
   .my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
 
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .saving-btn-wrapper{
     position: relative;
+    height: 5px
   }
 
   #saving-btn2 {
     position:absolute;
     z-index:2;
-    right:0%;
+    right:1.5%;
+    top: 10px;
     background-color: black;
     border: 0;
     color: white;
     opacity: 0;
-    padding: 0.5rem;
-    border-radius: 30px;
+    padding: 0.4rem 0.6rem;
+    border-radius: 14px;
   
   }
 
@@ -64,13 +66,14 @@
 #saving-btn {
   position:absolute;
   z-index:2;
-  right:0%;
+  right:1.5%;
+  top: 10px;
   background-color: var(--pinterest-red);
   border: 0;
   color: white;
   opacity: 0;
-  padding: 0.5rem;
-  border-radius: 30px;
+  padding: 0.4rem 0.6rem;
+  border-radius: 14px;
 
 }
 
