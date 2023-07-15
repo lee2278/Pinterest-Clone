@@ -10,6 +10,8 @@ import "./ShowSavedPins.css"
 export default function ShowSavedPins() {
     const dispatch = useDispatch();
 
+    const sessionUser = useSelector(state => state.session.user);
+
     const pinsObj = useSelector(state => state.pins.allPins)
     const pinsList = Object.values(pinsObj)
 
@@ -21,6 +23,10 @@ export default function ShowSavedPins() {
     // this is a list of save objects
     const savesList = Object.values(savesObj)
 
+    const filteredSavesByUser = savesList.filter(save => save.user_id === sessionUser.id)
+
+    console.log('filtered',filteredSavesByUser)
+    console.log('sessionUser', sessionUser.id)
     useEffect(() => {
         dispatch(getPinsThunk())
     }, [dispatch])
@@ -32,8 +38,8 @@ export default function ShowSavedPins() {
 
 
     // getting an array of just pinIds
-    for (let i = 0; i < savesList.length; i++) {
-        arrayOfPinIds.push(savesList[i].pin_id)
+    for (let i = 0; i < filteredSavesByUser.length; i++) {
+        arrayOfPinIds.push(filteredSavesByUser[i].pin_id)
     }
 
 

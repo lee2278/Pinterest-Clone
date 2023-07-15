@@ -24,9 +24,10 @@ export default function ShowCollections() {
 
     const savesObj = useSelector(state => state.saves.allSaves)
     const savesList = Object.values(savesObj)
+    const filteredSavesByUser = savesList.filter(save => save.user_id === sessionUser.id)
 
-    for (let i = 0; i < savesList.length; i++) {
-        arrayOfPinIds.push(savesList[i].pin_id)
+    for (let i = 0; i < filteredSavesByUser.length; i++) {
+        arrayOfPinIds.push(filteredSavesByUser[i].pin_id)
     }
     
     for (let pin of pinsList) {
