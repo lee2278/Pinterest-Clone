@@ -286,9 +286,9 @@ ul {
     width:205%;
   }
 }
-@media screen and (max-width:380px) {
+@media screen and (max-width:375px) {
   #search-form {
-    width:205%;
+    width:202%;
   }
 }
 @media screen and (max-width:365px) {
@@ -296,6 +296,12 @@ ul {
     width:215%;
   }
 }
+@media screen and (max-width:360px) {
+  #search-form {
+    width:200%;
+  }
+}
+
 @media screen and (max-width:350px) {
   #search-form {
     width:220%;
