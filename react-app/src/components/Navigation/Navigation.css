@@ -38,6 +38,7 @@ ul {
   display: flex;
   gap: 1rem;
   /* border: 2px solid red; */
+  margin-right: 1rem;
   align-items: center;
 }
 
@@ -60,6 +61,7 @@ ul {
 .profile-group {
   display: flex;
   height:40px;
+  margin-left:1rem;
 }
 
 .home {
@@ -192,3 +194,12 @@ ul {
 #search-input:focus {
   outline: none;
 }
+
+
+
+
+/* @media screen and (max-width: 945px) {
+  #search-input {
+    width: 20rem;
+  }
+} */

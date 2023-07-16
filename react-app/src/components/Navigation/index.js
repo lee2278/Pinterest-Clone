@@ -24,8 +24,8 @@ function Navigation({ isLoaded }) {
 					<li>
 						<NavLink id='create-link' exact to="/pin-maker">Create</NavLink>
 					</li>
-					<SearchBar/>
 				</div>
+					<SearchBar/>
 				{isLoaded && (
 					<div className='profile-group'>
 						<li className='user-link-wrapper'>
