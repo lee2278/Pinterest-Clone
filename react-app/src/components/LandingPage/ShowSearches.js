@@ -41,11 +41,20 @@ export default function ShowSearches() {
         }
     }
 
+    const breakpointColumnsObj = {
+        default: 6,
+        800: 5,
+        650: 4,
+        550: 3,
+        475: 2,
+        380: 1
+      };
+
 
     return(
         <div className='everything-wrapper'>
             {pinsList.length ? <Masonry
-                breakpointCols={6}
+                breakpointCols={breakpointColumnsObj}
                 className="my-masonry-grid"
                 columnClassName="my-masonry-grid_column"
             >
