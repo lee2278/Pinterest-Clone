@@ -6,6 +6,7 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import AboutModal from './AboutModal';
+import SearchBar from './SearchBar'
 
 import './Navigation.css';
 
@@ -23,19 +24,7 @@ function Navigation({ isLoaded }) {
 					<li>
 						<NavLink id='create-link' exact to="/pin-maker">Create</NavLink>
 					</li>
-					<div>
-						<form id='search-form'>
-							<div className='search-input-and-icon-container'>
-							<input id='search-input'
-								type='text'
-								placeholder='Search'>
-							</input>
-							<span className="material-symbols-outlined">
-								search
-							</span>
-							</div>
-						</form>
-					</div>
+					<SearchBar/>
 				</div>
 				{isLoaded && (
 					<div className='profile-group'>

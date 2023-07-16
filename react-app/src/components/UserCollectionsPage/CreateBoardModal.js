@@ -15,15 +15,20 @@ export default function CreateBoardModal() {
 
     const sessionUser = useSelector(state => state.session.user)
 
+    const boardsObj = useSelector(state => state.boards.allBoards)
+    const boardsList = Object.values(boardsObj)
+
     const newBoard = {
         name,
         description,
         user_id: sessionUser.id
     }
 
-    const existingBoardNames = []
-    sessionUser.boards.forEach(board => existingBoardNames.push(board.name))
+    // const existingBoardNames = []
+    // sessionUser.boards.forEach(board => existingBoardNames.push(board.name))
 
+    const existingBoardNames = []
+    boardsList.forEach(board => existingBoardNames.push(board.name))
 
     const handleCreate = (e) => {
         e.preventDefault()

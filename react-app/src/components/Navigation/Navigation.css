@@ -178,7 +178,9 @@ ul {
   padding-right: 0.5rem;
 }
 
-
+#search-icon {
+  cursor: pointer;
+}
 
 
 #search-input {

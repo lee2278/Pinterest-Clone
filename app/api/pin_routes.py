@@ -143,3 +143,27 @@ def add_board_to_pin(id):
 
 
 
+@pin_routes.route('/search/<search>')
+@login_required
+def search_pins(search):
+    """
+    Query for pins that match a search
+    """
+
+    pins_that_match = Pin.query.filter(
+        Pin.title.contains(search)).all() or Pin.query.filter(Pin.description.contains(search)).all()
+
+
+    pins_that_match3 = []
+    for search_word in search.split():
+        pins_that_match2 = Pin.query.filter(Pin.title.contains(search_word)).all() or Pin.query.filter(Pin.description.contains(search_word)).all()
+
+        for pinObj in pins_that_match2:
+            pins_that_match3.append(pinObj)
+
+    pins_that_match.extend(pins_that_match3)
+
+
+
+    db.session.commit()
+    return {'matchedPins': [match_pin.to_dict() for match_pin in pins_that_match]}
