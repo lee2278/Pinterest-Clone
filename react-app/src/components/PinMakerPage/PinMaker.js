@@ -122,23 +122,30 @@ export default function PinMaker() {
                                             modalComponent={<CreateBoardModal />}
                                         />
                                         </div>
+                                        <div className='select-and-save'>
                                         <select onChange={(e) => setBoard(e.target.value)} defaultValue="">
                                             <option value="" disabled hidden>Choose Board</option>
                                             {boardsList.map((board) => (
                                                 <option key={board.id} value={board.id}>{board.name}</option>))}
                                         </select>
-
+                                        <button id="save-btn" onClick={handleSubmit}>Save</button>
+                                        </div>
                                     </>
                                 )
-                                : (<OpenModalButton
+                                : (
+                                    <>
+                                    <OpenModalButton
                                     buttonText="Create a board"
                                     modalComponent={<CreateBoardModal />}
-                                />)
+                                />
+                                <button id="save-btn" onClick={handleSubmit}>Save</button>
+                                </>)
                             }
 
 
 
-                            <button id="save-btn" onClick={handleSubmit}>Save</button>
+                            {/* <button id="save-btn" onClick={handleSubmit}>Save</button> */}
+                            
                             {/* {(imageLoading)&& <p>Loading...</p>} */}
                         </div>
                         

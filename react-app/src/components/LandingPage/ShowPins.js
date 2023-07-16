@@ -71,18 +71,25 @@ export default function ShowPins() {
         await dispatch(createSaveThunk(newSave))
     }
 
-
+    const breakpointColumnsObj = {
+        default: 6,
+        800: 5,
+        650: 4,
+        550: 3,
+        475: 2,
+        380: 1
+      };
 
 
     return (
         <div className='everything-wrapper'>
             <Masonry
-                breakpointCols={6}
+                breakpointCols={breakpointColumnsObj}
                 className="my-masonry-grid"
                 columnClassName="my-masonry-grid_column"
             >
                 {randomedArray.map((pin) => (
-                    <Card pin={pin}/>
+                    <Card pin={pin} key={pin.id}/>
                     // <div key={pin.id} className='pin-card-frontpage'>
 
                     //     <div className='saving-btn-wrapper'>

@@ -58,6 +58,7 @@ export default function ShowCollections() {
                     modalComponent={<CreateBoardModal />}
                 />
             </div>
+            
             <div className='container-for-boards'>
                 <div className='saved-card'>
                     <Link className='saved-card-link' to={`/${sessionUser.username}/saved`}>
@@ -90,7 +91,7 @@ export default function ShowCollections() {
                 ))}
 
             </div>
-
+                    
         </div>
     )
 }

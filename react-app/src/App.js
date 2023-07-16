@@ -14,6 +14,7 @@ import ShowCollections from "./components/UserCollectionsPage/ShowCollections";
 import EditCreatedPins from "./components/ManageMyPins/EditCreatedPins";
 import ShowBoardDetails from "./components/SingleBoardPage/ShowBoardDetails";
 import ShowSavedPins from "./components/ManageMySaves/ShowSavedPins";
+import ShowSearches from "./components/LandingPage/ShowSearches";
 
 function App() {
   const dispatch = useDispatch();
@@ -49,6 +50,9 @@ function App() {
           </Route>
           <Route path='/pin-maker'>
             <PinMaker/>
+          </Route>
+          <Route path='/search/:search'>
+            <ShowSearches/>
           </Route>
           <Route path={`/${sessionUser?.username}/created`}>
             <ShowCreatedPins/>

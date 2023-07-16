@@ -83,3 +83,8 @@
 .pin-card-frontpage:hover #saving-btn2 {
   opacity: 1;
 }
+
+
+#not-found-ptag {
+  padding: 1rem;
+}

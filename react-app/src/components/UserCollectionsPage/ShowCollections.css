@@ -27,6 +27,8 @@
     gap: 1rem;
     padding: 0 1rem;
     flex-wrap: wrap;
+    display:flex;
+    justify-content:center;
 }
 
 
@@ -86,6 +88,7 @@ width:100%;
     align-items: center;
     gap: 1rem;
     justify-content: center;
+
 }
 
 a {
@@ -104,7 +107,7 @@ a {
 
 #boards-ptag {
     text-decoration: underline;
-    
+    cursor:default;
 }
 
 #created-pins-link:hover {
@@ -115,7 +118,7 @@ a {
 
 #create-board-btn-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 #create-board-btn-container > button {
