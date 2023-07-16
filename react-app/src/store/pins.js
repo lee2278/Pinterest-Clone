@@ -10,7 +10,7 @@ const UPDATE_PIN_WITH_BOARDS = 'pins/UPDATE_PIN_WITH_BOARDS'
 
 // ACTION CREATORS
 
-const getPins = (pins) => ({
+export const getPins = (pins) => ({
     type: GET_PINS,
     pins
 })
@@ -53,7 +53,7 @@ export const getPinsThunk = () => async (dispatch) => {
         const data = await response.json();
         const pins = data.pins
         dispatch(getPins(pins))
-        
+
     } else {
         const errors = await response.json()
         return errors;
@@ -80,14 +80,15 @@ export const createPinThunk = (pin) => async (dispatch) => {
         method: "POST",
         // headers: { "Content-Type": "application/json" },
         // body: JSON.stringify(pin)
-        body:pin
+        body: pin
     })
-    
+
     if (response.ok) {
         // console.log('create pin response ok')
 
         const newPin = await response.json()
         dispatch(createPin(newPin))
+        dispatch(getPinsThunk())
     } else {
         // console.log('create pin response not ok')
         const errors = await response.json()
@@ -114,7 +115,7 @@ export const editPinThunk = (pin) => async (dispatch) => {
         const errors = await response.json()
         return errors
     }
-    
+
 }
 
 export const updatePinWithBoardsThunk = (pin) => async (dispatch) => {
@@ -134,7 +135,7 @@ export const updatePinWithBoardsThunk = (pin) => async (dispatch) => {
         const errors = await response.json()
         return errors
     }
-    
+
 }
 
 
@@ -154,12 +155,13 @@ export const deletePinThunk = (pinId) => async (dispatch) => {
 }
 
 
+
 // REDUCER
 
 const initialState = { allPins: {}, singlePin: {} };
 
 export default function pinsReducer(state = initialState, action) {
-    switch(action.type) {
+    switch (action.type) {
         case GET_PINS: {
             const newState = { allPins: {}, singlePin: {} };
             if (action.pins.length) {
@@ -170,27 +172,27 @@ export default function pinsReducer(state = initialState, action) {
             return newState;
         }
         case GET_PIN_DETAILS: {
-            const newState = {...state, singlePin: {}}
+            const newState = { ...state, singlePin: {} }
             newState.singlePin = action.singlePin
             return newState
         }
         case CREATE_PIN: {
-            const newState = {...state, allPins: {...state.allPins}}
+            const newState = { ...state, allPins: { ...state.allPins } }
             newState.allPins[action.pin.id] = action.pin
             return newState
         }
         case EDIT_PIN: {
             const newState = { ...state }
-            newState.singlePin= action.singlePin
+            newState.singlePin = action.singlePin
             return newState
         }
         case UPDATE_PIN_WITH_BOARDS: {
-            const newState = { ...state, singlePin: {...state.singlePin}}
+            const newState = { ...state, singlePin: { ...state.singlePin } }
             newState.singlePin = action.singlePin
             return newState
         }
         case DELETE_PIN: {
-            const newState = { ...state, allPins: { ...state.allPins }}
+            const newState = { ...state, allPins: { ...state.allPins } }
             delete newState.allPins[action.pinId]
             return newState
         }

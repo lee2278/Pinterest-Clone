@@ -136,3 +136,10 @@
   white-space: pre-wrap;
   overflow-wrap: break-word;
 }
+
+@media screen and (max-width: 580px) {
+  .right-text-section2 {
+    height: 50%;
+    width: 100%;
+  }
+}

@@ -17,13 +17,20 @@ export default function ShowCreatedPins() {
         dispatch(getPinsThunk())
     }, [dispatch])
 
-
+    const breakpointColumnsObj = {
+        default: 6,
+        800: 5,
+        650: 4,
+        550: 3,
+        475: 2,
+        380: 1
+      };
 
     return(
         <div className='everything-wrapper'>
             <h2>My created pins</h2>
             <Masonry
-              breakpointCols={6}
+              breakpointCols={breakpointColumnsObj}
               className="second-masonry-grid"
               columnClassName="second-masonry-grid_column"
             >

@@ -3,7 +3,6 @@
 }
 
 #pin-creation-form {
-  /* border: 1px solid red; */
   box-shadow: 2px 2px 2px gray;
   border: 1px solid gray;
   border-radius: 15px;
@@ -22,6 +21,7 @@
   height: 100%;
   align-items: center;
   padding: 1rem;
+  width: 50%;
 }
 
 .left-side {
@@ -50,8 +50,11 @@
 
 .save-btn-container {
   display: flex;
-  align-self: flex-end;
+  /* align-self: flex-end; */
   /* border: 2px solid red; */
+  width: 90%;
+  height: 3rem;
+  justify-content: space-between;
 }
 
 .image-container {
@@ -80,7 +83,7 @@
 
 .description-textarea,
 .title-input {
-  width: 350px;
+  width: 90%;
 }
 
 .description-textarea {
@@ -110,13 +113,11 @@
   padding: 1rem;
 }
 
-.create-board-btn-container {
-  /* border: 2px solid black; */
-  margin-right: 4rem;
-}
+
 
 .create-board-btn-container > button {
     padding: 0.5rem;
+    height: 100%;
 }
 
 #save-btn:hover {
@@ -132,4 +133,135 @@
 /* this is the file upload button */
 input[type="file"]{
   cursor: pointer;
+}
+
+.select-and-save {
+  /* border: 2px solid blue; */
+  display: flex;
+}
+
+.select-and-save > button, .select-and-save > select {
+  height: 100%;
+}
+
+@media screen and (max-width: 940px) {
+  #pin-creation-form{
+    width:750px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #pin-creation-form{
+    width:650px;
+  }
+  .image-container{
+    width:90%;
+  }
+  .save-btn-container {
+    flex-direction: column;
+    height: 5rem;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #pin-creation-form{
+    width:600px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #pin-creation-form{
+    width:550px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  #pin-creation-form{
+    flex-direction:column;
+    height: 1290px;
+    width: 500px;
+  }
+  .left-side {
+    width: 100%;
+    height: 50%;
+  }
+  .right-side {
+    height: 50%;
+    width: 100%;
+  }
+  .save-btn-container{
+    flex-direction: row;
+    height: 3rem;
+
+  }
+  .save-btn-container > * {
+    height: 100%;
+  }
+  
+  
+
+}
+
+@media screen and (max-width: 540px) {
+  #pin-creation-form{
+    width: 470px;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  #pin-creation-form{
+    width: 430px;
+  }
+}
+
+@media screen and (max-width: 486px) {
+  #pin-creation-form{
+    width: 400px;
+  }
+
+}
+
+@media screen and (max-width: 440px) {
+  #pin-creation-form{
+    width: 370px;
+  }
+  .save-btn-container{
+    flex-direction: column;
+    height: 5rem;
+    gap: 0.3rem;
+
+  }
+
+}
+
+@media screen and (max-width: 425px) {
+  #pin-creation-form{
+    width: 340px;
+  }
+
+}
+
+@media screen and (max-width: 425px) {
+  #pin-creation-form{
+    width: 300px;
+  }
+
+}
+
+@media screen and (max-width:347px) {
+  #pin-creation-form{
+    width: 285px;
+    height: 900px;
+  }
+  .left-side {
+    height: 30%
+  }
+  .image-container {
+    height: 90%;
+  }
+
+  .right-side {
+    height:70%;
+  }
 }

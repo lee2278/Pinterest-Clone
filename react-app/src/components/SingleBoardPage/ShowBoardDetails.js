@@ -47,6 +47,15 @@ export default function ShowBoardDetails() {
         dispatch(getPinsThunk())
     }, [dispatch])
 
+    const breakpointColumnsObj = {
+        default: 6,
+        800: 5,
+        650: 4,
+        550: 3,
+        475: 2,
+        380: 1
+      };
+
     return (
         <div className='everything-wrapper'>
 
@@ -69,7 +78,7 @@ export default function ShowBoardDetails() {
                 </div>
             </div>
             <Masonry
-                breakpointCols={6}
+                breakpointCols={breakpointColumnsObj}
                 className="third-masonry-grid"
                 columnClassName="third-masonry-grid_column"
             >
