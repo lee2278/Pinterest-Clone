@@ -115,6 +115,27 @@ export default function ShowPinDetails() {
         dispatch(deleteCommentThunk(commentId))
     }
 
+    const handleEnterKeyPress = async(e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault()
+            setErrors({})
+
+        const newErrors = {}
+
+        if (!newComment.comment) newErrors.comment = 'Cannot create an empty comment'
+
+        if (Object.values(newErrors).length) {
+            setErrors(newErrors)
+            return
+        }
+
+        await dispatch(createCommentThunk(newComment))
+        dispatch(getCommentsThunk())
+        setComment('')
+
+        }
+    }
+
 
     return (
         <>
@@ -172,13 +193,14 @@ export default function ShowPinDetails() {
                             <div className='num-comments-and-errors-section'>
 
                                 <p id='num-comments-ptag'>{`${filteredCommentsByPinId.length} Comments`}</p>
-                                {errors.comment && <p className='empty-comment-error'>{errors.comment}</p>}
+                                {errors.comment && <span className='empty-comment-error'>{errors.comment}</span>}
                             </div>
                             <form id='make-comment-section'>
                                 <textarea id='comment-writing-textarea'
                                     placeholder='Add a comment'
                                     onChange={(e) => setComment(e.target.value)}
                                     value={comment.trimStart()}
+                                    onKeyPress={handleEnterKeyPress}
                                 >
                                 </textarea>
                                 <button id='post-comment-btn' onClick={handlePostComment}><i className="fa-solid fa-paper-plane"></i></button>
