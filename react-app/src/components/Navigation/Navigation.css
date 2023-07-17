@@ -168,7 +168,7 @@ ul {
 } */
 
 .about-btn-container > a:hover {
-  text-decoration: underline;
+  border-bottom: 2px solid black;
   font-weight: 500;
   /* font-size: 17px; */
 }

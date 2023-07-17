@@ -29,10 +29,10 @@ export default function ShowSplashPage() {
             <div className='splash-page-footer'>
                 <div className='github-linkedin-links'>
                     <a href="https://www.linkedin.com/in/carmen-lee-52061690/">
-                        <i class="fa-brands fa-linkedin"></i>
+                        <i className="fa-brands fa-linkedin"></i>
                     </a>
                     <a href="https://github.com/lee2278">
-                        <i class="fa-brands fa-github"></i>
+                        <i className="fa-brands fa-github"></i>
                     </a>
                     <p>Site created by Carmen Lee </p>
                 </div>

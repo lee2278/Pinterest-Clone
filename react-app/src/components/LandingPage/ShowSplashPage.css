@@ -143,6 +143,14 @@
     justify-content: center;
 }
 
+.github-linkedin-links > a > i {
+    font-size: 1.5rem;
+}
+
+.github-linkedin-links > a > i:hover {
+    font-size: 1.8rem;
+}
+
 @media screen and (max-width: 1000px) {
 
     .pics {

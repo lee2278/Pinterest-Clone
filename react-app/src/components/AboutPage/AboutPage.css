@@ -55,11 +55,11 @@
     /* border: 1px solid red; */
 }
 
-.fa-linkedin, .fa-github {
+#github-atag > i, #linkedin-atag > i {
     font-size: 3rem;
 }
 
-.fa-linkedin:hover, .fa-github:hover {
+#github-atag > i:hover, #linkedin-atag > i:hover {
     font-size: 3.5rem;
 }
 
