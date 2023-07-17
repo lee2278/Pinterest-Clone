@@ -107,7 +107,8 @@ width:100%;
     font-size: 25px;
     margin: 0;
     border-radius: 50px;
-    background-color: lightgray
+    background-color: lightgray;
+    cursor:default;
 }
 
 .under-user-info-area {
