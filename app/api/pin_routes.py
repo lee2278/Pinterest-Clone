@@ -153,7 +153,7 @@ def search_pins(search):
 
     pins_that_match = []
     for search_word in search.split():
-        pins_that_match2 = Pin.query.filter(Pin.title.contains(search_word)).all() or Pin.query.filter(Pin.description.contains(search_word)).all()
+        pins_that_match2 = Pin.query.filter(Pin.title.contains(search_word.lower())).all() or Pin.query.filter(Pin.description.contains(search_word.lower())).all()
 
         for pinObj in pins_that_match2:
             pins_that_match.append(pinObj)

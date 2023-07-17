@@ -19,7 +19,7 @@ export default function ShowSearches() {
 
 
     const  searchInputObj  = useParams()
-    const actualSearchText = searchInputObj.search
+    const actualSearchText = searchInputObj.search.toLowerCase()
 
     useEffect(() => {
         dispatch(fetchPinsData(actualSearchText))
