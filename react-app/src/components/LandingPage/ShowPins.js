@@ -58,18 +58,18 @@ export default function ShowPins() {
     //     </div>
     // )
 
-    const arrayOfPinIds = []
+    // const arrayOfPinIds = []
 
-    const savePin = async (pinId) => {
+    // const savePin = async (pinId) => {
 
-        const newSave = {
-            user_id: sessionUser.id,
-            pin_id: pinId
-        }
+    //     const newSave = {
+    //         user_id: sessionUser.id,
+    //         pin_id: pinId
+    //     }
         
-        arrayOfPinIds.push(pinId)
-        await dispatch(createSaveThunk(newSave))
-    }
+    //     arrayOfPinIds.push(pinId)
+    //     await dispatch(createSaveThunk(newSave))
+    // }
 
     const breakpointColumnsObj = {
         default: 6,
