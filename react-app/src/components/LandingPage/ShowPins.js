@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { getPinsThunk } from '../../store/pins';
-import { createSaveThunk } from '../../store/saves';
 import { getSavesThunk } from '../../store/saves';
 import Card from './Card';
 
 import Masonry from 'react-masonry-css'
 import "./ShowPins.css"
-
+import { getBoardsThunk } from '../../store/boards';
+import { updatePinWithBoards } from '../../store/pins';
 
 export default function ShowPins() {
     const dispatch = useDispatch();
@@ -24,6 +23,7 @@ export default function ShowPins() {
 
     useEffect(() => {
         dispatch(getPinsThunk())
+        dispatch(getBoardsThunk())
     }, [dispatch])
 
     useEffect(() => {

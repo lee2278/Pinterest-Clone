@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { createSaveThunk } from '../../store/saves';
-
+import { updatePinWithBoardsThunk } from '../../store/pins';
 
 export default function Card({ pin }) {
     const dispatch = useDispatch();
@@ -15,6 +15,9 @@ export default function Card({ pin }) {
     const savesObj = useSelector(state => state.saves.allSaves)
     const savesList = Object.values(savesObj)
 
+    const [board, setBoard] = useState(null)
+    const boardsObj = useSelector(state => state.boards.allBoards)
+    const boardsList = Object.values(boardsObj)
 
     const filteredSavesList = savesList.filter(save => save.user_id === sessionUser.id)
     // console.log('filtered', filteredSavesList)
@@ -33,10 +36,23 @@ export default function Card({ pin }) {
             pin_id: pinId
         }
         
+        const pinToUpdate = {
+            ...pin,
+            boards: board
+        }
+
         arrayOfPinIds.push(pinId)
         // setCssClassName('saving-btn2')
         // setSaved('Saved')
-        await dispatch(createSaveThunk(newSave))
+
+        if (!board) {
+            dispatch(createSaveThunk(newSave))
+        } else {
+            await dispatch(updatePinWithBoardsThunk(pinToUpdate))
+            dispatch(createSaveThunk(newSave))
+        }
+
+
     }
     
     
@@ -49,7 +65,14 @@ export default function Card({ pin }) {
                     >Saved</button>)
                     : (<button id='saving-btn' onClick={() => savePin(pin.id)}
                     >Save</button>)}
-
+                <form>
+                    <select id='board-selector'defaultValue="" onChange={(e) => setBoard(e.target.value)}>
+                        <option value="" disabled hidden></option>
+                        {boardsList.map((board) => (
+                            <option key={board.id} value={board.id}>{board.name}</option>
+                        ))}
+                    </select>
+                </form>
             </div>
 
             <Link id='pin-card-link' to={`/pins/${pin.id}`}>

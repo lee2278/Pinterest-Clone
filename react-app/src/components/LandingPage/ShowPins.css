@@ -80,11 +80,22 @@
 
 
 .pin-card-frontpage:hover #saving-btn,
-.pin-card-frontpage:hover #saving-btn2 {
+.pin-card-frontpage:hover #saving-btn2,
+.pin-card-frontpage:hover #board-selector {
   opacity: 1;
 }
 
 
 #not-found-ptag {
   padding: 1rem;
+}
+
+#board-selector {
+  position:absolute;
+  width: 1.3rem;
+  z-index: 2;
+  opacity: 0;
+  top: 10px;
+  cursor: pointer;
+  left: 2%;
 }
