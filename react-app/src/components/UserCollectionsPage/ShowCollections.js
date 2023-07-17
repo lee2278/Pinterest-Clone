@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { getBoardsThunk } from "../../store/boards";
 import { getPinsThunk } from "../../store/pins";
 import OpenModalButton from "../OpenModalButton";
@@ -50,7 +50,7 @@ export default function ShowCollections() {
 
                 <p id='user-circle'>{sessionUser.username[0]}</p>
 
-                <p id='username-ptag'>{sessionUser.username}</p>
+                <p id='username-ptag2'>{sessionUser.username}</p>
             </div>
 
             <div className='center'>
@@ -71,10 +71,10 @@ export default function ShowCollections() {
                 <div className='saved-card'>
                     <Link className='saved-card-link' to={`/${sessionUser.username}/saved`}>
                         <div className='saved-images'>
-                            <img className='saveImageDiv img-1' src={savedPinsList[0]?.image_url} />
-                            <img className='saveImageDiv img-2' src={savedPinsList[1]?.image_url} />
-                            <img className='saveImageDiv img-3' src={savedPinsList[2]?.image_url} />
-                            <img className='saveImageDiv img-4' src={savedPinsList[3]?.image_url} />
+                            <img className='saveImageDiv img-1' alt='saved'src={savedPinsList[0]?.image_url} />
+                            <img className='saveImageDiv img-2' alt='saved'src={savedPinsList[1]?.image_url} />
+                            <img className='saveImageDiv img-3' alt='saved'src={savedPinsList[2]?.image_url} />
+                            <img className='saveImageDiv img-4' alt='saved'src={savedPinsList[3]?.image_url} />
 
                         </div>
                     </Link>

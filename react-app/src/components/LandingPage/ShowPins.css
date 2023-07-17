@@ -80,11 +80,50 @@
 
 
 .pin-card-frontpage:hover #saving-btn,
-.pin-card-frontpage:hover #saving-btn2 {
+.pin-card-frontpage:hover #saving-btn2,
+.pin-card-frontpage:hover #board-selector {
   opacity: 1;
 }
 
 
 #not-found-ptag {
   padding: 1rem;
+}
+
+.show {
+  position:absolute;
+  width: 50%;
+  z-index: 2;
+  opacity: 0;
+  top: 10px;
+  cursor: pointer;
+  left: 2%;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+
+}
+
+.noshow {
+  position:absolute;
+  width: 1.5rem;
+  z-index: 2;
+  opacity: 0;
+  top: 10px;
+  cursor: pointer;
+  left: 2%;
+  font-weight: 500;
+  color: red;
+  background-color: transparent;
+  border: none;
+}
+
+
+
+#board-selector > option {
+  background-color: white;
+  color: black;
+  border:none;
 }

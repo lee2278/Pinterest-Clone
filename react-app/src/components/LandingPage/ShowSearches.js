@@ -1,8 +1,7 @@
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getPins } from '../../store/pins';
-import { getPinsThunk } from '../../store/pins';
 import Masonry from 'react-masonry-css'
 import Card from './Card';
 
@@ -14,7 +13,7 @@ export default function ShowSearches() {
     const pinsObj = useSelector(state => state.pins.allPins)
     const pinsList = Object.values(pinsObj)
 
-    const sessionUser = useSelector(state => state.session.user);
+    // const sessionUser = useSelector(state => state.session.user);
 
 
 
@@ -36,7 +35,7 @@ export default function ShowSearches() {
     
         } else {
             const errors = await response.json()
-            console.log('search fetch not ok')
+            // console.log('search fetch not ok')
             return errors;
         }
     }

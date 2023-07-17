@@ -1,0 +1,99 @@
+#about-section {
+    padding: 2rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.about-word-section {
+    width: 22rem;
+    text-align:justify;
+    /* border: 2px solid red; */
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.logo-images {
+    width:2rem;
+    height: 2rem;
+
+}
+
+
+
+.name-logo {
+
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 5px;
+    border: 1px solid black;
+}
+
+#about-section > h1 {
+    margin-bottom: 0;
+}
+
+#website-name {
+    color: var(--pinterest-red);
+    /* margin: 0; */
+    padding: 0;
+    font-size: 30px;
+    margin-top: 0;
+}
+
+.my-links-section{
+
+    display: flex;
+    width: 8rem;
+    gap: 1.5rem;
+    /* border: 1px solid red; */
+}
+
+#github-atag > i, #linkedin-atag > i {
+    font-size: 3rem;
+}
+
+#github-atag > i:hover, #linkedin-atag > i:hover {
+    font-size: 3.5rem;
+}
+
+.about-wrapper {
+    /* border: 1px solid blue; */
+    display: flex;
+    gap: 1.5rem;
+}
+
+.me-div {
+    border-right: 1px solid gray;
+
+
+}
+.me-div > img {
+    border-radius: 50%;
+    width: 185px;
+    border: 2px solid gray;
+    margin-right: 1.5rem;
+}
+
+@media screen and (max-width: 615px) {
+    .about-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .me-div {
+        border-right: none;
+    }
+}
+
+
+@media screen and (max-width: 365px) {
+    #website-name {
+        font-size: 20px;
+    }
+}
