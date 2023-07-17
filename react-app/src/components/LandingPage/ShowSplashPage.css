@@ -129,6 +129,20 @@
 }
 
 
+.splash-page-footer {
+    align-self: flex-end;
+    /* background-color:lightblue; */
+    border-top: 1px solid gray;
+    margin-top: 2rem;
+}
+
+.github-linkedin-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
 @media screen and (max-width: 1000px) {
 
     .pics {
