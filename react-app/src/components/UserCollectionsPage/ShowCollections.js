@@ -29,7 +29,7 @@ export default function ShowCollections() {
     for (let i = 0; i < filteredSavesByUser.length; i++) {
         arrayOfPinIds.push(filteredSavesByUser[i].pin_id)
     }
-    
+
     for (let pin of pinsList) {
         if (arrayOfPinIds.includes(pin.id)) {
             savedPinsList.push(pin)
@@ -46,11 +46,19 @@ export default function ShowCollections() {
 
     return (
         <div className='everything-wrapper'>
+            <div className='user-info-area'>
+
+                <p id='user-circle'>{sessionUser.username[0]}</p>
+
+                <p id='username-ptag'>{sessionUser.username}</p>
+            </div>
 
             <div className='center'>
-                <Link id='created-pins-link' to={`/${sessionUser.username}/created`}>Created Pins</Link>
-                <span>|</span>
-                <p id='boards-ptag'>Boards</p>
+
+                <div className='under-user-info-area'>
+                    <Link id='created-pins-link' to={`/${sessionUser.username}/created`}>Created Pins</Link>
+                    <Link id='boards-link' to={`/${sessionUser.username}`}>Boards</Link>
+                </div>
             </div>
             <div id='create-board-btn-container'>
                 <OpenModalButton
@@ -58,15 +66,15 @@ export default function ShowCollections() {
                     modalComponent={<CreateBoardModal />}
                 />
             </div>
-            
+
             <div className='container-for-boards'>
                 <div className='saved-card'>
                     <Link className='saved-card-link' to={`/${sessionUser.username}/saved`}>
                         <div className='saved-images'>
-                            <img className='saveImageDiv img-1'src={savedPinsList[0]?.image_url}/>
-                            <img className='saveImageDiv img-2'src={savedPinsList[1]?.image_url}/>
-                            <img className='saveImageDiv img-3'src={savedPinsList[2]?.image_url}/>
-                            <img className='saveImageDiv img-4'src={savedPinsList[3]?.image_url}/>
+                            <img className='saveImageDiv img-1' src={savedPinsList[0]?.image_url} />
+                            <img className='saveImageDiv img-2' src={savedPinsList[1]?.image_url} />
+                            <img className='saveImageDiv img-3' src={savedPinsList[2]?.image_url} />
+                            <img className='saveImageDiv img-4' src={savedPinsList[3]?.image_url} />
 
                         </div>
                     </Link>
@@ -91,7 +99,7 @@ export default function ShowCollections() {
                 ))}
 
             </div>
-                    
+
         </div>
     )
 }
