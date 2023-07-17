@@ -57,7 +57,7 @@ export default function ShowCollections() {
 
                 <div className='under-user-info-area'>
                     <Link id='created-pins-link' to={`/${sessionUser.username}/created`}>Created Pins</Link>
-                    <Link id='boards-link' to={`/${sessionUser.username}`}>Boards</Link>
+                    <Link className='boards-link selected' to={`/${sessionUser.username}`}>Boards</Link>
                 </div>
             </div>
             <div id='create-board-btn-container'>

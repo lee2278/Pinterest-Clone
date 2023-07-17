@@ -126,7 +126,7 @@ a {
     font-size: 18px;
 }
 
-#boards-link {
+.boards-link.selected {
     border-bottom: 2px solid black;
 }
 
@@ -137,7 +137,7 @@ a {
 
 
 
-#created-pins-link:hover, #boards-link:hover {
+#created-pins-link:hover, .boards-link:hover {
     font-weight: 500
 }
 
