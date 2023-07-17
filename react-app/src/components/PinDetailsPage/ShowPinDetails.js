@@ -7,7 +7,7 @@ import { createSaveThunk } from '../../store/saves';
 import { createCommentThunk, deleteCommentThunk, getCommentsThunk } from '../../store/comments';
 import EditCommentModal from './EditCommentModal';
 import OpenModalButton from "../OpenModalButton";
-
+import FadeLoader from "react-spinners/FadeLoader"
 import "./ShowPinDetails.css"
 
 
@@ -146,7 +146,7 @@ export default function ShowPinDetails() {
                 <div className='sub-main-container'>
                     <div className='pin-left-side'>
                         <div className='left-img-container'>
-                            <img id='specific-pin-img' src={pin.image_url} alt='' />
+                            {!pin.image_url ? <FadeLoader/> : <img id='specific-pin-img' src={pin.image_url} alt='' />}
                         </div>
                     </div>
                     <div className='right-text-section'>
@@ -164,9 +164,9 @@ export default function ShowPinDetails() {
                             <h1 id='pin-title-h1'>{pin.title}</h1>
                             <p id='pin-description-ptag'>{pin.description}</p>
 
-                            <div id='posted-by-div'> Posted by:
+                            {!pin.owner_username ? <FadeLoader/> :<div id='posted-by-div'> Posted by:
                                 <span id='pin-post-username-span'>{` ${pin.owner_username}`}</span>
-                            </div>
+                            </div>}
                             <h3 id='comments-h3'>Comments</h3>
                             {filteredCommentsByPinId.map((comment) => (
                                 <div key={comment.id}>
