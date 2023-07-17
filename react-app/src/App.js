@@ -15,6 +15,7 @@ import EditCreatedPins from "./components/ManageMyPins/EditCreatedPins";
 import ShowBoardDetails from "./components/SingleBoardPage/ShowBoardDetails";
 import ShowSavedPins from "./components/ManageMySaves/ShowSavedPins";
 import ShowSearches from "./components/LandingPage/ShowSearches";
+import AboutPage from "./components/AboutPage/AboutPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/about">
+            <AboutPage />
           </Route>
           <Route path='/pins/:pinId/edit'>
             <EditCreatedPins/>

@@ -25,8 +25,8 @@ export default function ShowSavedPins() {
 
     const filteredSavesByUser = savesList.filter(save => save.user_id === sessionUser.id)
 
-    console.log('filtered',filteredSavesByUser)
-    console.log('sessionUser', sessionUser.id)
+    // console.log('filtered',filteredSavesByUser)
+    // console.log('sessionUser', sessionUser.id)
     useEffect(() => {
         dispatch(getPinsThunk())
     }, [dispatch])

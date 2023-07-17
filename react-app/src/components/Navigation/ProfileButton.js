@@ -4,7 +4,7 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
-import { useHistory } from "react-router-dom"
+import { useHistory, NavLink} from "react-router-dom"
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -44,7 +44,8 @@ function ProfileButton({ user }) {
   return (
     <>
       <button id='profile-btn' onClick={openMenu}>
-        <span id='arrow-dropdown' className="material-symbols-outlined">
+        <span id='arrow-dropdown' className="material-symbols-outlined"
+        title='account management'>
           expand_more
         </span>
       </button>
@@ -53,6 +54,7 @@ function ProfileButton({ user }) {
           <>
             <li className='profile-menu-selections'>{user.username}</li>
             <li className='profile-menu-selections'>{user.email}</li>
+            <li className='profile-menu-selections'><NavLink exact to='/about'>About Site</NavLink></li>
             <li className='profile-menu-selections'>
               <button id='dropdown-logout-btn'onClick={handleLogout}>Log Out</button>
             </li>

@@ -5,7 +5,6 @@ import ProfileButton from './ProfileButton';
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
-import AboutModal from './AboutModal';
 import SearchBar from './SearchBar'
 
 import './Navigation.css';
@@ -52,10 +51,11 @@ function Navigation({ isLoaded }) {
 					<div className='login-signup-container'>
 
 						<div className='about-btn-container'>
-							<OpenModalButton
+							{/* <OpenModalButton
 								buttonText="About"
 								modalComponent={<AboutModal />}
-							/>
+							/> */}
+							<NavLink exact to = "/about">About</NavLink>
 						</div>
 						<div className='login-btn-container'>
 							<OpenModalButton

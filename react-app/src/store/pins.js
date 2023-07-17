@@ -30,7 +30,7 @@ const editPin = (singlePin) => ({
     singlePin
 })
 
-const updatePinWithBoards = (singlePin) => ({
+export const updatePinWithBoards = (singlePin) => ({
     type: UPDATE_PIN_WITH_BOARDS,
     singlePin
 })
