@@ -2,7 +2,7 @@
 
 
 const GET_COMMENTS= "comments/GET_COMMENTS"
-const GET_COMMENT_DETAILS = "comments/GET_COMMENT_DETAILS"
+// const GET_COMMENT_DETAILS = "comments/GET_COMMENT_DETAILS"
 const CREATE_COMMENT = "comments/CREATE_COMMENT"
 const EDIT_COMMENT = "comments/EDIT_COMMENT"
 const DELETE_COMMENT = "comments/DELETE_COMMENT"
@@ -15,10 +15,10 @@ const getComments = (comments) => ({
     comments
 })
 
-const getCommentDetails = (singleComment) => ({
-    type: GET_COMMENT_DETAILS,
-    singleComment
-})
+// const getCommentDetails = (singleComment) => ({
+//     type: GET_COMMENT_DETAILS,
+//     singleComment
+// })
 
 const createComment = (comment) => ({
     type: CREATE_COMMENT,

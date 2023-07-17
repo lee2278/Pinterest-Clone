@@ -44,7 +44,8 @@ function ProfileButton({ user }) {
   return (
     <>
       <button id='profile-btn' onClick={openMenu}>
-        <span id='arrow-dropdown' className="material-symbols-outlined">
+        <span id='arrow-dropdown' className="material-symbols-outlined"
+        title='account management'>
           expand_more
         </span>
       </button>

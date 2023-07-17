@@ -142,7 +142,7 @@ export default function ShowPinDetails() {
             <div className='main-container'>
                 <button id='go-back-btn' onClick={goBack}><span className="material-symbols-outlined">
                     undo
-                </span>Go Back to Boards</button>
+                </span>Go to Boards</button>
                 <div className='sub-main-container'>
                     <div className='pin-left-side'>
                         <div className='left-img-container'>

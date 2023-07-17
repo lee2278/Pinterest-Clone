@@ -10,7 +10,7 @@ export default function AboutPage() {
 
             <div className='about-wrapper'>
                 <div className='me-div'>
-                    <img src='https://avatars.githubusercontent.com/u/53248578?v=4' />
+                    <img src='https://avatars.githubusercontent.com/u/53248578?v=4' alt='profile pic'/>
                 </div>
                 <div className="about-word-section">
                     <p>Hi, my name is Carmen Lee and thank you for visiting my site! This site is a clone of Pinterest with a food theme in mind. It was built using the following: </p>
@@ -18,7 +18,7 @@ export default function AboutPage() {
                         <div className='name-logo'>
 
 
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" className='logo-images' />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" className='logo-images' alt='redux logo'/>
 
                             <span>React/Redux</span>
                         </div>
@@ -26,19 +26,19 @@ export default function AboutPage() {
 
 
 
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original-wordmark.svg" className='logo-images' />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original-wordmark.svg" className='logo-images' alt='flask logo'/>
 
                             <span>Flask-SQLAlchemy</span>
                         </div>
                         <div className='name-logo'>
 
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" className='logo-images' />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" className='logo-images' alt='javascript logo'/>
 
                             <span>Javascript</span>
                         </div>
                         <div className='name-logo'>
 
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" className='logo-images' />
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" className='logo-images' alt='python logo'/>
 
                             <span>Python</span>
                         </div>
@@ -46,10 +46,10 @@ export default function AboutPage() {
                     <p>If you'd like to contact me, or see what other projects I'm working on, check out my LinkedIn and Github below!</p>
                     <div className='my-links-section'>
                         <a href="https://github.com/lee2278">
-                            <i class="fa-brands fa-github"></i>
+                            <i className="fa-brands fa-github"></i>
                         </a>
                         <a href="https://www.linkedin.com/in/carmen-lee-52061690/">
-                            <i class="fa-brands fa-linkedin"></i>
+                            <i className="fa-brands fa-linkedin"></i>
                         </a>
                     </div>
                 </div>

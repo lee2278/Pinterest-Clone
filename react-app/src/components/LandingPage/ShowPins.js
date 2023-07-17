@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getPinsThunk } from '../../store/pins';
 import { getSavesThunk } from '../../store/saves';
@@ -7,7 +7,6 @@ import Card from './Card';
 import Masonry from 'react-masonry-css'
 import "./ShowPins.css"
 import { getBoardsThunk } from '../../store/boards';
-import { updatePinWithBoards } from '../../store/pins';
 
 export default function ShowPins() {
     const dispatch = useDispatch();
@@ -15,7 +14,6 @@ export default function ShowPins() {
     const pinsObj = useSelector(state => state.pins.allPins)
     const pinsList = Object.values(pinsObj)
 
-    const sessionUser = useSelector(state => state.session.user);
 
     // const savesObj = useSelector(state => state.saves.allSaves)
     // const savesList = Object.values(savesObj)

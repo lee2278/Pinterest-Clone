@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { createSaveThunk } from '../../store/saves';
@@ -15,7 +15,7 @@ export default function Card({ pin }) {
     const [dropdownClassName, setdropdownClassName] = useState('noshow')
 
 
-    const savesObj = useSelector(state => state.saves.allSaves)
+    // const savesObj = useSelector(state => state.saves.allSaves)
     // const savesList = Object.values(savesObj)
 
     const [board, setBoard] = useState(null)
