@@ -9,10 +9,22 @@ export default function Card({ pin }) {
 
     const sessionUser = useSelector(state => state.session.user);
 
-    const [cssClassName, setCssClassName] = useState('saving-btn')
-    const [saved, setSaved] = useState('Save')
+    // const [cssClassName, setCssClassName] = useState('saving-btn')
+    // const [saved, setSaved] = useState('Save')
 
+    const savesObj = useSelector(state => state.saves.allSaves)
+    const savesList = Object.values(savesObj)
+
+
+    const filteredSavesList = savesList.filter(save => save.user_id === sessionUser.id)
+    // console.log('filtered', filteredSavesList)
+ 
     const arrayOfPinIds = []
+
+    for (let filtered of filteredSavesList) {
+        arrayOfPinIds.push(filtered.pin_id)
+    }
+
 
     const savePin = async (pinId) => {
 
@@ -22,8 +34,8 @@ export default function Card({ pin }) {
         }
         
         arrayOfPinIds.push(pinId)
-        setCssClassName('saving-btn2')
-        setSaved('Saved')
+        // setCssClassName('saving-btn2')
+        // setSaved('Saved')
         await dispatch(createSaveThunk(newSave))
     }
     
@@ -33,10 +45,10 @@ export default function Card({ pin }) {
 
             <div className='saving-btn-wrapper'>
                 {arrayOfPinIds.includes(pin.id) ? (
-                    <button disabled id={cssClassName}
-                    >{saved}</button>)
-                    : (<button id={cssClassName} onClick={() => savePin(pin.id)}
-                    >{saved}</button>)}
+                    <button disabled id='saving-btn2'
+                    >Saved</button>)
+                    : (<button id='saving-btn' onClick={() => savePin(pin.id)}
+                    >Save</button>)}
 
             </div>
 

@@ -54,6 +54,7 @@ export const createSaveThunk = (save) => async (dispatch) => {
 
         const newSave = await response.json()
         dispatch(createSave(newSave))
+        dispatch(getSavesThunk())
     } else {
         console.log('create save response not ok')
         const errors = await response.json()
