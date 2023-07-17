@@ -137,6 +137,21 @@
   overflow-wrap: break-word;
 }
 
+.container-for-created {
+  /* border: 2px solid black; */
+  margin-top: 5rem;
+  padding: 0 1rem;
+}
+
+.created-pins-link.selected {
+  border-bottom: 2px solid black;
+}
+
+
+.created-pins-link:hover, .boards-link:hover {
+  font-weight: 500
+}
+
 @media screen and (max-width: 580px) {
   .right-text-section2 {
     height: 50%;

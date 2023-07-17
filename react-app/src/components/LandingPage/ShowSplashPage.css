@@ -127,3 +127,64 @@
     animation: blink1 3s linear 0.6s infinite
 
 }
+
+
+@media screen and (max-width: 1000px) {
+
+    .pics {
+    width: 160px;
+    height: 330px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .pic-5 {
+        display:none;
+    }
+}
+
+@media screen and (max-width: 760px) {
+
+    .pic-4 {
+        display:none;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    @keyframes moveUp {
+        from {
+            transform: translateY(0px)
+            /* translateX(-40px) */
+        }
+        to {
+            transform: translateY(0px)
+        }
+    }
+    
+    .pics-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+
+    }
+    .pic-4 {
+        display:block
+    }
+    .pics {
+        width: 100%
+    }
+}
+
+
+@media screen and (max-width: 365px) {
+    .pics-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+
+    }
+    .pic-5 {
+        display:block;
+    }
+}

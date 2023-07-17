@@ -169,7 +169,8 @@ ul {
 
 .about-btn-container > button:hover {
   text-decoration: underline;
-  font-size: 17px;
+  font-weight: 500;
+  /* font-size: 17px; */
 }
 
 
@@ -247,12 +248,20 @@ ul {
   .home.word-link {
     display:none;
   }
+
+  .login-btn-container > button, .signup-btn-container > button, .about-btn-container > button {
+    font-size:3vw;
+  }
+
 }
 
 
-@media screen and (max-width:445px) {
+@media screen and (max-width:446px) {
   #search-form {
     width:170px;
+  }
+  .login-btn-container > button, .signup-btn-container > button, .about-btn-container > button{
+    font-size:2.5vw;
   }
 }
 
@@ -266,11 +275,34 @@ ul {
     padding: 0 0.3rem;
   }
 
+  .login-signup-container {
+    grid-row-start:2;
+    grid-column: 1 / span 2;
+    justify-content: space-evenly;
+
+  }
+  .login-btn-container > button, .signup-btn-container > button, .about-btn-container > button{
+    width: 6rem;
+    border-radius: 15px;
+    font-size:3vw;
+  }
+
+  #nav-link-li {
+    /* border: 1px solid red; */
+    grid-column: 1 / span 2;
+    justify-content: center;
+  }
+
+  .home.name {
+    font-size: 8vw;
+  }
+
   .profile-group{
     grid-column-start: 2;
     grid-column-end: -1;
     grid-row-start:1;
     grid-row-end:2;
+    padding-left: 10rem;
   }
   #search-form {
     grid-column: 1 / span 2;
@@ -292,6 +324,9 @@ ul {
   #search-form {
     width:205%;
   }
+  .profile-group{
+    padding-left: 8rem;
+  }
 }
 @media screen and (max-width:375px) {
   #search-form {
@@ -302,6 +337,16 @@ ul {
   #search-form {
     width:215%;
   }
+  .login-signup-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .login-btn-container > button, .signup-btn-container > button, .about-btn-container > button{
+    width: 10rem;
+    border-radius: 15px;
+    font-size: 3.5vw;
+  }
+
 }
 @media screen and (max-width:360px) {
   #search-form {
@@ -312,6 +357,9 @@ ul {
 @media screen and (max-width:350px) {
   #search-form {
     width:220%;
+  }
+  .profile-group{
+    padding-left: 6rem;
   }
 }
 @media screen and (max-width:340px) {
@@ -333,9 +381,18 @@ ul {
   #search-form {
     width:265%;
   }
+  .profile-group{
+    padding-left: 4rem;
+  }
 }
 @media screen and (max-width:294px) {
   #search-form {
     width:200%;
+  }
+}
+
+@media screen and (max-width:274px) {
+  .profile-group{
+    padding-left: 1.5rem;
   }
 }
