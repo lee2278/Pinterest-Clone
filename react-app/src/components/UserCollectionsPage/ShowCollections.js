@@ -50,7 +50,7 @@ export default function ShowCollections() {
 
                 <p id='user-circle'>{sessionUser.username[0]}</p>
 
-                <p id='username-ptag'>{sessionUser.username}</p>
+                <p id='username-ptag2'>{sessionUser.username}</p>
             </div>
 
             <div className='center'>

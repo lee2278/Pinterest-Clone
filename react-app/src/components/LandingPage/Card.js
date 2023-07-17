@@ -9,25 +9,38 @@ export default function Card({ pin }) {
 
     const sessionUser = useSelector(state => state.session.user);
 
-    // const [cssClassName, setCssClassName] = useState('saving-btn')
-    // const [saved, setSaved] = useState('Save')
+    const [cssClassName, setCssClassName] = useState('saving-btn')
+    const [buttonText, setButtonText] = useState('Save')
+
+    const [dropdownClassName, setdropdownClassName] = useState('noshow')
+
 
     const savesObj = useSelector(state => state.saves.allSaves)
-    const savesList = Object.values(savesObj)
+    // const savesList = Object.values(savesObj)
 
     const [board, setBoard] = useState(null)
     const boardsObj = useSelector(state => state.boards.allBoards)
     const boardsList = Object.values(boardsObj)
 
-    const filteredSavesList = savesList.filter(save => save.user_id === sessionUser.id)
-    // console.log('filtered', filteredSavesList)
- 
+
+
+    // const filteredSavesList = savesList.filter(save => save.user_id === sessionUser.id)
+  
+  
+
     const arrayOfPinIds = []
 
-    for (let filtered of filteredSavesList) {
-        arrayOfPinIds.push(filtered.pin_id)
-    }
+    // for (let filtered of filteredSavesList) {
+    //     arrayOfPinIds.push(filtered.pin_id)
+    // }
 
+    // if (board) {
+    //     setSaved('Save')
+    //     setCssClassName('saving-btn')
+    // }
+
+    // if (arrayOfPinIds.includes(pin.id)) buttonDisplay = 'Saved'
+    // if (!arrayOfPinIds.includes(pin.id) || board) buttonDisplay = 'Save'
 
     const savePin = async (pinId) => {
 
@@ -35,15 +48,20 @@ export default function Card({ pin }) {
             user_id: sessionUser.id,
             pin_id: pinId
         }
-        
+
         const pinToUpdate = {
             ...pin,
             boards: board
         }
 
         arrayOfPinIds.push(pinId)
-        // setCssClassName('saving-btn2')
-        // setSaved('Saved')
+        if (buttonText === 'Save') {
+            setButtonText('Saved')
+            setCssClassName('saving-btn2')
+        } else {
+            setButtonText('Save')
+            setCssClassName('saving-btn')
+        }
 
         if (!board) {
             dispatch(createSaveThunk(newSave))
@@ -54,24 +72,38 @@ export default function Card({ pin }) {
 
 
     }
-    
-    
+
+
+    const handleBoardSelect = (e) => {
+        if (buttonText === 'Saved') {
+            setButtonText('Save')
+            setCssClassName('saving-btn')
+        }
+        setdropdownClassName('show')
+        setBoard(e.target.value)
+    }
+
+
     return (
         <div key={pin.id} className='pin-card-frontpage'>
 
             <div className='saving-btn-wrapper'>
                 {arrayOfPinIds.includes(pin.id) ? (
-                    <button disabled id='saving-btn2'
-                    >Saved</button>)
-                    : (<button id='saving-btn' onClick={() => savePin(pin.id)}
-                    >Save</button>)}
+                    <button disabled id={cssClassName}
+                    >{buttonText}</button>)
+                    : (<button id={cssClassName} onClick={() => savePin(pin.id)}
+                    >{buttonText}</button>)}
                 <form>
-                    <select id='board-selector'defaultValue="" onChange={(e) => setBoard(e.target.value)}>
+                    <select className={dropdownClassName}id='board-selector' defaultValue="" onChange={handleBoardSelect}>
                         <option value="" disabled hidden></option>
                         {boardsList.map((board) => (
-                            <option key={board.id} value={board.id}>{board.name}</option>
+                            <option key={board.id}
+                                value={board.id}
+                                >
+                                {board.name}</option>
                         ))}
                     </select>
+
                 </form>
             </div>
 
@@ -81,5 +113,5 @@ export default function Card({ pin }) {
                 </div>
             </Link>
         </div>
-   )
+    )
 }
