@@ -27,6 +27,8 @@
   border: none;
   font-size: 20px;
   padding: 0.5rem 0.8rem;
+  right: 1.5%;
+  top: 10px;
 }
 
 #remove-pin-btn:hover {
@@ -36,8 +38,9 @@
 }
 
 .remove-btn-wrapper {
-  position: absolute;
+  position: relative;
   opacity: 0;
+  height:5px;
 }
 
 .pin-card:hover .remove-btn-wrapper {
@@ -61,7 +64,7 @@
   /* Style your items */
   .third-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
 
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
 
@@ -69,5 +72,3 @@
     white-space: pre-wrap;
     overflow-wrap: break-word;
   }
-
-
