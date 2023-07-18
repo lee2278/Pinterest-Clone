@@ -79,7 +79,7 @@
 }
 
 #save-pin-btn {
-  background-color: var(--pinterest-red);
+  background-color: rgb(230,0,35,70%);
   color: white;
   padding: 0.59rem;
   border-radius: 0 8px 8px 0;
@@ -92,7 +92,7 @@
 }
 
 #save-pin-btn:hover {
-  background-color: var(--hovered-red);
+  background-color: var(--pinterest-red)
 }
 
 
@@ -140,9 +140,13 @@
 }
 #post-comment-btn{
   border:none;
-  background-color: var(--pinterest-red);
+  background-color: rgb(230, 0, 35, 70%);
   color:white;
   width:10%;
+}
+
+#post-comment-btn:hover {
+  background-color: var(--pinterest-red)
 }
 
 .fa-paper-plane {
@@ -160,6 +164,7 @@
   /* border: 2px solid blue; */
   display:flex;
   gap:0.3rem;
+  align-items: center;
   /* margin-left: 1.5rem; */
 
 }

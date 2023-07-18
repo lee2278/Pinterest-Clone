@@ -45,10 +45,10 @@ export default function AboutPage() {
                     </div>
                     <p>If you'd like to contact me, or see what other projects I'm working on, check out my LinkedIn and Github below!</p>
                     <div className='my-links-section'>
-                        <a id='github-atag' href="https://github.com/lee2278">
+                        <a id='github-atag' href="https://github.com/lee2278" target="_blank">
                             <i className="fa-brands fa-github"></i>
                         </a>
-                        <a id='linkedin-atag' href="https://www.linkedin.com/in/carmen-lee-52061690/">
+                        <a id='linkedin-atag' href="https://www.linkedin.com/in/carmen-lee-52061690/" target="_blank">
                             <i className="fa-brands fa-linkedin"></i>
                         </a>
                     </div>

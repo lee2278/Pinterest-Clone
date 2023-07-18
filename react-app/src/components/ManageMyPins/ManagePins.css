@@ -1,5 +1,6 @@
 :root {
   --pinterest-red: rgb(230, 0, 35);
+  --hovered-red: #ad081b;
 }
 
 #edit-pin-h1,
@@ -55,10 +56,14 @@
 
 #save-edit-btn {
     width: 5rem;
-    background-color: var(--pinterest-red);
+    background-color: rgb(230, 0, 35, 70%);
     color: white;
     border-radius: 8px;
     padding: 0.3rem;
+}
+
+#save-edit-btn:hover {
+  background-color: var(--pinterest-red)
 }
 
 #cancel-btn, #delete-btn {
@@ -68,11 +73,22 @@
     /* border: none; */
 }
 
-#delete-btn {
-    background-color: var(--pinterest-red);
-    color: white;
+#cancel-btn {
+  background-color: gray;
+  color:white;
 }
 
+#cancel-btn:hover {
+  background-color: rgb(64, 62, 62)
+}
+
+#delete-btn {
+    background-color: rgb(230, 0, 35, 70%);
+    color: white;
+}
+#delete-btn:hover {
+  background-color: var(--pinterest-red);
+}
 
 .edit-delete-btn-container {
   /* border:2px solid red; */
@@ -89,6 +105,11 @@
   color: white;
   border-radius: 8px;
   /* border:none; */
+  
+}
+
+.edit-btn-wrapper > button:hover {
+  background-color: rgb(64, 62, 62)
 }
 
 .delete-btn-wrapper > button {
@@ -99,6 +120,11 @@
   border-radius: 8px;
   /* border:none; */
 }
+
+.delete-btn-wrapper > button:hover {
+  background-color: red;
+}
+
 
 
 .edit-pin-inputs {
@@ -130,11 +156,11 @@
 .right-text-section2 {
   height: 100%;
   width: 50%;
-  height: 100%;
-  padding: 1.5rem;
+  /* padding: 1.5rem;
   overflow-y: scroll;
   white-space: pre-wrap;
-  overflow-wrap: break-word;
+  overflow-wrap: break-word; */
+
 }
 
 .container-for-created {

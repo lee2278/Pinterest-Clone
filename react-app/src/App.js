@@ -16,12 +16,13 @@ import ShowBoardDetails from "./components/SingleBoardPage/ShowBoardDetails";
 import ShowSavedPins from "./components/ManageMySaves/ShowSavedPins";
 import ShowSearches from "./components/LandingPage/ShowSearches";
 import AboutPage from "./components/AboutPage/AboutPage";
+import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
 
-	const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector(state => state.session.user);
 
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
@@ -32,11 +33,11 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      <Route exact path='/'>
-        {!sessionUser ? <ShowSplashPage /> : <ShowPins/>}
-      </Route>
       {isLoaded && (
         <Switch>
+          <Route exact path='/'>
+            {!sessionUser ? <ShowSplashPage /> : <ShowPins />}
+          </Route>
           <Route path="/login" >
             <LoginFormPage />
           </Route>
@@ -47,29 +48,33 @@ function App() {
             <AboutPage />
           </Route>
           <Route path='/pins/:pinId/edit'>
-            <EditCreatedPins/>
+            <EditCreatedPins />
           </Route>
           <Route path='/pins/:pinId'>
-            <ShowPinDetails/>
+            <ShowPinDetails />
           </Route>
           <Route path='/pin-maker'>
-            <PinMaker/>
+            <PinMaker />
           </Route>
           <Route path='/search/:search'>
-            <ShowSearches/>
+            <ShowSearches />
           </Route>
           <Route path={`/${sessionUser?.username}/created`}>
-            <ShowCreatedPins/>
+            <ShowCreatedPins />
           </Route>
           <Route path={`/${sessionUser?.username}/saved`}>
-            <ShowSavedPins/>
+            <ShowSavedPins />
           </Route>
 
           <Route exact path={`/${sessionUser?.username}/boards/:boardId`}>
-            <ShowBoardDetails/>
+            <ShowBoardDetails />
           </Route>
           <Route path={`/${sessionUser?.username}`}>
-            <ShowCollections/>
+            <ShowCollections />
+          </Route>
+
+          <Route path="*">
+            <NotFoundPage />
           </Route>
         </Switch>
       )}
