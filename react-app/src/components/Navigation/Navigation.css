@@ -70,10 +70,16 @@ ul {
   color:var(--pinterest-red)
 }
 
+.home:hover {
+  font-weight: 500;
+}
+
 #logo-img {
   width: 35px;
   height: 35px;
 }
+
+
 
 
 #nav-link-li {

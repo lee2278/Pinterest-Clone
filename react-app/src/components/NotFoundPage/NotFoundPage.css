@@ -1,0 +1,35 @@
+.center-everything {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.not-found-img-container {
+    position: relative;
+    height: 350px;
+    overflow:hidden;
+    width: 300px;
+    border-top-right-radius:18px;
+    border-top-left-radius:18px;
+
+}
+
+#not-found-img {
+    position:absolute;
+    height: auto;
+    bottom: 55px;
+    width: 100%;
+    border-radius: 18px;
+}
+
+#go-back-home-btn {
+    padding:0.5rem;
+    background-color: rgb(230, 0, 35, 70%);
+    border:none;
+    color:white;
+    border-radius: 8px;
+}
+
+#go-back-home-btn:hover {
+    background-color: var(--pinterest-red);
+}
