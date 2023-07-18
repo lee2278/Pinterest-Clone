@@ -33,7 +33,7 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} />
       <Route exact path='/'>
-        {sessionUser ? <ShowPins/> : <ShowSplashPage />}
+        {!sessionUser ? <ShowSplashPage /> : <ShowPins/>}
       </Route>
       {isLoaded && (
         <Switch>

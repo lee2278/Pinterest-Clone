@@ -8,6 +8,8 @@ import CreateBoardModal from "./CreateBoardModal";
 import { getSavesThunk } from "../../store/saves";
 import "./ShowCollections.css"
 
+
+
 export default function ShowCollections() {
 
     const dispatch = useDispatch()
@@ -71,10 +73,10 @@ export default function ShowCollections() {
                 <div className='saved-card'>
                     <Link className='saved-card-link' to={`/${sessionUser.username}/saved`}>
                         <div className='saved-images'>
-                            <img className='saveImageDiv img-1' alt='saved'src={savedPinsList[0]?.image_url} />
-                            <img className='saveImageDiv img-2' alt='saved'src={savedPinsList[1]?.image_url} />
-                            <img className='saveImageDiv img-3' alt='saved'src={savedPinsList[2]?.image_url} />
-                            <img className='saveImageDiv img-4' alt='saved'src={savedPinsList[3]?.image_url} />
+                            <img className='saveImageDiv img-1' alt=''src={savedPinsList[0]?.image_url} />
+                            <img className='saveImageDiv img-2' alt=''src={savedPinsList[1]?.image_url} />
+                            <img className='saveImageDiv img-3' alt=''src={savedPinsList[2]?.image_url} />
+                            <img className='saveImageDiv img-4' alt=''src={savedPinsList[3]?.image_url} />
 
                         </div>
                     </Link>

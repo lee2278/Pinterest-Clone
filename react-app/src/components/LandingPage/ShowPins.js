@@ -7,13 +7,14 @@ import Card from './Card';
 import Masonry from 'react-masonry-css'
 import "./ShowPins.css"
 import { getBoardsThunk } from '../../store/boards';
+import FadeLoader from "react-spinners/FadeLoader"
+
 
 export default function ShowPins() {
     const dispatch = useDispatch();
 
     const pinsObj = useSelector(state => state.pins.allPins)
     const pinsList = Object.values(pinsObj)
-
 
     // const savesObj = useSelector(state => state.saves.allSaves)
     // const savesList = Object.values(savesObj)
@@ -22,6 +23,7 @@ export default function ShowPins() {
     useEffect(() => {
         dispatch(getPinsThunk())
         dispatch(getBoardsThunk())
+ 
     }, [dispatch])
 
     useEffect(() => {
@@ -36,7 +38,7 @@ export default function ShowPins() {
     const randomedArray = pinsList.sort((a, b) => Math.random() - Math.random())
 
 
-   
+
 
 
     // ORIGINAL
@@ -79,8 +81,11 @@ export default function ShowPins() {
       };
 
 
-    return (
+
+    return ( 
         <div className='everything-wrapper'>
+            {!pinsList.length ? <FadeLoader/>
+            :
             <Masonry
                 breakpointCols={breakpointColumnsObj}
                 className="my-masonry-grid"
@@ -107,6 +112,7 @@ export default function ShowPins() {
                     // </div>
                 ))}
             </Masonry>
+}
         </div>
     )
 
