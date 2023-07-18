@@ -41,7 +41,11 @@
 #edit-board-btn {
     padding: 0.5rem;
     width: 5rem;
-    background-color: var(--pinterest-red);
+    background-color: rgb(230, 0, 35, 70%);
     color: white;
     border-radius: 8px;
+}
+
+#edit-board-btn:hover {
+  background-color: var(--pinterest-red);
 }
