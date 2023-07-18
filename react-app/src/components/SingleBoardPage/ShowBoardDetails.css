@@ -11,11 +11,20 @@
     border-radius: 8px;
 }
 
+.edit-board-btn-wrapper > button:hover {
+  background-color: rgb(64, 62, 62);
+
+}
+
 .delete-board-btn-wrapper > button {
     background-color: var(--pinterest-red);
     color: white;
     padding: 0.5rem;
     border-radius: 8px;
+}
+
+.delete-board-btn-wrapper > button:hover {
+  background-color: red;
 }
 
 #remove-pin-btn {

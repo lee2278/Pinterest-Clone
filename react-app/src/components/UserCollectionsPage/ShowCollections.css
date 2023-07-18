@@ -157,7 +157,7 @@ a {
 }
 
 #create-board-btn-container > button:hover {
-    background-color: #ad081b;
+    background-color: red;
 }
 
 
