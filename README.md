@@ -78,21 +78,30 @@ Check out my site Common Interests [here](https://common-interests.onrender.com/
 - Users can edit their boards
 - Users can delete their boards
 
+### Comments
+- Users can create comments on pins
+- Users can view all comments made on pins
+- Users can edit their comments
+- Users can delete their comments
+
+### Saves
+- Users can save pins by itself or onto boards
+- Users can view their saves
+- Users can delete things they've saved
+
 ### AWS
 - Users can upload images for their pins
 
+### Search Bar
+- Users can search for pins and view their searches
+
 ### Future Features
-- Saved
-   - Users can save any pin and be able to view and manage pins they've saved
-- Likes
-   - Users can like/unlike pins
-- Comments
-   - Users can comment on pins, edit comments or delete comments
-- Search Bar
-   - Users can search for pins and view their searches
+
 - Profile
    - Users can create and edit their profile 
-
+- Following
+   - Users can follow other users and filter pins by their followed
+   - Perhaps have implement live chat
 
 ## Endpoints
 
