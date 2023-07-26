@@ -101,7 +101,7 @@ Check out my site Common Interests [here](https://common-interests.onrender.com/
    - Users can create and edit their profile 
 - Following
    - Users can follow other users and filter pins by their followed
-   - Perhaps have implement live chat
+   - Perhaps implement live chat between users
 
 ## Endpoints
 
