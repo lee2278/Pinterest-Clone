@@ -17,12 +17,16 @@ import ShowSavedPins from "./components/ManageMySaves/ShowSavedPins";
 import ShowSearches from "./components/LandingPage/ShowSearches";
 import AboutPage from "./components/AboutPage/AboutPage";
 import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
+import ReactGA from "react-ga4";
+
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
 
   const sessionUser = useSelector(state => state.session.user);
+
+  ReactGA.initialize("G-RH9FX8PQY5");
 
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
