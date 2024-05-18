@@ -20,8 +20,8 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "CI=false && react-scripts build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "CI=false && react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -41,8 +41,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000",
-  "engines": {
-    "node": ">=14.17.0 < 18.18.0"
-  }
+  "proxy": "http://localhost:5000"
 }
