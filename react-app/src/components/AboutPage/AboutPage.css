@@ -10,7 +10,6 @@
 .about-word-section {
     width: 22rem;
     text-align:justify;
-    /* border: 2px solid red; */
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -41,18 +40,15 @@
 
 #website-name {
     color: var(--pinterest-red);
-    /* margin: 0; */
     padding: 0;
     font-size: 30px;
     margin-top: 0;
 }
 
 .my-links-section{
-
     display: flex;
     width: 8rem;
     gap: 1.5rem;
-    /* border: 1px solid red; */
 }
 
 #github-atag > i, #linkedin-atag > i {
@@ -64,15 +60,12 @@
 }
 
 .about-wrapper {
-    /* border: 1px solid blue; */
     display: flex;
     gap: 1.5rem;
 }
 
 .me-div {
     border-right: 1px solid gray;
-
-
 }
 .me-div > img {
     border-radius: 50%;

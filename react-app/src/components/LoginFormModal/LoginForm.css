@@ -46,14 +46,12 @@
 }
 
 .login-inputs {
-    /* border: 2px solid blue; */
     width: 100%;
     padding: 0.5rem;
 
 }
 
-.login-inputs-labels {
-    /* border: 2px solid black; */
+.login-inputs-labels { 
     width: 100%;
 }
 

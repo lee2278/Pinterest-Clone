@@ -26,27 +26,6 @@ export default function ShowCreatedPins() {
         380: 1
     };
 
-    // return(
-    //     <div className='everything-wrapper'>
-    //         <h2>My created pins</h2>
-    //         <Masonry
-    //           breakpointCols={breakpointColumnsObj}
-    //           className="second-masonry-grid"
-    //           columnClassName="second-masonry-grid_column"
-    //         >
-    //             {userCreatedPins.map((pin) => (
-    //                 <div key={pin.id}>
-    //                     <Link id='pin-card-link' to={`/pins/${pin.id}/edit`}>
-    //                         <div className='card'>
-    //                             <img id='pin-image' src={pin.image_url} alt='food'/>
-    //                         </div>
-    //                     </Link>
-    //                 </div>
-    //             ))}
-    //         </Masonry>
-    //     </div>
-    // )
-
     return (
         <div className='everything-wrapper'>
             <div className='user-info-area'>

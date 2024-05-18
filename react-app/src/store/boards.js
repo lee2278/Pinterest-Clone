@@ -44,7 +44,6 @@ export const clearBoards = () => ({
 export const getBoardsThunk = () => async (dispatch) => {
     const response = await fetch("/api/boards/")
     if (response.ok) {
-        // console.log('get boards response ok')
         const data = await response.json();
         const boards = data.boards
         dispatch(getBoards(boards))
@@ -59,11 +58,9 @@ export const getBoardDetailsThunk = (boardId) => async (dispatch) => {
     const response = await fetch(`/api/boards/${boardId}`)
 
     if (response.ok) {
-        // console.log('get board details response ok')
         const boardDetails = await response.json()
         dispatch(getBoardDetails(boardDetails))
     } else {
-        // console.log('get board details response NOT OK')
         const errors = await response.json()
         return errors
     }
@@ -77,14 +74,10 @@ export const createBoardThunk = (board) => async (dispatch) => {
     })
     
     if (response.ok) {
-        // console.log('create board response ok')
-
         const newBoard = await response.json()
         dispatch(createBoard(newBoard))
     } else {
-        // console.log('create board response not ok')
         const errors = await response.json()
-        // console.log('errors', errors)
         return errors
     }
 }
@@ -98,12 +91,10 @@ export const editBoardThunk = (board) => async (dispatch) => {
     })
 
     if (response.ok) {
-        // console.log('edit a board response ok')
         const updateboard = await response.json()
         dispatch(editBoard(updateboard))
         return updateboard
     } else {
-        // console.log('edit a board response NOT OK')
         const errors = await response.json()
         return errors
     }
@@ -116,10 +107,8 @@ export const deleteBoardThunk = (boardId) => async (dispatch) => {
     })
 
     if (response.ok) {
-        // console.log('delete board response ok')
         dispatch(deleteBoard(boardId))
     } else {
-        // console.log('delete board response NOT OK')
         const errors = await response.json()
         return errors
     }
@@ -134,7 +123,6 @@ export const deletePinsFromBoardThunk = (boardId, pinId) => async (dispatch) => 
     if (response.ok) {
         dispatch(getBoardsThunk())
     } else {
-        // console.log('delete board response NOT OK')
         const errors = await response.json()
         return errors
     }

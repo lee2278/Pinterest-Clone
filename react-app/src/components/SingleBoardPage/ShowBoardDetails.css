@@ -29,7 +29,6 @@
 
 #remove-pin-btn {
   position: absolute;
-  /* background-color: transparent; */
   z-index: 1;
   color: white;
   background-color: transparent;
@@ -70,9 +69,7 @@
     background-clip: padding-box;
   }
   
-  /* Style your items */
-  .third-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
-
+  .third-masonry-grid_column > div { 
     margin-bottom: 8px;
   }
 

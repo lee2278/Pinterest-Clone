@@ -13,10 +13,6 @@ export default function ShowSearches() {
     const pinsObj = useSelector(state => state.pins.allPins)
     const pinsList = Object.values(pinsObj)
 
-    // const sessionUser = useSelector(state => state.session.user);
-
-
-
     const  searchInputObj  = useParams()
     const actualSearchText = searchInputObj.search.toLowerCase()
 
@@ -35,7 +31,6 @@ export default function ShowSearches() {
     
         } else {
             const errors = await response.json()
-            // console.log('search fetch not ok')
             return errors;
         }
     }

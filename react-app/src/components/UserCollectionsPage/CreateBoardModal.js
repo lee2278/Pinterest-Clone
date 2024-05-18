@@ -24,9 +24,6 @@ export default function CreateBoardModal() {
         user_id: sessionUser.id
     }
 
-    // const existingBoardNames = []
-    // sessionUser.boards.forEach(board => existingBoardNames.push(board.name))
-
     const existingBoardNames = []
     boardsList.forEach(board => existingBoardNames.push(board.name))
 

@@ -24,23 +24,11 @@ export default function ShowBoardDetails() {
     //getting a board owned by the user and by board id
     const userBoardArray = boardsList.filter(board => board.user_id === sessionUser?.id && board?.id === parseInt(boardId))
 
-    // console.log('userBoardArray', userBoardArray)
     const userBoard = userBoardArray[0]
 
     const handleDelete = (pinId) => {
         dispatch(deletePinsFromBoardThunk(+boardId, pinId))
     }
-
-    // console.log('userBoard', userBoard)
-
-    //filtering for pins of this board
-    // const pinsObj = useSelector(state => state.pins.allPins)
-    // const pinsList = Object.values(pinsObj)
-
-    // const boardPinsArray = pinsList.filter(pin => pin?.board_id === userBoard?.id)
-
-
-
 
     useEffect(() => {
         dispatch(getBoardsThunk())

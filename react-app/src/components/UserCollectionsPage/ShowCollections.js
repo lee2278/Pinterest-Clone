@@ -44,7 +44,6 @@ export default function ShowCollections() {
         dispatch(getSavesThunk())
     }, [dispatch])
 
-    // console.log('boardsList', boardsList)
 
     return (
         <div className='everything-wrapper'>

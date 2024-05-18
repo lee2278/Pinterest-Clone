@@ -31,13 +31,11 @@ ul {
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  /* border: 1px solid red; */
 }
 
 .links-container {
   display: flex;
   gap: 1rem;
-  /* border: 2px solid red; */
   margin-right: 1rem;
   align-items: center;
 }
@@ -56,6 +54,7 @@ ul {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-right: 40px;
 }
 
 .profile-group {
@@ -93,14 +92,9 @@ ul {
 }
 
 #user-link {
-    /* background-color:rgb(229, 227, 230); */
-
     font-size: 14px;
     padding: 0.7rem;
-
 }
-
-
 
 .user-link-wrapper {
   display: flex;
@@ -166,17 +160,9 @@ ul {
   background-color: #e2e2e2;
 }
 
-/* .about-btn-container > button {
-  padding: 0.5rem;
-  font-size: 16px;
-  border: none;
-  background-color:transparent;
-} */
-
 .about-btn-container > a:hover {
   border-bottom: 2px solid black;
   font-weight: 500;
-  /* font-size: 17px; */
 }
 
 
@@ -198,7 +184,6 @@ ul {
 #search-icon {
   cursor: pointer;
 }
-
 
 #search-input {
   width: 30rem;
@@ -273,7 +258,6 @@ ul {
 
 @media screen and (max-width:420px) {
   .links-and-profile-btn-container{
-    /* flex-direction:column; */
     height: 8rem;
     display:grid;
     grid-template-rows: 1fr 1fr;
@@ -294,7 +278,6 @@ ul {
   }
 
   #nav-link-li {
-    /* border: 1px solid red; */
     grid-column: 1 / span 2;
     justify-content: center;
   }
@@ -313,7 +296,6 @@ ul {
   #search-form {
     grid-row-start: 2;
     grid-column: 1 / span 2;
-    /* grid-column-end: span 2; */
     grid-row-end: 3;
     width: 200%;
   }

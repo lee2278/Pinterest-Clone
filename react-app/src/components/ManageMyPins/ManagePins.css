@@ -14,7 +14,6 @@
 
 #edit-pin-form {
   padding: 3rem;
-  /* border: 2px solid green; */
 }
 
 #delete-pin-modal {
@@ -35,14 +34,12 @@
 }
 
 .board-select-label {
-  /* border: 5px solid red; */
   display: flex;
   flex-direction: column;
   width: 10rem;
 }
 
 .edit-pin-errors-container {
-  /* border: 2px solid red; */
   text-align: center;
   width: 15rem;
   margin: auto;
@@ -70,7 +67,6 @@
     padding: 0.5rem;
     width: 5rem;
     border-radius: 8px;
-    /* border: none; */
 }
 
 #cancel-btn {
@@ -91,7 +87,6 @@
 }
 
 .edit-delete-btn-container {
-  /* border:2px solid red; */
   display: flex;
   justify-content: flex-end;
   gap: 5px;
@@ -104,7 +99,6 @@
   background-color: gray;
   color: white;
   border-radius: 8px;
-  /* border:none; */
   
 }
 
@@ -118,14 +112,11 @@
   background-color: var(--pinterest-red);
   color: white;
   border-radius: 8px;
-  /* border:none; */
 }
 
 .delete-btn-wrapper > button:hover {
   background-color: red;
 }
-
-
 
 .edit-pin-inputs {
   width: 20rem;
@@ -144,10 +135,7 @@
     padding-left: 10px; /* gutter size */
     background-clip: padding-box;
   }
-  
-  /* Style your items */
-  .second-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
-
+  .second-masonry-grid_column > div {
     margin-bottom: 10px;
   }
 
@@ -156,15 +144,9 @@
 .right-text-section2 {
   height: 100%;
   width: 50%;
-  /* padding: 1.5rem;
-  overflow-y: scroll;
-  white-space: pre-wrap;
-  overflow-wrap: break-word; */
-
 }
 
 .container-for-created {
-  /* border: 2px solid black; */
   margin-top: 5rem;
   padding: 0 1rem;
 }

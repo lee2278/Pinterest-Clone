@@ -10,7 +10,6 @@ export default function EditCommentModal({ comment }) {
     const dispatch = useDispatch()
     const { closeModal } = useModal()
     const [updatedCommentText, setUpdatedCommentText] = useState(comment.comment)
-    // const [errors, setErrors] = useState({})
 
 
     const updatedComment = {
@@ -30,8 +29,6 @@ export default function EditCommentModal({ comment }) {
         <div>
             <h1 id='edit-comment-h1'>Edit Comment</h1>
             <div className='edit-comment-errors-container'>
-                {/* {errors.comment && <p className='edit-comment-errors'>{errors.comment}</p>} */}
-   
             </div>
             <form id='edit-comment-form' method="PUT">
 
