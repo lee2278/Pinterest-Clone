@@ -14,33 +14,11 @@ export default function Card({ pin }) {
 
     const [dropdownClassName, setdropdownClassName] = useState('noshow')
 
-
-    // const savesObj = useSelector(state => state.saves.allSaves)
-    // const savesList = Object.values(savesObj)
-
     const [board, setBoard] = useState(null)
     const boardsObj = useSelector(state => state.boards.allBoards)
     const boardsList = Object.values(boardsObj)
 
-
-
-    // const filteredSavesList = savesList.filter(save => save.user_id === sessionUser.id)
-  
-  
-
     const arrayOfPinIds = []
-
-    // for (let filtered of filteredSavesList) {
-    //     arrayOfPinIds.push(filtered.pin_id)
-    // }
-
-    // if (board) {
-    //     setSaved('Save')
-    //     setCssClassName('saving-btn')
-    // }
-
-    // if (arrayOfPinIds.includes(pin.id)) buttonDisplay = 'Saved'
-    // if (!arrayOfPinIds.includes(pin.id) || board) buttonDisplay = 'Save'
 
     const savePin = async (pinId) => {
 

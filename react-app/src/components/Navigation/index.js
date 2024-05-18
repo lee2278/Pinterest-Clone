@@ -51,10 +51,6 @@ function Navigation({ isLoaded }) {
 					<div className='login-signup-container'>
 
 						<div className='about-btn-container'>
-							{/* <OpenModalButton
-								buttonText="About"
-								modalComponent={<AboutModal />}
-							/> */}
 							<NavLink exact to = "/about">About</NavLink>
 						</div>
 						<div className='login-btn-container'>

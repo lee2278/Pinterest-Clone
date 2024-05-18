@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import { useModal } from "../../context/Modal"
 import { editPinThunk } from "../../store/pins";
 import { getBoardsThunk } from "../../store/boards"
-// import OpenModalButton from "../OpenModalButton";
-// import CreateBoardModal from "../UserCollectionsPage/CreateBoardModal";
 import './ManagePins.css'
 
 
@@ -14,26 +12,12 @@ export default function EditModal({ pin }) {
     const { closeModal } = useModal()
     const [title, setTitle] = useState(pin.title)
     const [description, setDescription] = useState(pin.description)
-    // const [boardId, setBoardId] = useState(null)
     const [errors, setErrors] = useState({})
-
-
-
-    // const boardsObj = useSelector(state => state.boards.allBoards)
-    // const boardsList = Object.values(boardsObj)
-
-    // console.log('boardsList', boardsList)
-
-    //this gives me back an array of boards that have this pin
-    // const filteredBoardsList = boardsList.filter(board => board.pins.find(boardpin => boardpin.id === pin.id))
-
-    // console.log('filteredArray', filteredBoardsList)
 
     const updatedPin = {
         ...pin,
         title,
         description,
-        // boards: boardId     //sending back the selected boardId
     }
 
 
@@ -41,8 +25,6 @@ export default function EditModal({ pin }) {
         dispatch(getBoardsThunk())
     }, [dispatch])
 
-
-    // console.log('this is boardId', boardId)
 
     const handleEdit = async (e) => {
         e.preventDefault()
@@ -88,26 +70,6 @@ export default function EditModal({ pin }) {
                     >
                     </textarea>
                 </label>
-
-                {/* {boardsList.length ?
-                    <label htmlFor="board-select" className='board-select-label'>Board
-                        <select id="board-select" className='choose-board-selection' onChange={(e) => setBoardId(e.target.value)}>
-                            <option value="" disabled selected hidden>Choose Board</option>
-                            {boardsList.map((board) => (
-                                <option value={board.id} onClick={() => setBoardId(board.id)}>{board.name}
-                                </option>))}
-
-                        </select>
-                    </label>
-
-                    : (<OpenModalButton
-                        buttonText="Create a board"
-                        modalComponent={<CreateBoardModal />}
-                    />)
-
-
-                } */}
-
                 <button id='save-edit-btn' onClick={handleEdit}>Save</button>
             </form>
         </div>

@@ -29,17 +29,6 @@ export default function PinMaker() {
     useEffect(() => {
         dispatch(getBoardsThunk())
     }, [dispatch])
-
-
-    // const newPin = {
-    //     title,
-    //     description,
-    //     image_url: imageUrl,
-    //     owner_id: owner.id,
-    //     board_id: boardId
-    // }
-
-
     
     const handlePreview = (e) => {
         setImageUrl(e.target.files[0])
@@ -72,15 +61,7 @@ export default function PinMaker() {
         formData.append("owner_id", owner.id)
         formData.append('boards', board)
 
-
-        
-        // await dispatch(createPinThunk(newPin))
         await dispatch(createPinThunk(formData))
-        // console.log('formdatatitle', formData.get("title"))
-        // console.log('formdatadescription', formData.get("description"))
-        // console.log('formdataimageurl', formData.get("Image File"))
-        // console.log('formdataownerid', formData.get("owner_id"))
-        // console.log('formdataboardid', formData.get("board_id"))
 
         history.push(`/${owner?.username}/created`)
     }
@@ -96,13 +77,8 @@ export default function PinMaker() {
 
                     <div className='left-side'>
                         <input className='url-input'
-                            // type='text'
-                            // value={imageUrl}
-                            // placeholder='Image url'
-                            // onChange={(e) => setImageUrl(e.target.value.trim())}
                             type='file'
                             accept="image/*"
-                            // onChange={(e) => setImageUrl(e.target.files[0])}
                             onChange={handlePreview}
                         >
                         </input>
@@ -141,12 +117,6 @@ export default function PinMaker() {
                                 <button id="save-btn" onClick={handleSubmit}>Save</button>
                                 </>)
                             }
-
-
-
-                            {/* <button id="save-btn" onClick={handleSubmit}>Save</button> */}
-                            
-                            {/* {(imageLoading)&& <p>Loading...</p>} */}
                         </div>
                         
                         <div className='pin-errors-container'>

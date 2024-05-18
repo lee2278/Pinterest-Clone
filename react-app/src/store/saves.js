@@ -31,7 +31,6 @@ export const clearSaves = () => ({
 export const getSavesThunk = () => async (dispatch) => {
     const response = await fetch("/api/saves/")
     if (response.ok) {
-        // console.log('get saves response ok')
         const data = await response.json();
         const saves = data.saves
         dispatch(getSaves(saves))
@@ -50,15 +49,11 @@ export const createSaveThunk = (save) => async (dispatch) => {
     })
     
     if (response.ok) {
-        // console.log('create save response ok')
-
         const newSave = await response.json()
         dispatch(createSave(newSave))
         dispatch(getSavesThunk())
     } else {
-        // console.log('create save response not ok')
         const errors = await response.json()
-        // console.log('errors', errors)
         return errors
     }
 }
@@ -71,10 +66,8 @@ export const deleteSaveThunk = (saveId) => async (dispatch) => {
     })
 
     if (response.ok) {
-        // console.log('delete save response ok')
         dispatch(deleteSave(saveId))
     } else {
-        // console.log('delete save response NOT OK')
         const errors = await response.json()
         return errors
     }
@@ -97,11 +90,6 @@ export default function savesReducer(state = initialState, action) {
 
             return newState;
         }
-        // case CREATE_SAVE: {
-        //     const newState = {...state, allSaves: {...state.allSaves}}
-        //     newState.allSaves[action.save.id] = action.save
-        //     return newState
-        // }
         case DELETE_SAVE: {
             const newState = { ...state, allSaves: { ...state.allSaves }}
             delete newState.allSaves[action.saveId]

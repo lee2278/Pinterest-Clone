@@ -3,8 +3,6 @@
 }
 
 .board-card {
-    /* border: 2px solid blue; */
-    /* width: 215px; */
     height: 220px;
     display: flex;
     flex-direction: column;
@@ -12,7 +10,6 @@
 }
 
 .text-section {
-    /* border: 1px solid red; */
     height: 30px;
     margin: 0;
     padding: 0;
@@ -22,7 +19,6 @@
 
 .container-for-boards {
     margin-top: 5rem;
-    /* border: 2px solid black; */
     display: flex;
     gap: 1rem;
     padding: 0 1rem;
@@ -33,7 +29,6 @@
 
 
 .board-card-link {
-    /* border:5px solid green; */
     height: 165px;
 }
 
@@ -113,7 +108,6 @@ width:100%;
 
 .under-user-info-area {
     display: flex;
-    /* border: 1px solid red; */
     margin: 1rem;
     align-items: center;
     gap:1rem;
@@ -167,17 +161,13 @@ a {
     flex-direction: column;
     justify-content: space-between;
     width:234px;
-    /* border:2px solid green; */
 }
 .saved-card-link {
     border: 1px solid gray;
-
     border-radius: 16px;
-
     height: 187px;
     position: relative;
     overflow:hidden;
-
 }
 
 .saveImageDiv {

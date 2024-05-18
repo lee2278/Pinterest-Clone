@@ -23,21 +23,13 @@
 }
 
 .pin-left-side {
-  /* border: 2px solid red; */
   width: 50%;
   height: 100%;
 }
 
 .right-text-section {
-  /* border: 2px solid blue; */
   height: 100%;
   width:50%;
-  /* width: 50%;
-  height: 100%;
-  padding: 1.5rem;
-  overflow-y: scroll;
-  white-space: pre-wrap;
-  overflow-wrap: break-word; */
 }
 
 .right-side-above-comments {
@@ -47,7 +39,6 @@
   overflow-y: scroll;
   white-space: pre-wrap;
   overflow-wrap: break-word;
-  /* border: 1px solid red; */
 }
 
 .left-img-container {
@@ -97,7 +88,6 @@
 
 
 .comment-container {
-  /* border: 2px solid blue; */
   display: flex;
   gap: 1rem;
 }
@@ -155,18 +145,14 @@
 
 
 .bottom-comment-area {
-  /* border: 2px solid black; */
   padding: 0 1.5rem;
 }
 
 
 .edit-delete-btns-wrapper {
-  /* border: 2px solid blue; */
   display:flex;
   gap:0.3rem;
   align-items: center;
-  /* margin-left: 1.5rem; */
-
 }
 
 .edit-delete-btns-wrapper > * {

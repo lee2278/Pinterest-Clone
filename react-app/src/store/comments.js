@@ -2,7 +2,6 @@
 
 
 const GET_COMMENTS= "comments/GET_COMMENTS"
-// const GET_COMMENT_DETAILS = "comments/GET_COMMENT_DETAILS"
 const CREATE_COMMENT = "comments/CREATE_COMMENT"
 const EDIT_COMMENT = "comments/EDIT_COMMENT"
 const DELETE_COMMENT = "comments/DELETE_COMMENT"
@@ -14,11 +13,6 @@ const getComments = (comments) => ({
     type: GET_COMMENTS,
     comments
 })
-
-// const getCommentDetails = (singleComment) => ({
-//     type: GET_COMMENT_DETAILS,
-//     singleComment
-// })
 
 const createComment = (comment) => ({
     type: CREATE_COMMENT,
@@ -44,7 +38,6 @@ export const clearComments = () => ({
 export const getCommentsThunk = () => async (dispatch) => {
     const response = await fetch("/api/comments/")
     if (response.ok) {
-        // console.log('get comments response ok')
         const data = await response.json();
         const comments = data.comments
         dispatch(getComments(comments))
@@ -64,14 +57,10 @@ export const createCommentThunk = (comment) => async (dispatch) => {
     })
     
     if (response.ok) {
-        // console.log('create comment response ok')
-
         const newComment = await response.json()
         dispatch(createComment(newComment))
     } else {
-        // console.log('create comment response not ok')
         const errors = await response.json()
-        // console.log('errors', errors)
         return errors
     }
 }
@@ -85,12 +74,10 @@ export const editCommentThunk = (comment) => async (dispatch) => {
     })
 
     if (response.ok) {
-        // console.log('edit a comment response ok')
         const updateComment = await response.json()
         dispatch(editComment(updateComment))
         return updateComment
     } else {
-        // console.log('edit a comment response NOT OK')
         const errors = await response.json()
         return errors
     }
@@ -104,10 +91,8 @@ export const deleteCommentThunk = (commentId) => async (dispatch) => {
     })
 
     if (response.ok) {
-        // console.log('delete comment response ok')
         dispatch(deleteComment(commentId))
     } else {
-        // console.log('delete comment response NOT OK')
         const errors = await response.json()
         return errors
     }
